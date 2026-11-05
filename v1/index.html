@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es-CL">
 <head>
+<meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <script>(function(){try{var t=null,m=/[?&]tema=(noche|dia)/.exec(location.search);if(m){t=m[1];try{localStorage.setItem('planeador_tema',t)}catch(e){}}else{try{t=localStorage.getItem('planeador_tema')}catch(e){}}if(t==='noche'||t==='dia'){document.documentElement.setAttribute('data-tema',t)}}catch(e){}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Planeador</title>
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Agencia chilena de marketing digital: páginas web, publicidad en redes sociales y buscadores, y gestión de contenido para negocios, ejecutivos y empresas de todo rubro.">
 <link rel="canonical" href="https://elplaneador.cl/">
 <meta property="og:title" content="El Planeador · Agencia de marketing digital">
@@ -16,7 +16,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%230F2547'/%3E%3Cpath d='M176 28L30 92l54 16z' fill='%23F4F6F8'/%3E%3Cpath d='M176 28L84 108l14 60z' fill='%239DB8E8'/%3E%3Cpath d='M84 108l14 60 20-36z' fill='%23D2A55A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&display=swap">
 <style>
     :root {
         color-scheme: light;
@@ -734,36 +734,6 @@
     .morph-fig .linea { fill: none; stroke: var(--oro); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
     .morph-fig figcaption { margin-top: 6px; font-size: 12.5px; color: var(--suave); }
 
-
-    /* ================= version 2: fotografia real ================= */
-    :root { --serif: "Fraunces", Georgia, "Times New Roman", serif; }
-    h1, .titulo-sec, .v-linea, .hoja-cuerpo h2, .h-etapa h3, .ejec h2 { font-family: var(--serif); letter-spacing: -.02em; }
-    .hero h1 { font-weight: 700; }
-    .hero, html[data-tema="noche"] .hero { background: linear-gradient(90deg, rgba(8, 12, 30, .9) 0%, rgba(8, 12, 30, .64) 50%, rgba(8, 12, 30, .38) 100%), url("img/cocina-2.jpg") center 45% / cover no-repeat; }
-    .hero::before, .hero::after, .hero .ruta { display: none; }
-    .flota-btn::after { display: none; }
-    .v-foto { transform-origin: 50% 55%; object-position: 50% 50%; }
-    .viaje-escena::after { background: linear-gradient(90deg, rgba(8, 12, 30, .82), rgba(8, 12, 30, .12) 72%); }
-    .viaje { background: #080C1E; }
-    .prosa { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 6vw, 96px); align-items: start; }
-    .prosa .titulo-sec { max-width: 11em; }
-    .prosa-cols { display: grid; gap: 22px; padding-top: 10px; }
-    .prosa .lead { font: 500 1.4rem/1.5 var(--serif); color: var(--tinta); }
-    .prosa p { color: var(--suave); }
-    .prosa .lead { color: var(--tinta); }
-    @media (max-width: 860px) { .prosa { grid-template-columns: 1fr; } }
-    .rubros-grid { margin-top: 40px; display: grid; grid-template-columns: 1.25fr 1fr 1fr; grid-auto-rows: 250px; gap: 14px; }
-    .rub { position: relative; overflow: hidden; border: 0; padding: 0; border-radius: 20px; text-align: left; cursor: pointer; color: #fff; font: inherit; isolation: isolate; }
-    .rub.g1 { grid-row: span 2; }
-    .rub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease); z-index: -2; }
-    .rub-foto::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(8, 12, 30, .84) 0%, rgba(8, 12, 30, 0) 64%); }
-    .rub:hover img { transform: scale(1.06); }
-    .rub-t { position: absolute; left: 20px; right: 20px; bottom: 18px; display: grid; gap: 6px; }
-    .rub-t strong { font: 700 1.5rem/1.1 var(--serif); letter-spacing: -.02em; }
-    .rub-t em { font-style: normal; font-size: .98rem; opacity: .94; max-width: 24em; }
-    .rub-txt.g4 { background: #1F3FBF; }
-    .rub-txt.g5 { background: #0B1B5C; }
-    @media (max-width: 860px) { .rubros-grid { grid-template-columns: 1fr; grid-auto-rows: 210px; } .rub.g1 { grid-row: span 1; } }
 </style>
 </head>
 <body>
@@ -801,10 +771,20 @@
 
 <main>
     <section class="hero">
+        <canvas class="constelacion" aria-hidden="true"></canvas>
+        <svg class="ruta" viewBox="0 0 1440 700" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
+            <path d="M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20"/>
+        </svg>
+        <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador-claro"/></svg>
         <div class="caja">
             <div>
                 <h1>Planeamos tu <span class="acento">estrategia</span> <span class="subraya">de marketing digital.</span></h1>
                 <p class="bajada">Y la ejecutamos: tu página web, publicidad en redes sociales y buscadores, y los contactos de quienes te necesitan. Somos El Planeador, by BTo Innova soluciones.</p>
+                <ul class="controles" aria-label="Qué busca el marketing digital">
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te encuentren</strong><span>Publicidad en redes sociales y en buscadores, dirigida a quien busca lo que ofreces.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que te contacten</strong><span>Una página web clara, con formulario y botón de WhatsApp, para que te escriban.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Que sepas qué funciona</strong><span>Revisamos de dónde llegan tus contactos y ajustamos las campañas.</span></li>
+                </ul>
                 <form class="cuentanos" id="cuentanos" autocomplete="off">
                     <label class="solo-lector" for="cuentanos-txt">Cuéntanos de tu negocio</label>
                     <input id="cuentanos-txt" type="text" maxlength="240" placeholder="Ej.: tengo un restaurante y quiero que me pidan por WhatsApp">
@@ -813,6 +793,7 @@
                 <div class="acciones"><a class="enlace" href="#servicios">Ver qué hacemos</a></div>
             </div>
             <div class="vivo" id="vivo">
+                <div class="hero-objeto" aria-hidden="true"><span class="halo"></span><svg viewBox="0 0 200 200"><use href="#planeador-claro"/></svg></div>
                 <div class="vivo-rubros" role="group" aria-label="Elige tu rubro para ver cómo se vería tu página">
                     <button type="button" class="vchip" data-r="restaurante" aria-pressed="true">Restaurante</button>
                     <button type="button" class="vchip" data-r="ejecutivo" aria-pressed="false">Ejecutivo de ventas</button>
@@ -828,14 +809,43 @@
         </div>
     </section>
 
+    <div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span><span>Páginas web</span><span>Publicidad</span><span>Redes sociales</span><span>Posicionamiento</span><span>Contactos</span></div></div>
+
     <section class="viaje" id="viaje" aria-labelledby="v-tit">
-        <h2 class="solo-lector" id="v-tit">Planeamos, armamos, te encuentran.</h2>
+        <h2 class="solo-lector" id="v-tit">Planeamos, despegamos, te encuentran.</h2>
         <div class="viaje-pista" id="viaje-pista">
             <div class="viaje-escena" id="viaje-escena">
-                <img class="v-foto" src="img/taller-1.jpg" alt="Manos de un carpintero trabajando una pieza de madera" width="1080" height="721" loading="lazy" decoding="async">
+                <img class="v-foto" src="../img/portada-planeador.jpg" alt="" width="1376" height="768" loading="lazy" decoding="async">
+                <span class="v-credito">Ilustración generada con IA</span>
+                <svg class="v-capa v-cielo" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="g-cielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B1FA8"/><stop offset=".35" stop-color="#5B2EE0"/><stop offset=".65" stop-color="#FF5C7A"/><stop offset=".88" stop-color="#FFB000"/><stop offset="1" stop-color="#FFD66B"/></linearGradient>
+                        <radialGradient id="g-sol"><stop offset="0" stop-color="#FFF6D6"/><stop offset=".5" stop-color="#FFE08A" stop-opacity=".55"/><stop offset="1" stop-color="#FFB000" stop-opacity="0"/></radialGradient>
+                    </defs>
+                    <rect width="1440" height="800" fill="url(#g-cielo)"/>
+                    <circle cx="683" cy="97" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="168" cy="294" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1213" cy="49" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="196" cy="242" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="512" cy="66" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1178" cy="83" r="1.2" fill="#EEF2F7" opacity="0.35"/><circle cx="1201" cy="319" r="2.0" fill="#EEF2F7" opacity="0.35"/><circle cx="472" cy="43" r="1.2" fill="#EEF2F7" opacity="0.70"/><circle cx="878" cy="93" r="1.0" fill="#EEF2F7" opacity="0.70"/><circle cx="1167" cy="112" r="1.0" fill="#EEF2F7" opacity="0.50"/><circle cx="782" cy="69" r="1.0" fill="#EEF2F7" opacity="0.35"/><circle cx="1287" cy="125" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="663" cy="258" r="2.0" fill="#EEF2F7" opacity="0.70"/><circle cx="633" cy="147" r="1.2" fill="#EEF2F7" opacity="0.50"/><circle cx="187" cy="314" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="723" cy="249" r="1.6" fill="#EEF2F7" opacity="0.35"/><circle cx="261" cy="282" r="2.0" fill="#EEF2F7" opacity="0.50"/><circle cx="720" cy="97" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="100" cy="59" r="1.6" fill="#EEF2F7" opacity="0.70"/><circle cx="737" cy="324" r="2.0" fill="#EEF2F7" opacity="0.90"/><circle cx="160" cy="67" r="1.6" fill="#EEF2F7" opacity="0.90"/><circle cx="1380" cy="53" r="1.0" fill="#EEF2F7" opacity="0.70"/>
+                    <circle cx="1020" cy="470" r="300" fill="url(#g-sol)"/>
+                    <circle cx="1020" cy="470" r="86" fill="#FFF3C4"/>
+                </svg>
+                <svg class="v-capa v-lejos" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <g fill="#FFFFFF" opacity=".22"><ellipse cx="260" cy="300" rx="170" ry="26"/><ellipse cx="340" cy="282" rx="110" ry="22"/><ellipse cx="900" cy="360" rx="200" ry="28"/><ellipse cx="1000" cy="340" rx="120" ry="22"/></g>
+                    <path d="M0 560 C200 480 380 540 560 500 S 900 440 1100 500 S 1360 520 1440 480 L1440 800 L0 800Z" fill="#7A35D8"/>
+                </svg>
+                <svg class="v-capa v-medio" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path d="M0 640 C220 580 420 650 640 600 S 1000 560 1220 620 S 1400 640 1440 610 L1440 800 L0 800Z" fill="#4A2BB8"/>
+                    <circle cx="180" cy="650" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="214" cy="646" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="250" cy="655" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="520" cy="632" r="2.2" fill="#E2B04A" opacity="0.70"/><circle cx="556" cy="628" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="590" cy="636" r="2.2" fill="#E2B04A" opacity="0.50"/><circle cx="940" cy="598" r="2.2" fill="#E2B04A" opacity="0.80"/><circle cx="972" cy="594" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1010" cy="600" r="2.2" fill="#E2B04A" opacity="0.90"/><circle cx="1230" cy="636" r="2.2" fill="#E2B04A" opacity="0.60"/><circle cx="1262" cy="632" r="2.2" fill="#E2B04A" opacity="0.90"/>
+                </svg>
+                <svg class="v-ruta" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path id="v-trazo" d="M -60 560 C 240 420, 480 600, 760 400 S 1200 240, 1500 140" fill="none" stroke="#E2B04A" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="2 14" opacity=".55"/>
+                    <g id="v-avion"><use href="#planeador-claro" x="-48" y="-48" width="96" height="96"/></g>
+                </svg>
+                <svg class="v-capa v-cerca" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+                    <path d="M0 720 C260 680 520 740 760 700 S 1180 670 1440 710 L1440 800 L0 800Z" fill="#241466"/>
+                    <circle cx="110" cy="716" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="150" cy="720" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="700" cy="704" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="742" cy="708" r="2.6" fill="#F6E7C3" opacity="0.90"/><circle cx="1100" cy="690" r="2.6" fill="#F6E7C3" opacity="0.80"/><circle cx="1138" cy="694" r="2.6" fill="#F6E7C3" opacity="0.60"/><circle cx="1350" cy="706" r="2.6" fill="#F6E7C3" opacity="0.90"/>
+                </svg>
                 <div class="caja v-texto" aria-hidden="true">
                     <p class="v-linea">Planeamos.</p>
-                    <p class="v-linea">Armamos.</p>
+                    <p class="v-linea">Despegamos.</p>
                     <p class="v-linea"><span class="v-sub">Te encuentran.</span></p>
                 </div>
             </div>
@@ -843,13 +853,39 @@
     </section>
 
     <section class="seccion quienes" id="quienes">
-        <div class="caja prosa">
-            <h2 class="titulo-sec">Marketing digital, con tu negocio a la vista.</h2>
-            <div class="prosa-cols">
-                <p class="lead">El marketing digital es que quien te necesita te encuentre: en Google, en las redes y en tu propia página.</p>
-                <p>Nosotros la construimos, la publicitamos y la administramos, siempre sobre tus propias cuentas. El contenido y las decisiones son tuyas; la página, el dominio y los contactos, también.</p>
-                <p>El Planeador es la agencia de marketing digital de BTo Innova soluciones, un grupo chileno que también desarrolla software.</p>
+        <div class="caja">
+            <h2 class="titulo-sec">Marketing digital: que quien te necesita te encuentre.</h2>
+            <div class="quienes-cols">
+                <div>
+                    <h3>Qué es</h3>
+                    <p>Es dar a conocer lo que ofreces por internet: en buscadores como Google, en redes sociales y en tu propia página web. Cada vez más personas buscan ahí antes de decidir a quién contratar o dónde comprar.</p>
+                </div>
+                <div>
+                    <h3>Qué hacemos</h3>
+                    <p>Creamos y administramos tu página, diseñamos las campañas de publicidad y gestionamos tus redes. Trabajamos sobre tus propias cuentas y páginas, que siguen siendo tuyas.</p>
+                </div>
+                <div>
+                    <h3>Quiénes somos</h3>
+                    <p>El Planeador es la agencia de marketing digital de BTo Innova soluciones, un grupo chileno que también desarrolla software. Nos encargamos de la promoción; el contenido y las decisiones de cada negocio son de su dueño.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="dolores">
+        <div class="caja">
+            <h2 class="titulo-sec">¿Te suena alguna de estas?</h2>
+            <div class="lista-ed dolores">
+                <div><strong>Restaurante</strong><span>Tienes una carta que da hambre, pero la gente no sabe cómo pedirte.</span></div>
+                <div><strong>Restaurante</strong><span>Te encuentran en Google, pero tu competencia aparece antes que tú.</span></div>
+                <div><strong>Ejecutivo de ventas</strong><span>Dependes de que te recuerden, porque no tienes una página propia donde mandar a quien te pregunta.</span></div>
+                <div><strong>Ejecutivo de ventas</strong><span>Pagas publicidad y no sabes de dónde viene cada contacto.</span></div>
+                <div><strong>Profesional</strong><span>Te escriben fuera de horario porque nadie ve tu agenda ni cómo pedir una hora.</span></div>
+                <div><strong>Profesional</strong><span>Tus redes se ven abandonadas y eso le resta confianza a lo que haces.</span></div>
+                <div><strong>Comercio</strong><span>Subes productos a las redes y cada venta termina en una conversación interminable.</span></div>
+                <div><strong>Comercio</strong><span>No sabes qué campaña te trae clientes y cuál solo gasta presupuesto.</span></div>
+            </div>
+            <a class="boton boton-primario" id="dolores-cta" href="#contacto" data-hoja="contacto">Si alguna te suena, conversemos</a>
         </div>
     </section>
 
@@ -882,12 +918,11 @@
     <section class="seccion" id="rubros">
         <div class="caja">
             <h2 class="titulo-sec">Para quien necesita que lo encuentren.</h2>
-            <div class="rubros-grid">
-                <button type="button" class="rub rub-foto g1" data-hoja="r-restaurantes" aria-haspopup="dialog"><img src="img/cocina-1.jpg" alt="" loading="lazy" width="1080" height="1620"><span class="rub-t"><strong>Restaurantes y cafés</strong><em>Que te encuentren cuando buscan dónde comer cerca.</em></span></button>
-                <button type="button" class="rub rub-foto g2" data-hoja="r-profesionales" aria-haspopup="dialog"><img src="img/profesional-1.jpg" alt="" loading="lazy" width="1080" height="608"><span class="rub-t"><strong>Profesionales y consultas</strong><em>Una presencia clara, con horarios y forma de pedir una hora.</em></span></button>
-                <button type="button" class="rub rub-foto g3" data-hoja="r-oficios" aria-haspopup="dialog"><img src="img/taller-1.jpg" alt="" loading="lazy" width="1080" height="721"><span class="rub-t"><strong>Oficios y talleres</strong><em>Tu trabajo a la vista de quien lo necesita hoy.</em></span></button>
-                <button type="button" class="rub rub-txt g4" data-hoja="r-ejecutivos" aria-haspopup="dialog"><span class="rub-t"><strong>Ejecutivos de venta</strong><em>Tu propia página, a tu nombre, para que te escriban directo.</em></span></button>
-                <button type="button" class="rub rub-txt g5" data-hoja="r-comercios" aria-haspopup="dialog"><span class="rub-t"><strong>Comercios y empresas</strong><em>Página, redes y campañas para tus productos y servicios.</em></span></button>
+            <div class="lista-ed">
+                <button type="button" class="item" data-hoja="r-restaurantes" aria-haspopup="dialog"><strong>Restaurantes y cafés</strong><span>Que te encuentren cuando buscan dónde comer cerca, con tu carta, ubicación y reservas a la vista.</span></button>
+                <button type="button" class="item" data-hoja="r-ejecutivos" aria-haspopup="dialog"><strong>Ejecutivos de venta</strong><span>Tu propia página para que quien te necesita te escriba directo, y publicidad para que te encuentre.</span></button>
+                <button type="button" class="item" data-hoja="r-profesionales" aria-haspopup="dialog"><strong>Profesionales y consultas</strong><span>Una presencia clara de lo que haces, con horarios y forma de contacto.</span></button>
+                <button type="button" class="item" data-hoja="r-comercios" aria-haspopup="dialog"><strong>Comercios y empresas</strong><span>Página, redes y campañas para tus productos y servicios.</span></button>
             </div>
         </div>
     </section>
@@ -1147,7 +1182,6 @@
         'r-restaurantes': { t: 'Restaurantes y cafés', p: 'Que te encuentren cuando buscan dónde comer cerca.', l: ['Carta, ubicación y horarios a la vista', 'Pedido o reserva por WhatsApp', 'Publicidad para tu zona'] },
         'r-ejecutivos': { t: 'Ejecutivos de venta', p: 'Tu propia página, a tu nombre, para que quien te necesita te escriba directo.', l: ['Presentación y lo que ofreces, con claridad', 'Formulario cuyos contactos llegan a ti', 'Si representas a una empresa, validamos que trabajas para ella antes de publicar'] },
         'r-profesionales': { t: 'Profesionales y consultas', p: 'Una presencia clara de lo que haces.', l: ['Presentación, servicios y horarios', 'Forma simple de pedir una hora', 'Posicionamiento para que te encuentren'] },
-        'r-oficios': { t: 'Oficios y talleres', p: 'Tu trabajo a la vista de quien lo necesita hoy.', l: ['Fotos de lo que haces, bien presentadas', 'Cómo contactarte y dónde encontrarte', 'Publicidad para tu zona'] },
         'r-comercios': { t: 'Comercios y empresas', p: 'Página, redes y campañas para tus productos y servicios.', l: ['Catálogo o presentación de tu oferta', 'Contacto y compra por mensaje', 'Campañas según lo que quieras promover'] }
     };
     var velo = document.getElementById('velo');
