@@ -764,6 +764,8 @@
     .rub-txt.g4 { background: #1F3FBF; }
     .rub-txt.g5 { background: #0B1B5C; }
     @media (max-width: 860px) { .rubros-grid { grid-template-columns: 1fr; grid-auto-rows: 210px; } .rub.g1 { grid-row: span 1; } }
+    /* barra en celular: que quepan los cuatro controles sin scroll horizontal */
+    @media (max-width: 480px) { .barra .caja { padding-inline: 10px; gap: 6px; } .menu { gap: 6px; } .tema-btn { padding: 0 10px; } .tema-btn .tema-txt { display: none; } .menu-btn { padding: 0 10px; } .menu .boton { padding: 0 12px; } .barra .marca { font-size: 15px; } }
 </style>
 </head>
 <body>
