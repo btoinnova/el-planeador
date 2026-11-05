@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="El Planeador: un planeador de papel plegado que deja una ruta punteada">
+  <path d="M176 28 L30 92 L84 108 Z" fill="#12284A"/>
+  <path d="M176 28 L84 108 L98 168 Z" fill="#3D5A80"/>
+  <path d="M84 108 L98 168 L118 132 Z" fill="#B8893B"/>
+  <path d="M14 176 C34 186 60 176 72 150" fill="none" stroke="#B8893B" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
+</svg>

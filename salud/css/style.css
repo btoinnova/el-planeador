@@ -1,0 +1,291 @@
+/* =========================================================================
+   WEB MAESTRA — estilos
+   Móvil primero: la mayoría del tráfico gratis (Facebook, TikTok, WhatsApp)
+   llega desde el teléfono.
+   ========================================================================= */
+
+:root {
+    --tinta: #13202A;
+    --tinta-suave: #556A78;
+    --papel: #F4F7F8;
+    --superficie: #FFFFFF;
+    --linea: #DCE5E9;
+    --acento: #0F766E;
+    --acento-vivo: #0D9488;
+    --acento-claro: #E6F3F1;
+    --verde-wsp: #25D366;
+    --alerta: #A8560B;
+    --alerta-fondo: #FBF0E2;
+    --radio: 10px;
+    --sombra: 0 1px 2px rgba(19, 32, 42, .05), 0 10px 30px rgba(19, 32, 42, .07);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.contenedor { max-width: 620px; margin: 0 auto; padding: 0 18px; }
+
+/* ---------- Encabezado ---------- */
+.barra {
+    background: var(--superficie);
+    border-bottom: 1px solid var(--linea);
+    padding: 14px 0;
+}
+.barra .contenedor { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.marca { display: inline-flex; align-items: center; min-height: 44px; font-weight: 800; font-size: 19px; letter-spacing: -.02em; color: var(--tinta); text-decoration: none; }
+.marca span { color: var(--acento); }
+.barra .nota { font-size: 13px; color: var(--tinta-suave); }
+
+/* ---------- Portada ---------- */
+.portada { padding: 24px 0 6px; }
+h1 {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -.025em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+}
+.subtitulo {
+    font-size: 17px;
+    color: var(--tinta-suave);
+    margin: 0 0 18px;
+}
+.subtitulo strong { color: var(--tinta); font-weight: 600; }
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: var(--radio);
+    padding: 22px;
+    box-shadow: var(--sombra);
+    margin-bottom: 20px;
+}
+.tarjeta h2 { font-size: 20px; margin: 0 0 4px; letter-spacing: -.01em; }
+.tarjeta .ayuda-bloque { color: var(--tinta-suave); font-size: 15px; margin: 0 0 18px; }
+
+/* ---------- Formulario ---------- */
+.campo { margin-bottom: 16px; }
+label { display: block; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.ayuda { display: block; font-size: 13px; color: var(--tinta-suave); font-weight: 400; margin-top: 3px; }
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    font-size: 17px;   /* 16px+ evita que iOS haga zoom al enfocar */
+    font-family: inherit;
+    color: var(--tinta);
+    background: var(--superficie);
+}
+input:focus, select:focus {
+    outline: 2px solid var(--acento-vivo);
+    outline-offset: 1px;
+    border-color: var(--acento-vivo);
+}
+
+.dos-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 460px) { .dos-columnas { grid-template-columns: 1fr; gap: 0; } }
+
+.boton {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    background: var(--acento);
+    color: #fff;
+    transition: background .15s ease;
+}
+.boton:hover:not(:disabled) { background: #0B5F58; }
+.boton:disabled { opacity: .45; cursor: not-allowed; }
+.boton:focus-visible { outline: 3px solid var(--acento-vivo); outline-offset: 2px; }
+
+/* Señuelo anti-spam: fuera de la vista, pero un bot lo rellena igual. */
+.senuelo {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+/* ---------- Consentimientos ---------- */
+.consentimiento {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--tinta-suave);
+}
+.consentimiento input { margin-top: 1px; flex-shrink: 0; width: 24px; height: 24px; accent-color: var(--acento); }
+.consentimiento label { font-weight: 400; font-size: 15px; margin: 0; }
+
+/* ---------- Resultado ---------- */
+#resultado[hidden] { display: none; }
+.resultado-cabecera {
+    background: var(--acento);
+    color: #fff;
+    margin: -22px -22px 20px;
+    padding: 22px;
+    border-radius: var(--radio) var(--radio) 0 0;
+}
+.resultado-cabecera .etiqueta {
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .85;
+    display: block;
+    margin-bottom: 4px;
+}
+.resultado-cabecera .monto {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+}
+.resultado-cabecera .en-uf { font-size: 15px; opacity: .9; }
+
+.desglose { list-style: none; padding: 0; margin: 0 0 18px; }
+.desglose li {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--linea);
+    font-size: 15px;
+}
+.desglose li:last-child { border-bottom: none; }
+.desglose .etq { color: var(--tinta-suave); }
+.desglose .val { font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+
+.veredicto {
+    border-radius: 8px;
+    padding: 15px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+.veredicto.holgado { background: var(--acento-claro); color: #0B5750; }
+.veredicto.justo   { background: var(--acento-claro); color: #0B5750; }
+.veredicto.corto   { background: var(--alerta-fondo); color: var(--alerta); }
+.veredicto strong { display: block; margin-bottom: 3px; }
+
+.referencial {
+    font-size: 13px;
+    color: var(--tinta-suave);
+    border-left: 2px solid var(--linea);
+    padding-left: 12px;
+    margin: 0;
+}
+
+/* ---------- Gracias ---------- */
+#gracias[hidden] { display: none; }
+.gracias-caja { text-align: center; padding: 34px 22px; }
+.gracias-caja .tic {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    background: var(--acento-claro);
+    color: var(--acento);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin: 0 auto 14px;
+}
+.gracias-caja h2 { margin-bottom: 8px; }
+.gracias-caja p { color: var(--tinta-suave); margin: 0 auto; max-width: 38ch; }
+
+/* ---------- Confianza ---------- */
+.confianza {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 26px;
+}
+.confianza div {
+    background: var(--superficie);
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--tinta-suave);
+    line-height: 1.45;
+}
+.confianza strong { display: block; color: var(--tinta); font-size: 15px; margin-bottom: 2px; }
+
+/* ---------- Pie ---------- */
+footer {
+    border-top: 1px solid var(--linea);
+    margin-top: 34px;
+    padding: 24px 0 44px;
+    font-size: 13px;
+    color: var(--tinta-suave);
+}
+footer p { margin: 0 0 10px; max-width: 62ch; }
+footer a { color: var(--acento); }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Paso 1: opciones (antes sin estilo: salian como botones grises del navegador) ---------- */
+html { scroll-padding-top: 12px; }
+.paso-numero {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--tinta-suave);
+    margin-bottom: 4px;
+}
+.barra-prog { height: 4px; background: var(--linea); border-radius: 2px; margin-bottom: 14px; }
+.barra-prog i { display: block; height: 100%; background: var(--acento); border-radius: 2px; }
+.opciones { display: grid; gap: 10px; }
+.opcion {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font: inherit;
+    padding: 16px;
+    min-height: 64px;
+    background: var(--superficie);
+    color: var(--tinta);
+    border: 1.5px solid var(--linea);
+    border-radius: var(--radio);
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+}
+.opcion strong { display: block; font-size: 17px; }
+.opcion span { display: block; font-size: 15px; color: var(--tinta-suave); margin-top: 2px; }
+.opcion:hover, .opcion:active { border-color: var(--acento); background: var(--acento-claro); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--acento-vivo); outline-offset: 2px; }
+
+.desglose li[hidden] { display: none; }
+.micro-copia { font-size: 14px; color: var(--tinta-suave); text-align: center; margin: 12px 0 0; }
+.aviso-casillas { font-size: 14px; color: var(--tinta-suave); margin: 0 0 10px; }
+.aviso-datos { font-size: 14px; background: var(--acento-claro); color: #0B5750; border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; }
+.boton-enlace { display: block; text-align: center; text-decoration: none; margin-top: 16px; }
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #B42318; background: #FEF3F2; }
+.error { color: #B42318; font-size: 14px; margin: 4px 0 0; }
+.tarjeta li a { display: inline-block; padding: 8px 0; }
+.resultado-cabecera .etiqueta { font-size: 13px; opacity: .95; }
+footer { font-size: 14px; }

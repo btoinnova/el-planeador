@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Tu 7% de salud está rindiendo lo que debería? — Revísalo gratis</title>
+<meta name="description" content="Ese 7% te lo descuentan igual todos los meses. Revisa gratis y en 30 segundos a qué plan de isapre podrías acceder con lo que ya pagas, y cuánto estás poniendo de tu bolsillo de más.">
+<link rel="stylesheet" href="css/style.css?v=20261102b">
+</head>
+<body>
+
+<!-- NOMBRE DE MARCA: cámbialo cuando definas el definitivo. Aparece acá,
+     en el <title> de arriba y en el pie de página. -->
+<header class="barra">
+    <div class="contenedor">
+        <a class="marca" href="./">El Planeador<span> · Salud</span></a>
+        <span class="nota">Gratis · sin registro</span>
+    </div>
+</header>
+
+<main class="contenedor">
+
+    <section class="portada">
+        <h1>Ese 7% te lo descuentan igual. ¿Está rindiendo lo que debería?</h1>
+        <p class="subtitulo">Todos los meses se va el <strong>7% de tu sueldo</strong> en salud, tengas el plan que tengas. Revisa en 30 segundos a qué podrías acceder con esa misma plata — <strong>sin dar tu nombre ni tu teléfono</strong>: el resultado es inmediato.</p>
+    </section>
+
+    <!-- ============ PASO 1 ============ -->
+    <section class="tarjeta" id="paso-1">
+        <div class="barra-prog" aria-hidden="true"><i style="width:33%"></i></div>
+        <span class="paso-numero">Paso 1 de 3</span>
+        <h2>¿Dónde estás hoy?</h2>
+        <p class="ayuda-bloque">Una respuesta y seguimos.</p>
+
+        <div class="opciones">
+            <button type="button" class="opcion" data-prevision="Isapre">
+                <strong>Tengo isapre</strong>
+                <span>Quiero saber si me conviene lo que pago</span>
+            </button>
+            <button type="button" class="opcion" data-prevision="Fonasa">
+                <strong>Estoy en Fonasa</strong>
+                <span>Quiero ver si me alcanza para una isapre</span>
+            </button>
+            <button type="button" class="opcion" data-prevision="No sé">
+                <strong>No estoy seguro</strong>
+                <span>No sé bien dónde estoy hoy</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============ PASO 2 ============ -->
+    <section class="tarjeta" id="paso-2" hidden>
+        <div class="barra-prog" aria-hidden="true"><i style="width:66%"></i></div>
+        <span class="paso-numero">Paso 2 de 3</span>
+        <h2 id="titulo-paso-2">Tu sueldo</h2>
+        <p class="ayuda-bloque" id="ayuda-paso-2">Con esto calculamos cuánto es tu 7%.</p>
+
+        <form id="form-paso-2" novalidate>
+            <div class="campo">
+                <label for="renta">Tu sueldo líquido mensual
+                    <span class="ayuda">Lo que te llega a la cuenta. Lo usamos solo para calcular tu 7%; si después pides que te escriba un asesor, él también lo verá.</span>
+                </label>
+                <input type="number" id="renta" name="renta" inputmode="numeric" min="0" step="10000" placeholder="Ej: 750000" required>
+            </div>
+
+            <div class="campo" id="campo-tipo-sueldo">
+                <label for="tipo-sueldo">Ese monto es tu…</label>
+                <select id="tipo-sueldo" name="tipo-sueldo">
+                    <option value="liquido">Sueldo líquido (lo que recibo)</option>
+                    <option value="imponible">Sueldo imponible (lo sé exacto)</option>
+                </select>
+            </div>
+
+            <div class="campo" id="campo-pago-actual" hidden>
+                <label for="pago-actual">¿Cuánto pagas hoy por tu plan?
+                    <span class="ayuda">El total mensual, incluyendo lo que te descuentan.</span>
+                </label>
+                <input type="number" id="pago-actual" name="pago-actual" inputmode="numeric" min="0" step="5000" placeholder="Ej: 120000">
+            </div>
+
+            <button type="submit" class="boton">Continuar</button>
+        </form>
+    </section>
+
+    <!-- ============ PASO 3 ============ -->
+    <section class="tarjeta" id="paso-3" hidden>
+        <div class="barra-prog" aria-hidden="true"><i style="width:100%"></i></div>
+        <span class="paso-numero">Paso 3 de 3</span>
+        <h2>¿Quiénes se atenderían?</h2>
+        <p class="ayuda-bloque">El precio de un plan cambia según la edad y cuántas personas cubre.</p>
+
+        <form id="form-paso-3" novalidate>
+            <div class="dos-columnas">
+                <div class="campo">
+                    <label for="edad">Tu edad</label>
+                    <input type="number" id="edad" name="edad" inputmode="numeric" min="18" max="99" placeholder="Ej: 34">
+                </div>
+                <div class="campo">
+                    <label for="cargas">Cargas familiares</label>
+                    <select id="cargas" name="cargas">
+                        <option value="0">Solo yo</option>
+                        <option value="1">Yo + 1</option>
+                        <option value="2">Yo + 2</option>
+                        <option value="3">Yo + 3</option>
+                        <option value="4">Yo + 4 o más</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="boton">Ver mi resultado</button>
+        </form>
+    </section>
+
+    <!-- ============ RESULTADO ============ -->
+    <section class="tarjeta" id="resultado" hidden>
+        <div class="resultado-cabecera">
+            <span class="etiqueta" id="res-etiqueta">Tu 7% mensual de salud</span>
+            <div class="monto" id="res-monto">—</div>
+            <div class="en-uf" id="res-uf">—</div>
+        </div>
+
+        <div class="veredicto" id="res-veredicto"></div>
+
+        <ul class="desglose">
+            <li><span class="etq">Tu 7% obligatorio</span><span class="val" id="res-cotizacion">—</span></li>
+            <li id="fila-bolsillo" hidden><span class="etq">Sale de tu bolsillo, además</span><span class="val" id="res-bolsillo">—</span></li>
+            <li><span class="etq">Personas a cubrir</span><span class="val" id="res-personas">—</span></li>
+        </ul>
+
+        <p class="referencial" id="res-nota"></p>
+        <a class="boton boton-enlace" href="#tarjeta-contacto">Quiero mis opciones</a>
+    </section>
+
+    <!-- ============ CAPTURA ============ -->
+    <section class="tarjeta" id="tarjeta-contacto" hidden>
+        <h2 id="titulo-oferta">Te mandamos opciones de planes para tu caso</h2>
+        <p class="ayuda-bloque">Con nombre de isapre, valor estimado y qué cubre cada una — para tu edad, tus cargas y tu presupuesto. Gratis, y no tienes que contratar nada.</p>
+        <p class="aviso-datos">Recién ahora te pedimos tus datos, solo para enviarte tus opciones.</p>
+
+        <form id="form-contacto" novalidate>
+            <!-- Señuelo anti-spam: invisible para personas. NO borrar. -->
+            <input type="text" name="sitio-web" id="senuelo" class="senuelo" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="campo">
+                <label for="nombre">¿Cómo te llamas?</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="campo">
+                <label for="telefono">¿A qué WhatsApp te las mandamos?</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="9 1234 5678" required>
+            </div>
+
+            <div class="consentimiento">
+                <input type="checkbox" id="consentimiento" name="consentimiento" required>
+                <label for="consentimiento">He leído y acepto la Política de Privacidad y autorizo que El Planeador guarde mis datos y los derive a un ejecutivo acreditado, para que me contacte por esta consulta.</label>
+            </div>
+
+            <div class="consentimiento">
+                <input type="checkbox" id="consentimiento-comercial" name="consentimiento-comercial">
+                <label for="consentimiento-comercial"><strong>Opcional:</strong> quiero recibir información de otros planes y de otras aplicaciones del grupo BTo Innova. Puedo darme de baja cuando quiera.</label>
+            </div>
+
+            <p class="aviso-casillas" id="aviso-casillas">Marca la casilla obligatoria para poder enviar.</p>
+            <button type="submit" class="boton" id="boton-enviar" disabled>Quiero mis opciones por WhatsApp</button>
+            <p class="micro-copia">Un asesor te escribe por WhatsApp en horario hábil. Si no te sirve ninguna opción, lo dices y listo.</p>
+        </form>
+    </section>
+
+    <!-- ============ GRACIAS ============ -->
+    <section class="tarjeta gracias-caja" id="gracias" hidden>
+        <div class="tic" aria-hidden="true">✓</div>
+        <h2>Listo, ya vamos a buscarlos</h2>
+        <p>Un asesor te va a escribir por WhatsApp con las alternativas concretas para tu caso.</p>
+    </section>
+
+    <div class="confianza">
+        <div><strong>No te cuesta nada</strong>Ni la revisión ni la asesoría. Nunca te cobramos a ti.</div>
+        <div><strong>Sin compromiso</strong>Ves las alternativas y decides. Si no te sirven, no pasa nada.</div>
+        <div><strong>Tus datos son tuyos</strong>Los usamos solo para contactarte por esto.</div>
+    </div>
+
+    <section class="tarjeta">
+        <h2>Guías sin vendedor</h2>
+        <p class="ayuda-bloque">Lo que el sistema no te explica, contado completo y gratis.</p>
+        <ul style="margin:0;padding-left:20px;line-height:1.9;">
+            <li><a href="articulos/licencia-medica-rechazada.html">Me rechazaron la licencia médica: qué hacer y cuántos días tengo</a></li>
+            <li><a href="articulos/cuando-puedo-cambiarme-de-isapre.html">¿Cuándo me puedo cambiar de isapre? Los 12 meses explicados</a></li>
+            <li><a href="articulos/index.html">Ver todas las guías →</a></li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="contenedor">
+    <p><strong>Sobre el cálculo:</strong> el 7% de cotización y el tope imponible son los que fija la ley, y ese número es exacto. Los valores de plan son referenciales y sirven para orientar: el precio real depende de la isapre, del plan y de la tabla de factores de cada persona.</p>
+    <p>Este sitio no es una isapre ni está afiliado a una. Te conectamos con asesores de salud que te explican alternativas y te dicen a qué isapre representan. Los datos que entregas se tratan conforme a la Ley 19.628 y la Ley 21.719.</p>
+    <p>El Planeador · Chile · by BTo Innova soluciones</p>
+</footer>
+
+<script src="assets/calculadora.js"></script>
+<script src="assets/captura-maestra.js"></script>
+<script>
+(function () {
+    'use strict';
+
+    var paso1 = document.getElementById('paso-1');
+    var paso2 = document.getElementById('paso-2');
+    var paso3 = document.getElementById('paso-3');
+    var seccionRes = document.getElementById('resultado');
+    var seccionCont = document.getElementById('tarjeta-contacto');
+    var seccionGracias = document.getElementById('gracias');
+    var boton = document.getElementById('boton-enviar');
+    var check1 = document.getElementById('consentimiento');
+    var check2 = document.getElementById('consentimiento-comercial');
+
+    var respuestas = { prevision: '', renta: 0, tipoSueldo: 'liquido', pagoActual: 0, edad: '', cargas: 0 };
+    var ultimoCalculo = null;
+    var analisisPago = null;
+    var consentidoEn = null;
+    var consentidoComercialEn = null;
+
+    Calculadora.actualizarUF();
+
+    function irA(seccion) {
+        seccion.hidden = false;
+        seccion.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var titulo = seccion.querySelector('h2');
+        if (titulo) { titulo.setAttribute('tabindex', '-1'); titulo.focus({ preventScroll: true }); }
+    }
+
+    /* Errores en línea (reemplazan al alert nativo, que en el navegador de
+       Facebook/TikTok se ve como una ventana ajena a la página). */
+    function mostrarError(campo, mensaje) {
+        limpiarError(campo);
+        campo.setAttribute('aria-invalid', 'true');
+        var p = document.createElement('p');
+        p.className = 'error';
+        p.setAttribute('role', 'alert');
+        p.textContent = mensaje;
+        campo.parentNode.appendChild(p);
+        campo.focus();
+        campo.addEventListener('input', function quitar() {
+            limpiarError(campo);
+            campo.removeEventListener('input', quitar);
+        });
+    }
+    function limpiarError(campo) {
+        campo.removeAttribute('aria-invalid');
+        var viejo = campo.parentNode.querySelector('.error');
+        if (viejo) viejo.remove();
+    }
+
+    /* ---------- Paso 1: dónde está hoy ---------- */
+    Array.prototype.forEach.call(document.querySelectorAll('.opcion'), function (btn) {
+        btn.addEventListener('click', function () {
+            respuestas.prevision = btn.getAttribute('data-prevision');
+
+            // A quien ya tiene isapre le preguntamos cuánto paga: ese dato
+            // permite mostrarle lo que sale de SU bolsillo, que es el
+            // número que de verdad le importa.
+            var tieneIsapre = respuestas.prevision === 'Isapre';
+            document.getElementById('campo-pago-actual').hidden = !tieneIsapre;
+            document.getElementById('titulo-paso-2').textContent = tieneIsapre
+                ? 'Tu sueldo y lo que pagas'
+                : 'Tu sueldo';
+            document.getElementById('ayuda-paso-2').textContent = tieneIsapre
+                ? 'Con esto vemos cuánto de tu plan lo cubre la ley y cuánto lo pones tú.'
+                : 'Con esto calculamos a qué plan podrías acceder sin poner nada extra.';
+
+            paso1.hidden = true;
+            irA(paso2);
+        });
+    });
+
+    /* ---------- Paso 2: sueldo ---------- */
+    document.getElementById('form-paso-2').addEventListener('submit', function (evento) {
+        evento.preventDefault();
+
+        var renta = Number(document.getElementById('renta').value);
+        if (!renta || renta < 1) {
+            mostrarError(document.getElementById('renta'), 'Escribe tu sueldo para calcular tu 7%.');
+            return;
+        }
+
+        respuestas.renta = renta;
+        respuestas.tipoSueldo = document.getElementById('tipo-sueldo').value;
+        respuestas.pagoActual = Number(document.getElementById('pago-actual').value) || 0;
+
+        paso2.hidden = true;
+        irA(paso3);
+    });
+
+    /* ---------- Paso 3: grupo familiar y resultado ---------- */
+    document.getElementById('form-paso-3').addEventListener('submit', function (evento) {
+        evento.preventDefault();
+
+        var campoEdad = document.getElementById('edad');
+        var edadNum = Number(campoEdad.value);
+        if (campoEdad.value && (edadNum < 18 || edadNum > 99)) {
+            mostrarError(campoEdad, 'Escribe una edad entre 18 y 99 años.');
+            return;
+        }
+        respuestas.edad = campoEdad.value;
+        respuestas.cargas = Number(document.getElementById('cargas').value) || 0;
+
+        var r = Calculadora.calcular(respuestas.renta, respuestas.cargas, respuestas.tipoSueldo);
+        ultimoCalculo = r;
+        analisisPago = Calculadora.analizarPagoActual(respuestas.pagoActual, r);
+
+        mostrarResultado(r, analisisPago);
+
+        paso3.hidden = true;
+        seccionCont.hidden = false;
+        irA(seccionRes);
+    });
+
+    function mostrarResultado(r, pago) {
+        var veredicto = document.getElementById('res-veredicto');
+        var etiqueta = document.getElementById('res-etiqueta');
+        var monto = document.getElementById('res-monto');
+        var enUf = document.getElementById('res-uf');
+
+        document.getElementById('res-cotizacion').textContent = Calculadora.formatearPesos(r.cotizacionPesos);
+        document.getElementById('res-personas').textContent = r.personas === 1 ? 'Solo tú' : r.personas + ' personas';
+
+        if (pago) {
+            // YA TIENE ISAPRE: el titular es lo que sale de su bolsillo al
+            // año, no su 7%. Es su plata, y verla junta impacta.
+            etiqueta.textContent = 'Sale de tu bolsillo al año, además del 7%';
+            monto.textContent = Calculadora.formatearPesos(pago.deSuBolsilloAlAno);
+            enUf.textContent = Calculadora.formatearPesos(pago.deSuBolsillo) + ' cada mes, por sobre lo que ya te descuentan';
+
+            document.getElementById('fila-bolsillo').hidden = false;
+            document.getElementById('res-bolsillo').textContent = Calculadora.formatearPesos(pago.deSuBolsillo) + ' al mes';
+
+            if (pago.hayMargen) {
+                veredicto.className = 'veredicto holgado';
+                veredicto.innerHTML = '<strong>Hay margen para mejorar tu plan.</strong>'
+                    + 'Estás pagando por sobre lo que cuesta un plan típico para tu grupo. '
+                    + 'Con la misma plata deberías poder acceder a mejor cobertura — o al mismo plan, pagando menos.';
+            } else {
+                veredicto.className = 'veredicto justo';
+                veredicto.innerHTML = '<strong>Estás en un rango habitual, y aun así conviene comparar.</strong>'
+                    + 'Las isapres cobran distinto por coberturas parecidas, '
+                    + 'y las diferencias entre una y otra suelen ser de decenas de miles de pesos al año.';
+            }
+        } else {
+            // NO TIENE ISAPRE: el titular es a cuánto accede con lo que ya
+            // le descuentan. Nunca se le dice "no te alcanza".
+            etiqueta.textContent = 'Con tu 7% ya estás aportando';
+            monto.textContent = Calculadora.formatearPesos(r.cotizacionPesos) + '/mes';
+            enUf.textContent = 'Son ' + Calculadora.formatearPesos(r.cotizacionPesos * 12) + ' al año que ya pagas por salud';
+
+            if (r.holgura === 'holgado') {
+                veredicto.className = 'veredicto holgado';
+                veredicto.innerHTML = '<strong>Te alcanza sin poner un peso más.</strong>'
+                    + 'Con lo que ya te descuentan accedes a planes de isapre sin costo adicional. '
+                    + 'Tu 7% te abre la puerta a planes de isapre.';
+            } else if (r.holgura === 'justo') {
+                veredicto.className = 'veredicto justo';
+                veredicto.innerHTML = '<strong>Te alcanza para planes completos.</strong>'
+                    + 'Tu 7% cubre planes de isapre sin costo adicional. Para coberturas más amplias '
+                    + 'habría una diferencia mensual, y hay alternativas en varios rangos.';
+            } else {
+                veredicto.className = 'veredicto justo';
+                veredicto.innerHTML = '<strong>Hay planes dentro de tu presupuesto.</strong>'
+                    + 'Para tu grupo familiar conviene mirar los planes más ajustados, y comparar bien '
+                    + 'contra lo que Fonasa te da hoy. A veces conviene uno, a veces el otro — eso se revisa caso a caso.';
+            }
+        }
+
+        var nota = 'Calculado con la UF de hoy ($' + Math.round(r.uf).toLocaleString('es-CL') + ').';
+        if (r.eraLiquido) {
+            nota += ' Estimamos tu imponible en ' + Calculadora.formatearPesos(r.renta) + ' a partir de tu líquido.';
+        }
+        if (r.superaTope) {
+            nota += ' Tu sueldo supera el tope imponible de salud (' + Calculadora.PARAMETROS.TOPE_IMPONIBLE_UF + ' UF), así que el 7% se calcula sobre el tope.';
+        }
+        nota += ' Los valores de plan son referenciales: el precio real depende de la isapre y de tu tabla de factores.';
+        document.getElementById('res-nota').textContent = nota;
+
+        // La oferta se adapta a lo que la persona acaba de ver.
+        document.getElementById('titulo-oferta').textContent = pago && pago.hayMargen
+            ? 'Te mandamos opciones que cuestan lo mismo o menos'
+            : 'Te mandamos opciones de planes para tu caso';
+    }
+
+    /* ---------- Consentimientos ---------- */
+    function actualizarBoton() {
+        boton.disabled = !check1.checked;
+        document.getElementById('aviso-casillas').hidden = !boton.disabled;
+    }
+    check1.addEventListener('change', function () {
+        consentidoEn = check1.checked ? new Date().toISOString() : null;
+        actualizarBoton();
+    });
+    check2.addEventListener('change', function () {
+        consentidoComercialEn = check2.checked ? new Date().toISOString() : null;
+        actualizarBoton();
+    });
+
+    /* ---------- Enviar el lead ---------- */
+    document.getElementById('form-contacto').addEventListener('submit', function (evento) {
+        evento.preventDefault();
+
+        var nombre = document.getElementById('nombre').value.trim();
+        var telefonoCrudo = document.getElementById('telefono').value;
+
+        if (!nombre) {
+            mostrarError(document.getElementById('nombre'), 'Escribe tu nombre para que el asesor sepa cómo llamarte.');
+            return;
+        }
+        if (!CapturaMaestra.normalizarTelefono(telefonoCrudo)) {
+            mostrarError(document.getElementById('telefono'), 'Revisa tu WhatsApp: celular chileno de 9 dígitos. Ej: 9 1234 5678');
+            return;
+        }
+
+        boton.disabled = true;
+        boton.textContent = 'Enviando...';
+
+        CapturaMaestra.enviarLead({
+            nombre: nombre,
+            telefono: telefonoCrudo,
+            previsionActual: respuestas.prevision,
+            cargas: respuestas.cargas,
+            edad: respuestas.edad,
+            senuelo: document.getElementById('senuelo').value,
+            consentidoEn: consentidoEn,
+            comercial: check2.checked,
+            consentidoComercialEn: consentidoComercialEn
+        }).then(function (resultado) {
+            // Se agradece aunque falle el guardado: la persona ya hizo su
+            // parte y no gana nada con ver un error. El fallo queda en la
+            // consola para poder diagnosticarlo.
+            if (!resultado.ok) {
+                console.warn('[web-maestra] El lead no se pudo guardar:', resultado);
+            }
+            seccionRes.hidden = true;
+            seccionCont.hidden = true;
+            seccionGracias.hidden = false;
+            seccionGracias.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
