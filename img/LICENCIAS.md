@@ -12,3 +12,10 @@ Fuente: Unsplash (https://unsplash.com). Licencia Unsplash (https://unsplash.com
 Descartadas tras verlas: Cjb5C2DKXUs, j1FmqlEf3kg, pz8R81EhlfI, M6q0ixtLCUQ, OjlYsOIq-TQ, QOMsXyqb-1o, Xgtixob4iCM, kQ6VTjYbx78 (Unsplash+, de pago); uRnRa8XXtrI (pareja posando a cámara), zHRAXug__6w (tienda de otro rubro y marca visible), zLeiNsVydmM (retrato a cámara con avisos de terceros), 1b2ZYc_UQY4 (mascarilla y cuaderno).
 
 Pendiente de la licencia: no usar rostros reconocibles para sugerir respaldo de una persona; no mostrar marcas.
+
+## Agregadas el 5-nov-2026 (v4), licencia Unsplash (uso gratuito, sin atribución obligatoria)
+- cafe-1.jpg: Vitaly Gariev, https://unsplash.com/es/fotos/una-mujer-sonriente-esta-de-pie-en-su-cafeteria-QGg-vsPYbu8
+- comercio-1.jpg: Vitaly Gariev, https://unsplash.com/es/fotos/una-mujer-revisa-el-inventario-en-una-tienda-de-ropa-Pvaaeer8kws
+- ejecutivo-1.jpg: Vitaly Gariev, https://unsplash.com/photos/M4l1DXJQz5M
+- taller-2.jpg: Saad Ahmad, https://unsplash.com/es/fotos/un-carpintero-usa-una-sierra-para-cortar-madera-tvoxfUSV_fg
+Verificado: plus=false, premium=false en la API de Unsplash.
