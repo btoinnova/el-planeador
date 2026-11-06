@@ -19,3 +19,11 @@ Pendiente de la licencia: no usar rostros reconocibles para sugerir respaldo de 
 - ejecutivo-1.jpg: Vitaly Gariev, https://unsplash.com/photos/M4l1DXJQz5M
 - taller-2.jpg: Saad Ahmad, https://unsplash.com/es/fotos/un-carpintero-usa-una-sierra-para-cortar-madera-tvoxfUSV_fg
 Verificado: plus=false, premium=false en la API de Unsplash.
+- asesora-1.jpg: Christina @ wocintechchat.com, https://unsplash.com/photos/0Zx1bDv5BNY (plus=false, premium=false)
+- cafe-2.jpg: Fahmi Fakhrudin, https://unsplash.com/photos/nzyzAUsbV0M
+- profesional-2.jpg: Harold Hisona, https://unsplash.com/photos/Bg81yWKZlMg
+- ejecutivo-2.jpg: Vitaly Gariev, https://unsplash.com/photos/9NbhgqOUjnc
+- oficio-2.jpg: Collab Media, https://unsplash.com/photos/upKXvfgKABY
+- comercio-3.jpg: Jack Barton, https://unsplash.com/photos/K-v4b-jaeBs
+- inmersiva-1.jpg: Taylor Heery, https://unsplash.com/photos/ZSgWcW70cTs
+Todas verificadas plus=false, premium=false en la API de Unsplash (5-nov-2026).

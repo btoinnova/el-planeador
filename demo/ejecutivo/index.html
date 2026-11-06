@@ -1,218 +1,276 @@
 <!DOCTYPE html>
 <html lang="es-CL">
 <head>
-<script>document.documentElement.className += " js";</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Demo de página de ejecutivo de planes de salud</title>
-<meta name="description" content="Demostración de una página de ejecutivo hecha por El Planeador. Todos los datos, nombres y planes son ficticios.">
 <meta name="robots" content="noindex, nofollow">
+<title>Asesora de planes de salud · Página de ejemplo</title>
+<meta name="description" content="Página de ejemplo hecha por El Planeador para una asesora de planes de salud. Nombres, planes y datos son ficticios.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
 <style>
-    :root { --tinta: #12182B; --suave: #4A5570; --linea: #D9DFEE; --fondo: #F6F8FC; --blanco: #fff; --acento: #1F3FBF; --acento-hondo: #162E8C; --acento-claro: #E8EDFB; --oro: #C98F1E; --barra: 42px; --ease: cubic-bezier(.16, .84, .3, 1); --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; --texto: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
-    body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.6 var(--texto); -webkit-font-smoothing: antialiased; }
-    h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.06; letter-spacing: -.03em; text-wrap: balance; }
-    p { margin: 0; text-wrap: pretty; }
+    :root {
+        --fondo: #FAF8F4; --blanco: #FFFFFF; --tinta: #10213A; --suave: #4D5B70; --linea: #E3DED4;
+        --marino: #12305A; --verde: #1E6B5C; --verde-suave: #E3F0EC; --arena: #F1ECE2;
+        --serif: "DM Serif Display", Georgia, serif; --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        --m: clamp(20px, 5vw, 72px); --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
     a { color: inherit; }
-    :focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; border-radius: 6px; }
-    .caja { width: min(1120px, 100% - 32px); margin-inline: auto; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; text-wrap: balance; }
+    :focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+    .caja { width: min(1200px, 100% - var(--m) * 2); margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--marino); color: #fff; font: 500 16px/1 var(--sans); text-decoration: none; border: 0; cursor: pointer; transition: background .2s, transform .2s; }
+    .btn:hover { background: #0B2244; transform: translateY(-1px); }
+    .btn.claro { background: transparent; color: var(--marino); box-shadow: inset 0 0 0 1px var(--marino); }
+    .btn.claro:hover { background: var(--marino); color: #fff; }
 
-    .demo-barra { position: sticky; top: 0; z-index: 40; min-height: var(--barra); display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 6px 16px; background: #12182B; color: #fff; font-size: 14px; text-align: center; }
-    .demo-barra strong { background: var(--oro); color: #12182B; font: 800 12px/1 var(--display); letter-spacing: .08em; padding: 5px 9px; border-radius: 6px; }
-    .demo-barra a { color: #fff; font-weight: 700; text-underline-offset: 4px; }
+    /* aviso de demo */
+    .demo { background: var(--tinta); color: #DDE4EE; font-size: 13.5px; }
+    .demo .caja { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: center; padding: 9px 0; text-align: center; }
+    .demo b { color: #fff; letter-spacing: .08em; font-size: 11.5px; border: 1px solid #5A6A82; border-radius: 4px; padding: 2px 7px; }
+    .demo a { color: #fff; font-weight: 500; }
 
-    .cab { position: sticky; top: var(--barra); z-index: 30; background: rgba(255, 255, 255, .96); border-bottom: 1px solid var(--linea); }
-    .cab .caja { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
-    .marca { display: inline-flex; align-items: center; gap: 10px; font: 800 19px/1 var(--display); letter-spacing: -.02em; text-decoration: none; }
-    .marca i { width: 30px; height: 30px; border-radius: 9px; background: var(--acento); display: block; }
-    .cab nav { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 600; }
-    .cab nav a { text-decoration: none; }
-    .cab nav a:hover { color: var(--acento); }
-    .boton { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border-radius: 12px; border: 0; background: var(--acento); color: #fff; font: 700 16px/1 var(--display); text-decoration: none; cursor: pointer; transition: transform .25s var(--ease), background-color .2s; }
-    .boton:hover { background: var(--acento-hondo); transform: translateY(-2px); }
-    .boton.claro { background: #fff; color: var(--acento); border: 2px solid var(--acento); }
-    .cab .boton { min-height: 42px; padding: 0 18px; font-size: 14px; }
-    @media (max-width: 760px) { .cab nav a:not(.boton) { display: none; } }
+    /* cabecera */
+    .cab { position: sticky; top: 0; z-index: 10; background: rgba(250, 248, 244, .96); border-bottom: 1px solid var(--linea); }
+    .cab .caja { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+    .marca { text-decoration: none; display: grid; line-height: 1.15; }
+    .marca b { font: 400 21px/1.1 var(--serif); }
+    .marca span { font-size: 12.5px; color: var(--suave); }
+    .cab nav { display: flex; align-items: center; gap: 26px; font-size: 15px; font-weight: 500; }
+    .cab nav a:not(.btn) { text-decoration: none; }
+    .cab nav a:not(.btn):hover { color: var(--verde); }
+    .cab .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
+    @media (max-width: 820px) { .cab nav a:not(.btn) { display: none; } }
 
-    section { padding: 84px 0; }
-    .inicio { padding-top: 56px; }
-    .inicio-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
-    .inicio h1 { font-size: clamp(2.4rem, 5.2vw, 4.1rem); font-weight: 800; }
-    .inicio .sub { margin-top: 20px; max-width: 32em; color: var(--suave); font-size: 1.15rem; }
-    .inicio .acciones { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .retrato { position: relative; aspect-ratio: 4 / 4.4; border-radius: 28px; background: var(--acento-claro); overflow: hidden; border: 1px solid var(--linea); }
-    .retrato svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-    .retrato figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; background: rgba(255, 255, 255, .95); border-radius: 14px; padding: 12px 14px; display: grid; gap: 2px; }
-    .retrato figcaption strong { font: 700 17px/1.2 var(--display); }
-    .retrato figcaption span { font-size: 14px; color: var(--suave); }
-    .retrato .marcador { position: absolute; top: 14px; left: 14px; background: #12182B; color: #fff; font: 700 12px/1 var(--display); padding: 7px 10px; border-radius: 8px; letter-spacing: .04em; }
-    @media (max-width: 860px) { .inicio-grid { grid-template-columns: 1fr; } .retrato { max-width: 420px; } }
+    /* portada */
+    .portada { padding: clamp(40px, 6vw, 88px) 0 clamp(56px, 7vw, 104px); }
+    .portada .caja { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+    .rol { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--verde); background: var(--verde-suave); padding: 7px 14px; border-radius: 999px; }
+    .rol i { width: 7px; height: 7px; border-radius: 50%; background: var(--verde); }
+    .portada h1 { margin-top: 22px; font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1.02; }
+    .portada h1 em { color: var(--verde); }
+    .portada .bajada { margin-top: 22px; font-size: clamp(1.05rem, 1.35vw, 1.2rem); color: var(--suave); max-width: 33em; }
+    .acciones { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .respaldo { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--linea); display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 14.5px; color: var(--suave); }
+    .respaldo span { display: inline-flex; align-items: center; gap: 8px; }
+    .respaldo svg { width: 18px; height: 18px; color: var(--verde); flex: none; }
+    .foto { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--arena); }
+    .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+    .foto-pie { position: absolute; left: 18px; right: 18px; bottom: 18px; background: rgba(255, 255, 255, .96); border-radius: 18px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .foto-pie b { display: block; font-size: 15.5px; }
+    .foto-pie span { font-size: 13.5px; color: var(--suave); }
+    .en-linea { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 500; color: var(--verde); white-space: nowrap; }
+    .en-linea i { width: 8px; height: 8px; border-radius: 50%; background: #2BA56F; box-shadow: 0 0 0 4px rgba(43, 165, 111, .18); }
+    @media (max-width: 900px) { .portada .caja { grid-template-columns: 1fr; } .foto { aspect-ratio: 4 / 4.2; order: -1; } }
 
-    h2 { font-size: clamp(2rem, 4.2vw, 3rem); font-weight: 800; }
-    .intro { margin-top: 14px; max-width: 38em; color: var(--suave); }
-    .planes-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .plan { background: #fff; border: 1px solid var(--linea); border-radius: 22px; padding: 26px; display: grid; gap: 10px; align-content: start; transition: transform .35s var(--ease), box-shadow .35s; }
-    .plan:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -20px rgba(18, 24, 43, .25); }
-    .plan .tipo { font: 700 13px/1 var(--display); color: var(--acento); }
-    .plan h3 { font-size: 1.7rem; }
-    .plan ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; color: var(--suave); font-size: 15.5px; }
-    .plan li { padding-top: 8px; border-top: 1px solid var(--linea); }
-    .plan .ask { margin-top: 10px; font: 700 15px/1 var(--display); color: var(--acento); text-decoration: none; }
-    .plan .ask:hover { text-decoration: underline; text-underline-offset: 5px; }
-    @media (max-width: 860px) { .planes-grid { grid-template-columns: 1fr; } }
-    .nota { margin-top: 24px; font-size: 14px; color: var(--suave); max-width: 52em; }
+    /* secciones */
+    .sec { padding: clamp(64px, 9vw, 120px) 0; }
+    .sec.arena { background: var(--arena); }
+    .sec h2 { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.06; max-width: 16em; }
+    .sec .intro { margin-top: 16px; color: var(--suave); max-width: 40em; font-size: 1.05rem; }
 
-    #beneficios { background: #fff; }
-    .tiles { margin-top: 40px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; }
-    .tile { border-radius: 24px; padding: 28px; display: grid; gap: 10px; align-content: start; min-height: 250px; }
-    .tile:nth-child(1) { background: var(--acento); color: #fff; }
-    .tile:nth-child(2) { background: var(--acento-claro); }
-    .tile:nth-child(3) { background: #12182B; color: #fff; }
-    .tile .chip { justify-self: start; font: 700 12.5px/1 var(--display); padding: 7px 11px; border-radius: 999px; background: rgba(255, 255, 255, .22); }
-    .tile:nth-child(2) .chip { background: #fff; }
-    .tile h3 { font-size: 1.6rem; }
-    .tile p { font-size: 15.5px; opacity: .92; }
-    .tile .cifra { font: 800 3.4rem/1 var(--display); letter-spacing: -.04em; }
-    @media (max-width: 860px) { .tiles { grid-template-columns: 1fr; } }
+    /* comparador de planes */
+    .tabla-envoltura { margin-top: 40px; overflow-x: auto; border: 1px solid var(--linea); border-radius: 22px; background: var(--blanco); }
+    table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 15.5px; }
+    th, td { padding: 18px 22px; text-align: left; border-bottom: 1px solid var(--linea); vertical-align: top; }
+    thead th { font-weight: 500; color: var(--suave); font-size: 13.5px; background: #FCFBF8; }
+    thead th.plan { color: var(--tinta); }
+    thead th.plan b { display: block; font: 400 24px/1.1 var(--serif); margin-top: 2px; }
+    tbody th { font-weight: 500; width: 26%; }
+    td svg { width: 20px; height: 20px; color: var(--verde); }
+    td .no { color: #A3AAB5; }
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+    .col-destacada { background: #F6FAF8; }
+    .nota-tabla { margin-top: 14px; font-size: 13.5px; color: var(--suave); }
 
-    .pasos { margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--tinta); }
-    .paso { padding: 22px 22px 8px 0; display: grid; gap: 8px; align-content: start; }
-    .paso + .paso { padding-left: 22px; border-left: 1px solid var(--linea); }
-    .paso h3 { font-size: 1.25rem; }
-    .paso p { color: var(--suave); font-size: 15.5px; }
-    @media (max-width: 860px) { .pasos { grid-template-columns: 1fr; } .paso, .paso + .paso { padding: 18px 0; border-left: 0; border-top: 1px solid var(--linea); } .paso:first-child { border-top: 0; } }
+    /* como trabajo */
+    .pasos { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--tinta); }
+    .paso { padding: 26px 24px 0 0; }
+    .paso + .paso { padding-left: 24px; border-left: 1px solid var(--linea); }
+    .paso .n { font: 400 15px/1 var(--serif); color: var(--verde); }
+    .paso h3 { margin-top: 14px; font-size: 18px; font-weight: 700; line-height: 1.3; }
+    .paso p { margin-top: 8px; color: var(--suave); font-size: 15.5px; }
+    @media (max-width: 900px) { .pasos { grid-template-columns: 1fr 1fr; row-gap: 28px; } .paso:nth-child(3) { border-left: 0; padding-left: 0; } }
+    @media (max-width: 560px) { .pasos { grid-template-columns: 1fr; } .paso + .paso { border-left: 0; padding-left: 0; border-top: 1px solid var(--linea); } }
 
-    #preguntas { background: #fff; }
-    details { border-bottom: 1px solid var(--linea); padding: 18px 0; max-width: 52em; }
-    details:first-of-type { margin-top: 28px; border-top: 1px solid var(--linea); }
-    summary { cursor: pointer; font: 700 1.1rem/1.3 var(--display); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    /* beneficios */
+    .beneficios { margin-top: 44px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px; }
+    .ben { background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; padding: 28px; }
+    .ben.grande { background: var(--marino); color: #E9EEF6; border-color: var(--marino); grid-row: span 2; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .ben.grande h3 { color: #fff; font: 400 30px/1.12 var(--serif); }
+    .ben h3 { font-size: 19px; font-weight: 700; line-height: 1.3; }
+    .ben p { margin-top: 8px; color: var(--suave); font-size: 15.5px; }
+    .ben.grande p { color: #C9D4E4; }
+    @media (max-width: 900px) { .beneficios { grid-template-columns: 1fr; } .ben.grande { grid-row: auto; } }
+
+    /* preguntas */
+    .preguntas { margin-top: 36px; border-top: 1px solid var(--tinta); max-width: 880px; }
+    details { border-bottom: 1px solid var(--linea); }
+    summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px; padding: 22px 0; font-size: 18px; font-weight: 500; }
     summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-weight: 400; font-size: 1.5rem; line-height: 1; color: var(--acento); }
-    details[open] summary::after { content: "–"; }
-    details p { margin-top: 10px; color: var(--suave); }
+    summary::after { content: "+"; font: 400 26px/1 var(--serif); color: var(--verde); transition: transform .25s var(--ease); }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { padding: 0 0 22px; color: var(--suave); max-width: 44em; }
 
-    .formulario { margin-top: 32px; display: grid; gap: 14px; max-width: 560px; }
-    .formulario label { display: grid; gap: 6px; font: 700 15px/1.2 var(--display); }
-    .formulario input { min-height: 52px; padding: 0 14px; border: 1px solid var(--linea); border-radius: 12px; background: #fff; font: 500 16px var(--texto); color: var(--tinta); }
-    .formulario input:focus { outline: 3px solid var(--acento); outline-offset: 1px; }
-    .estado { min-height: 1.5em; font-weight: 600; color: var(--acento-hondo); }
+    /* cotizar */
+    .cotizar .caja { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+    .cotizar h2 { color: #fff; }
+    .cotizar { background: var(--tinta); color: #DCE3EE; }
+    .cotizar .intro { color: #B9C4D4; }
+    .directo { margin-top: 28px; display: grid; gap: 10px; font-size: 15.5px; }
+    .directo a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+    .directo svg { width: 20px; height: 20px; }
+    form { background: var(--blanco); color: var(--tinta); border-radius: 26px; padding: clamp(24px, 3vw, 40px); display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    label { display: grid; gap: 7px; font-size: 14px; font-weight: 500; }
+    label.ancho { grid-column: 1 / -1; }
+    input, select { font: 400 16px/1.3 var(--sans); color: var(--tinta); min-height: 50px; padding: 0 14px; border: 1px solid #CFC8BB; border-radius: 12px; background: #fff; width: 100%; }
+    input:focus, select:focus { outline: 2px solid var(--verde); outline-offset: 1px; border-color: var(--verde); }
+    .consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; font-weight: 400; color: var(--suave); }
+    .consent input { width: 18px; min-height: 18px; height: 18px; margin-top: 2px; flex: none; }
+    form .btn { grid-column: 1 / -1; width: 100%; }
+    .estado { grid-column: 1 / -1; font-size: 14.5px; min-height: 1.4em; }
+    .estado.ok { color: var(--verde); font-weight: 500; }
+    @media (max-width: 900px) { .cotizar .caja { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { form { grid-template-columns: 1fr; } }
 
-    footer { padding: 48px 0 64px; background: #12182B; color: #D6DDF0; font-size: 15px; }
-    footer .caja { display: grid; gap: 14px; }
-    footer strong { color: #fff; font: 700 1.3rem/1.2 var(--display); }
-    footer a { color: #fff; font-weight: 700; text-underline-offset: 4px; }
+    footer { padding: 32px 0 96px; font-size: 13.5px; color: var(--suave); }
+    footer .caja { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+    footer a { font-weight: 500; }
+
+    .wsp { position: fixed; right: 20px; bottom: 20px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 20px 0 16px; border-radius: 999px; background: #1F8F55; color: #fff; font: 500 15px/1 var(--sans); border: 0; cursor: pointer; box-shadow: 0 10px 28px rgba(16, 33, 58, .25); }
+    .wsp svg { width: 24px; height: 24px; }
+    .aviso { position: fixed; left: 50%; bottom: 90px; z-index: 30; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; background: var(--tinta); color: #fff; padding: 12px 18px; border-radius: 12px; font-size: 14.5px; transition: opacity .25s, transform .25s; max-width: calc(100% - 32px); text-align: center; }
+    .aviso.on { opacity: 1; transform: translate(-50%, 0); }
 
     @media (prefers-reduced-motion: no-preference) {
-        .js .rv:not(.vista) { opacity: 0; transform: translateY(16px); }
-        .js .rv { transition: opacity .7s var(--ease) calc(var(--i, 0) * 80ms), transform .7s var(--ease) calc(var(--i, 0) * 80ms), box-shadow .35s; }
-        .js .rv.vista { opacity: 1; transform: none; }
+        .js .rv { opacity: 0; translate: 0 18px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
+        .js .rv.vista { opacity: 1; translate: none; }
     }
 </style>
+<script>document.documentElement.className = 'js';</script>
 </head>
 <body>
 
-<div class="demo-barra" role="note"><strong>DEMO</strong><span>Página de ejemplo hecha por El Planeador. Nombres, planes y datos son ficticios y no se envía información.</span><a href="../../#contacto">Quiero una página como esta</a></div>
+<div class="demo" role="note"><div class="caja"><b>DEMO</b><span>Página de ejemplo hecha por El Planeador. Persona, planes y datos son ficticios; el formulario no envía nada.</span><a href="../../v4/#contacto">Quiero una página así</a></div></div>
 
 <header class="cab">
     <div class="caja">
-        <a class="marca" href="#inicio"><i aria-hidden="true"></i>Planes de salud</a>
+        <a class="marca" href="#inicio"><b>Tu asesora de salud</b><span>Planes de isapre · Santiago</span></a>
         <nav aria-label="Principal">
             <a href="#planes">Planes</a>
-            <a href="#beneficios">Beneficios</a>
+            <a href="#como">Cómo trabajo</a>
             <a href="#preguntas">Preguntas</a>
-            <a href="#cotizar">Contacto</a>
-            <a class="boton" href="#cotizar">Cotizar</a>
+            <a class="btn" href="#cotizar">Cotizar</a>
         </nav>
     </div>
 </header>
 
-<main>
-    <section class="inicio" id="inicio">
-        <div class="caja inicio-grid">
+<main id="inicio">
+    <section class="portada">
+        <div class="caja">
             <div>
-                <h1>Tu plan de salud, explicado por una persona.</h1>
-                <p class="sub">Revisamos tu edad, tu región, tu renta y a qué clínicas quieres poder ir, y te mostramos las alternativas con calma. Primero ves, después decides.</p>
+                <span class="rol"><i aria-hidden="true"></i>Asesora comercial de planes de salud</span>
+                <h1>Tu plan de salud, <em>explicado</em> por una persona.</h1>
+                <p class="bajada">Reviso tu edad, tu región, tu renta y las clínicas a las que quieres poder ir. Te muestro las alternativas con calma: primero entiendes, después decides.</p>
                 <div class="acciones">
-                    <a class="boton" href="#cotizar">Quiero mi cotización</a>
-                    <a class="boton claro" href="#planes">Mirar planes y clínicas</a>
+                    <a class="btn" href="#cotizar">Quiero mi cotización</a>
+                    <a class="btn claro" href="#planes">Comparar planes</a>
+                </div>
+                <div class="respaldo">
+                    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Cotizar no tiene costo</span>
+                    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Respuesta por WhatsApp o correo</span>
+                    <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Tus datos, solo para tu cotización</span>
                 </div>
             </div>
-            <figure class="retrato" style="margin:0">
-                <svg viewBox="0 0 400 440" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-                    <rect width="400" height="440" fill="#E8EDFB"/>
-                    <circle cx="320" cy="90" r="120" fill="#D3DCF7"/>
-                    <circle cx="60" cy="400" r="150" fill="#DCE4FA"/>
-                    <path d="M40 440c8-96 76-150 160-150s152 54 160 150z" fill="#1F3FBF"/>
-                    <path d="M170 290l30 46 30-46" fill="#fff"/>
-                    <rect x="176" y="236" width="48" height="58" rx="22" fill="#F0C9A8"/>
-                    <ellipse cx="200" cy="208" rx="62" ry="72" fill="#F6D6B9"/>
-                    <path d="M138 196c0-52 28-84 66-84s64 30 60 84c-10-30-30-44-62-44s-52 14-64 44z" fill="#2A2F45"/>
-                </svg>
-                <span class="marcador">Imagen de ejemplo</span>
-                <figcaption><strong>Nombre Apellido</strong><span>Asesor comercial · Demo</span></figcaption>
+            <figure class="foto" style="margin:0">
+                <img src="../../img/asesora-1.jpg" alt="Asesora de planes de salud en su oficina" width="1200" height="1800" fetchpriority="high" decoding="async">
+                <figcaption class="foto-pie"><div><b>Asesora de planes de salud</b><span>Atención en Santiago y regiones</span></div><span class="en-linea"><i aria-hidden="true"></i>Disponible hoy</span></figcaption>
             </figure>
         </div>
     </section>
 
-    <section id="planes">
+    <section class="sec arena" id="planes">
         <div class="caja">
-            <h2>Planes y las clínicas que incluyen.</h2>
-            <p class="intro">Cada plan tiene su propia red de clínicas. El valor depende de tu edad, tu renta y tus cargas, por eso lo calculo contigo cuando cotizamos.</p>
-            <div class="planes-grid">
-                <article class="plan rv"><span class="tipo">Plan cerrado</span><h3>Plan A</h3><ul><li>Cobertura ambulatoria base</li><li>Red de clínicas de tu zona</li><li>Beneficio adicional de ejemplo</li></ul><a class="ask" href="#cotizar">Preguntar por este plan</a></article>
-                <article class="plan rv"><span class="tipo">Plan amplio</span><h3>Plan B</h3><ul><li>Cobertura hospitalaria ampliada</li><li>Más clínicas a elegir</li><li>Beneficio adicional de ejemplo</li></ul><a class="ask" href="#cotizar">Preguntar por este plan</a></article>
-                <article class="plan rv"><span class="tipo">Plan preferente</span><h3>Plan C</h3><ul><li>Cobertura completa</li><li>Red nacional de prestadores</li><li>Beneficios adicionales de ejemplo</li></ul><a class="ask" href="#cotizar">Preguntar por este plan</a></article>
+            <h2 class="rv">Compara los planes de un vistazo.</h2>
+            <p class="intro rv">Cada plan tiene su propia red de clínicas. El valor final depende de tu edad, tu renta y tus cargas, por eso lo calculamos juntos al cotizar.</p>
+            <div class="tabla-envoltura rv">
+                <table>
+                    <thead>
+                        <tr><th scope="col">Lo que incluye</th><th scope="col" class="plan">Plan<b>Esencial</b></th><th scope="col" class="plan col-destacada">Plan<b>Familia</b></th><th scope="col" class="plan">Plan<b>Integral</b></th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Consultas y exámenes</th><td>Red de tu zona</td><td class="col-destacada">Red ampliada</td><td>Red nacional</td></tr>
+                        <tr><th scope="row">Hospitalización</th><td>Clínicas en convenio</td><td class="col-destacada">Más clínicas a elegir</td><td>Libre elección</td></tr>
+                        <tr><th scope="row">Cargas</th><td><span class="no">Opcional</span></td><td class="col-destacada"><svg viewBox="0 0 24 24" aria-label="Incluido"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td><svg viewBox="0 0 24 24" aria-label="Incluido"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr>
+                        <tr><th scope="row">Beneficios adicionales</th><td><span class="no">No incluye</span></td><td class="col-destacada">Asistencia en viaje</td><td>Asistencia en viaje y seguro complementario</td></tr>
+                        <tr><th scope="row">Valor</th><td>Según tu perfil</td><td class="col-destacada">Según tu perfil</td><td>Según tu perfil</td></tr>
+                    </tbody>
+                </table>
             </div>
-            <p class="nota">Contenido de ejemplo. En una página real, aquí van los planes reales del ejecutivo, con sus clínicas y condiciones vigentes, que él mismo aprueba.</p>
+            <p class="nota-tabla">Planes de ejemplo. En la página real van los planes vigentes de la asesora, con sus clínicas y condiciones, aprobados por ella.</p>
         </div>
     </section>
 
-    <section id="beneficios">
+    <section class="sec" id="como">
         <div class="caja">
-            <h2>Más beneficios que vienen con tu plan.</h2>
-            <p class="intro">Coberturas adicionales, según el plan que elijas. Te cuento cuáles aplican a tu caso.</p>
-            <div class="tiles">
-                <article class="tile rv"><span class="chip">Contenido de ejemplo</span><h3>Seguro de accidentes</h3><span class="cifra">00 UF</span><p>Aquí va el tope real de la cobertura y quién la entrega. Cada dato lo confirma el ejecutivo.</p></article>
-                <article class="tile rv"><span class="chip">Contenido de ejemplo</span><h3>Beneficio para mascotas</h3><p>Un beneficio adicional con su descripción, horarios y condiciones.</p></article>
-                <article class="tile rv"><span class="chip">Contenido de ejemplo</span><h3>Asistencia en viaje</h3><p>Cobertura fuera del país, con su vigencia y sus límites a la vista.</p></article>
-            </div>
-        </div>
-    </section>
-
-    <section id="acompano">
-        <div class="caja">
-            <h2>Cómo te acompaño.</h2>
+            <h2 class="rv">Cómo trabajo contigo.</h2>
             <div class="pasos">
-                <div class="paso rv"><h3>Alternativas según tu presupuesto</h3><p>Partimos por lo que puedes pagar sin apretarte.</p></div>
-                <div class="paso rv"><h3>Revisión de redes y prestadores</h3><p>Miramos qué clínicas y médicos hay en tu zona.</p></div>
-                <div class="paso rv"><h3>Orientación sobre coberturas</h3><p>Te explico qué cubre cada plan, en simple.</p></div>
-                <div class="paso rv"><h3>Acompañamiento durante el proceso</h3><p>Estoy contigo hasta que todo quede resuelto.</p></div>
+                <div class="paso rv"><span class="n">1</span><h3>Me cuentas tu caso</h3><p>Edad, región, renta, cargas y las clínicas que te importan.</p></div>
+                <div class="paso rv"><span class="n">2</span><h3>Te muestro alternativas</h3><p>Planes que calzan con tu presupuesto, comparados en simple.</p></div>
+                <div class="paso rv"><span class="n">3</span><h3>Resolvemos tus dudas</h3><p>Qué cubre cada uno, sus redes y lo que no incluye.</p></div>
+                <div class="paso rv"><span class="n">4</span><h3>Te acompaño hasta el final</h3><p>Si decides cambiarte, hacemos el trámite juntos.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="preguntas">
+    <section class="sec arena" id="beneficios">
         <div class="caja">
-            <h2>Preguntas frecuentes.</h2>
-            <details><summary>¿Cuánto cuesta cotizar?<span class="solo-lector"></span></summary><p>Cotizar no tiene costo. Es una conversación para que veas alternativas; la decisión es tuya.</p></details>
-            <details><summary>¿Qué hacen con mis datos?</summary><p>Se usan solo para contactarte por tu cotización. En una página real, aquí se explica quién los recibe y cómo pedir que se borren.</p></details>
-            <details><summary>¿Puedo preguntar sin dejar mis datos?</summary><p>Sí. Puedes escribir una consulta rápida antes de pedir una cotización.</p></details>
+            <h2 class="rv">Más que un plan.</h2>
+            <div class="beneficios">
+                <article class="ben grande rv"><h3>Una persona que te responde, antes y después de contratar.</h3><p>Si cambian tus necesidades o tienes una duda con una cobertura, me escribes y lo vemos.</p></article>
+                <article class="ben rv"><h3>Asistencia en viaje</h3><p>Según el plan, cobertura fuera del país con sus vigencias y límites a la vista.</p></article>
+                <article class="ben rv"><h3>Seguro complementario</h3><p>Una capa extra para gastos que el plan no cubre por completo.</p></article>
+                <article class="ben rv"><h3>Orientación GES y CAEC</h3><p>Te explico cuándo aplican y cómo se activan.</p></article>
+                <article class="ben rv"><h3>Revisión de tu plan actual</h3><p>Comparamos lo que tienes hoy con las alternativas.</p></article>
+            </div>
         </div>
     </section>
 
-    <section id="cotizar">
+    <section class="sec" id="preguntas">
         <div class="caja">
-            <h2>Pide tu cotización.</h2>
-            <p class="intro">Déjame tus datos y te escribo con alternativas para tu caso. Esta es una demo: el formulario no envía nada.</p>
-            <form class="formulario" id="demo-form" novalidate>
-                <label>Tu nombre<input type="text" name="nombre" autocomplete="off" placeholder="Nombre"></label>
-                <label>Comuna<input type="text" name="comuna" autocomplete="off" placeholder="Comuna"></label>
-                <label>Teléfono<input type="tel" name="telefono" autocomplete="off" placeholder="+56 9 0000 0000"></label>
-                <button class="boton" type="submit">Pedir cotización</button>
+            <h2 class="rv">Preguntas frecuentes.</h2>
+            <div class="preguntas">
+                <details><summary>¿Cuánto cuesta cotizar?</summary><p>Nada. Es una conversación para que veas alternativas; la decisión es tuya.</p></details>
+                <details><summary>¿Qué hacen con mis datos?</summary><p>Se usan solo para responder tu cotización. En la página real se indica quién los recibe y cómo pedir que se borren.</p></details>
+                <details><summary>¿Puedo cambiarme de plan en cualquier momento?</summary><p>Depende de tu contrato y de tu situación. Lo revisamos juntos antes de cualquier decisión.</p></details>
+                <details><summary>¿Atiendes fuera de Santiago?</summary><p>Sí, la asesoría puede hacerse por videollamada o WhatsApp.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec cotizar" id="cotizar">
+        <div class="caja">
+            <div>
+                <h2 class="rv">Pide tu cotización.</h2>
+                <p class="intro rv">Déjame tus datos y te escribo con alternativas para tu caso.</p>
+                <div class="directo rv">
+                    <a href="#cotizar" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 6l8 7 8-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>correo@ejemplo.cl</a>
+                </div>
+            </div>
+            <form id="demo-form" novalidate>
+                <label>Nombre<input type="text" name="nombre" autocomplete="off" placeholder="Tu nombre"></label>
+                <label>Teléfono<input type="tel" name="telefono" autocomplete="off" placeholder="+56 9"></label>
+                <label>Comuna<input type="text" name="comuna" autocomplete="off" placeholder="Tu comuna"></label>
+                <label>Rango de edad<select name="edad"><option value="">Elige</option><option>18 a 29</option><option>30 a 44</option><option>45 a 59</option><option>60 o más</option></select></label>
+                <label class="ancho">Plan que te interesa<select name="plan"><option>Aún no sé, quiero orientación</option><option>Plan Esencial</option><option>Plan Familia</option><option>Plan Integral</option></select></label>
+                <label class="consent"><input type="checkbox" name="acepto">Acepto que usen mis datos solo para responder esta cotización.</label>
+                <button class="btn" type="submit">Pedir cotización</button>
                 <p class="estado" id="demo-estado" aria-live="polite"></p>
             </form>
         </div>
@@ -221,20 +279,32 @@
 
 <footer>
     <div class="caja">
-        <strong>¿Quieres una página como esta?</strong>
-        <p>Esta es una demostración de El Planeador, la agencia de marketing digital de BTo Innova SpA. En una página real, el ejecutivo es dueño de su página y de sus datos, y El Planeador la administra por encargo.</p>
-        <a href="../../#contacto">Conversemos sobre tu página</a>
+        <span>Página de ejemplo · hecha por El Planeador, marketing digital by BTo Innova soluciones</span>
+        <a href="../../v4/#contacto">Quiero una página como esta</a>
     </div>
 </footer>
 
+<button type="button" class="wsp" data-demo><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.4c.2-.5.5-.5.8-.5h.5c.2 0 .4 0 .6.5l.7 1.6c.1.3 0 .5-.1.7l-.5.6c-.1.2-.1.3 0 .5.5.9 1.3 1.7 2.3 2.2.2.1.4.1.5 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .6-.3 1.4-1.2 1.7-.8.3-2.2.2-4-1-1.6-1.1-2.7-2.6-3-3.6-.3-1 0-1.9.2-2.2z" fill="currentColor"/></svg>Escríbeme</button>
+<div class="aviso" id="aviso" role="status">Esto es una demo: en la página real abre tu WhatsApp o tu correo.</div>
+
 <script>
 (function () {
-    'use strict';
+    var aviso = document.getElementById('aviso'), t;
+    function avisa(msg) { aviso.textContent = msg; aviso.classList.add('on'); clearTimeout(t); t = setTimeout(function () { aviso.classList.remove('on'); }, 2600); }
+    document.querySelectorAll('[data-demo]').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); avisa('Esto es una demo: en la página real abre tu WhatsApp o tu correo.'); }); });
     var f = document.getElementById('demo-form'), e = document.getElementById('demo-estado');
-    if (f) f.addEventListener('submit', function (ev) { ev.preventDefault(); e.textContent = 'Esto es una demo: no se envió ningún dato.'; });
-    if (!('IntersectionObserver' in window)) { document.documentElement.className = document.documentElement.className.replace(' js', ''); return; }
-    var obs = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('vista'); obs.unobserve(x.target); } }); }, { threshold: 0.2 });
-    document.querySelectorAll('.rv').forEach(function (el) { el.style.setProperty('--i', Array.prototype.indexOf.call(el.parentNode.children, el) % 4); obs.observe(el); });
+    f.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        if (!f.nombre.value.trim() || !f.telefono.value.trim()) { e.className = 'estado'; e.textContent = 'Completa tu nombre y teléfono para seguir.'; return; }
+        if (!f.acepto.checked) { e.className = 'estado'; e.textContent = 'Para enviar, marca la casilla de uso de datos.'; return; }
+        e.className = 'estado ok'; e.textContent = 'Listo. En la página real, la asesora recibe tu solicitud y te escribe. Esta demo no envió ningún dato.';
+        f.reset();
+    });
+    var rv = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('vista'); io.unobserve(x.target); } }); }, { threshold: .15 });
+        rv.forEach(function (el) { io.observe(el); });
+    } else { rv.forEach(function (el) { el.classList.add('vista'); }); }
 })();
 </script>
 </body>

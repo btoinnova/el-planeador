@@ -80,7 +80,7 @@
 
     /* foto inmersiva */
     .inmersiva { position: relative; height: 100svh; min-height: 520px; overflow: hidden; background: var(--tinta); color: #F6F3EC; display: grid; align-items: end; }
-    .inmersiva .fondo { position: absolute; inset: -6% 0; background: url("../img/taller-2.jpg") 50% 50% / cover no-repeat; will-change: transform; }
+    .inmersiva .fondo { position: absolute; inset: -6% 0; background: url("../img/inmersiva-1.jpg") 50% 50% / cover no-repeat; will-change: transform; }
     .inmersiva::before { content: ""; position: absolute; inset: 0; background: rgba(20, 18, 15, .62); z-index: 1; }
     .inm-in { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; padding: 0 var(--m) clamp(40px, 7vw, 96px); align-items: end; }
     .inm-in h2 { grid-column: 1 / 10; font: 800 clamp(2.2rem, 7.4vw, 7.4rem)/.95 var(--syne); letter-spacing: -.035em; max-width: none; color: #F6F3EC; }
@@ -138,8 +138,54 @@
     .contacto > p { margin-top: 24px; max-width: 28em; color: #C9C2B3; }
     .correo { display: inline-block; margin-top: 28px; font: 700 clamp(1.4rem, 3.6vw, 3.2rem)/1.1 var(--syne); text-decoration: none; padding-bottom: 8px; background: linear-gradient(var(--brasa), var(--brasa)) 0 100% / 0 2px no-repeat, linear-gradient(#F6F3EC, #F6F3EC) 0 100% / 100% 1px no-repeat; transition: background-size .35s var(--ease), color .25s; overflow-wrap: anywhere; color: #F6F3EC; }
     .correo:hover { background-size: 100% 2px, 100% 1px; color: var(--brasa); }
-    footer { padding: 28px var(--m) 40px; border-top: 1px solid var(--filete-osc); background: var(--tinta); display: grid; gap: 6px; color: #A39C8D; font: 400 12px/1.5 var(--mono); }
+    footer { padding: 0 var(--m) 40px; overflow: hidden; border-top: 1px solid var(--filete-osc); background: var(--tinta); display: grid; gap: 6px; color: #A39C8D; font: 400 12px/1.5 var(--mono); }
     footer b { color: #F6F3EC; font-weight: 500; }
+
+
+    /* ---- patrones de sitios premiados ---- */
+    .quien { position: relative; }
+    .q-flota { position: fixed; left: 0; top: 0; width: clamp(240px, 24vw, 380px); aspect-ratio: 4 / 3; pointer-events: none; z-index: 30; opacity: 0; transform: translate3d(-50%, -50%, 0) scale(.85); transition: opacity .3s ease, transform .35s var(--ease); overflow: hidden; }
+    .q-flota img { width: 100%; height: 100%; object-fit: cover; }
+    .q-flota.on { opacity: 1; }
+    @media (hover: hover) and (pointer: fine) and (min-width: 861px) {
+        .q-foto { display: none; }
+        .q-der { align-content: start; }
+    }
+    @media not all and (hover: hover) { .q-flota { display: none; } }
+    .cursor { position: fixed; left: 0; top: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--brasa); pointer-events: none; z-index: 40; transition: width .25s var(--ease), height .25s var(--ease), margin .25s var(--ease), background .25s; mix-blend-mode: multiply; opacity: 0; }
+    .cursor.vivo { opacity: 1; }
+    .cursor.grande { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(224, 78, 12, .22); }
+    @media not all and (hover: hover) { .cursor { display: none; } }
+    footer { padding-top: 0; }
+    .gigante { margin: 0 calc(var(--m) * -1) 18px; padding-left: 1vw; font: 800 10.1vw/.8 var(--syne); letter-spacing: -.055em; color: #F6F3EC; white-space: nowrap; overflow: hidden; padding-top: .12em; }
+
+
+    /* ---- vista en vivo de la demo ---- */
+    .d-foto { display: block; text-decoration: none; background: var(--tinta); border: 1px solid var(--tinta); aspect-ratio: auto; }
+    .d-barra { display: flex; align-items: center; gap: 7px; height: 34px; padding: 0 14px; background: #1E1B17; color: #A39C8D; font: 400 12px/1 var(--mono); }
+    .d-barra i { width: 9px; height: 9px; border-radius: 50%; background: #3A362F; }
+    .d-barra span { margin-left: 12px; padding: 5px 12px; background: #2A2620; border-radius: 6px; }
+    .d-vista { display: block; position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #FAF8F4; }
+    .d-vista iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+    .d-foto .mono { top: 34px; }
+    .d-foto:hover .d-vista iframe { filter: brightness(1.02); }
+    /* shared element: el marco crece hasta la pantalla y entra a la demo */
+    .viaja { position: fixed; z-index: 60; background: #FAF8F4; transition: left .6s var(--ease), top .6s var(--ease), width .6s var(--ease), height .6s var(--ease); overflow: hidden; }
+    /* blur: el servicio bajo el cursor queda nitido y el resto se desenfoca */
+    @media (hover: hover) and (pointer: fine) {
+        .indice:hover li { filter: blur(2.5px); opacity: .45; }
+        .indice li { transition: filter .35s ease, opacity .35s ease, border-color .25s; }
+        .indice:hover li:hover { filter: none; opacity: 1; }
+    }
+    /* magnification: el menu crece como una lupa al acercar el cursor */
+    .barra nav a { display: inline-block; transform-origin: 50% 100%; transition: transform .18s ease-out, background-size .3s var(--ease); }
+
+
+    /* ---- menu con shared element: el menu queda, la pagina cambia con fundido ---- */
+    main, footer { transition: opacity .28s ease; }
+    body.cambia main, body.cambia footer { opacity: 0; }
+    .vuela { display: block; position: fixed; z-index: 70; margin: 0; pointer-events: none;  transform-origin: 0 0; transition: transform .6s var(--ease), color .6s var(--ease); }
+    .js h2.oculto { visibility: hidden; }
 
     /* movimiento: solo si JS corre y no hay reduccion */
     @media (prefers-reduced-motion: no-preference) {
@@ -153,7 +199,7 @@
         .js .rv:not(.vista) { transition-delay: calc(var(--i, 0) * 70ms); }
         .js .rv.vista { opacity: 1; translate: none; transition-delay: calc(var(--i, 0) * 70ms), calc(var(--i, 0) * 70ms), 0s, 0s; }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .luz { display: none; } .paso { opacity: 1; } .paso::before { background: var(--brasa); border-color: var(--brasa); } .franja-pista { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { .indice:hover li { filter: none !important; opacity: 1 !important; } html { scroll-behavior: auto; } .luz { display: none; } .paso { opacity: 1; } .paso::before { background: var(--brasa); border-color: var(--brasa); } .franja-pista { animation: none; } }
 </style>
 <script>document.documentElement.className = 'js';</script>
 </head>
@@ -202,7 +248,7 @@
     </section>
 
     <section class="inmersiva" aria-labelledby="t-inm">
-        <div class="fondo" id="fondo-inm" role="img" aria-label="Manos de un carpintero trabajando una pieza de madera"></div>
+        <div class="fondo" id="fondo-inm" role="img" aria-label="Manos de un alfarero trabajando en el torno"></div>
         <div class="inm-in">
             <h2 id="t-inm" class="rv">Cada oficio tiene su manera de mostrarse.</h2>
             <p class="rv" style="--i:2">Tú haces el trabajo. Nosotros lo hacemos visible.</p>
@@ -214,12 +260,13 @@
             <h2 id="t-quien" class="rv">Para quien vive de que lo contacten.</h2>
             <div class="q-der">
                 <div class="q-foto" aria-hidden="true">
-                    <img class="on" src="../img/cafe-1.jpg" alt="" data-k="cocina" width="1800" height="1013" loading="lazy" decoding="async">
-                    <img src="../img/profesional-1.jpg" alt="" data-k="profesional" width="1080" height="608" loading="lazy" decoding="async">
-                    <img src="../img/taller-1.jpg" alt="" data-k="taller" width="1080" height="721" loading="lazy" decoding="async">
-                    <img src="../img/ejecutivo-1.jpg" alt="" data-k="ejecutivo" width="1800" height="1013" loading="lazy" decoding="async">
-                    <img src="../img/comercio-1.jpg" alt="" data-k="comercio" width="1800" height="1013" loading="lazy" decoding="async">
+                    <img class="on" src="../img/cafe-2.jpg" alt="" data-k="cocina" width="1600" height="895" loading="lazy" decoding="async">
+                    <img src="../img/profesional-2.jpg" alt="" data-k="profesional" width="1600" height="1200" loading="lazy" decoding="async">
+                    <img src="../img/oficio-2.jpg" alt="" data-k="taller" width="1600" height="1067" loading="lazy" decoding="async">
+                    <img src="../img/ejecutivo-2.jpg" alt="" data-k="ejecutivo" width="1600" height="900" loading="lazy" decoding="async">
+                    <img src="../img/comercio-3.jpg" alt="" data-k="comercio" width="1600" height="1067" loading="lazy" decoding="async">
                 </div>
+                <div class="q-flota" id="q-flota" aria-hidden="true"><img alt="" src="../img/cafe-2.jpg"></div>
                 <ul class="q-lista">
                     <li><button type="button" data-k="cocina">Restaurantes y cafés <span>Que te encuentren cuando buscan dónde comer cerca.</span></button></li>
                     <li><button type="button" data-k="profesional">Profesionales y consultas <span>Presencia clara, con horarios y forma de pedir una hora.</span></button></li>
@@ -246,11 +293,11 @@
     <section class="sec borde" id="demo" aria-labelledby="t-demo">
         <span id="ejemplos" aria-hidden="true"></span>
         <div class="demo">
-            <div class="d-foto rv"><img src="../img/ejecutivo-1.jpg" alt="Ejecutivo trabajando en su oficina" width="1080" height="608" loading="lazy" decoding="async"><span class="mono">Ilustrativa</span></div>
+            <a class="d-foto rv" id="d-foto" href="../demo/ejecutivo/" aria-label="Abrir la demo de la página de una asesora"><span class="d-barra" aria-hidden="true"><i></i><i></i><i></i><span>tuasesora.cl</span></span><span class="d-vista" aria-hidden="true"><iframe src="../demo/ejecutivo/" title="Vista previa de la demo" loading="lazy" tabindex="-1"></iframe></span><span class="mono">Ilustrativa</span></a>
             <div class="d-txt rv" style="--i:2">
                 <h2 id="t-demo">Mira cómo se vería para un ejecutivo.</h2>
                 <p>Una demo ilustrativa: página, formulario y contacto.</p>
-                <a class="sub" href="../demo/ejecutivo/">Abrir la demo <span aria-hidden="true">→</span></a>
+                <a class="sub" id="abrir-demo" href="../demo/ejecutivo/">Abrir la demo <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
@@ -262,7 +309,9 @@
     </section>
 </main>
 
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 <footer>
+    <p class="gigante" aria-hidden="true">El Planeador</p>
     <span><b>El Planeador</b>, by BTo Innova soluciones</span>
     <span>El Planeador es una marca de BTo Innova SpA · RUT 78.533.592-9 · Chile</span>
 </footer>
@@ -300,6 +349,88 @@
         pf[pi].classList.remove('on'); pi = (pi + 1) % pf.length; pf[pi].classList.add('on');
         if (pr) pr.textContent = pf[pi].getAttribute('data-r');
     }, 4200);
+
+
+
+
+    /* menu: en vez de recorrer todo el scroll, fundido + el nombre viaja al titulo */
+    document.querySelectorAll('.barra nav a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var sec = document.querySelector(a.getAttribute('href')); if (!sec) return;
+            e.preventDefault();
+            var h2 = sec.querySelector('h2') || sec;
+            function salta() { sec.querySelectorAll('.rv').forEach(function (x) { x.classList.add('vista'); }); scrollTo({ top: sec.getBoundingClientRect().top + scrollY - 76, behavior: 'instant' }); history.replaceState(null, '', a.getAttribute('href')); }
+            if (reducido) { salta(); return; }
+            var ra = a.getBoundingClientRect(), v = document.createElement('span');
+            v.className = 'vuela'; v.textContent = h2.textContent;
+            var cs = getComputedStyle(h2);
+            v.style.font = cs.fontWeight + ' ' + cs.fontSize + '/' + cs.lineHeight + ' ' + cs.fontFamily; v.style.letterSpacing = cs.letterSpacing; v.style.color = cs.color; v.style.width = h2.getBoundingClientRect().width + 'px';
+            document.body.appendChild(v);
+            var s0 = ra.height / (parseFloat(cs.lineHeight) || parseFloat(cs.fontSize));
+            v.style.left = '0px'; v.style.top = '0px';
+            v.style.transform = 'translate3d(' + ra.left + 'px,' + ra.top + 'px,0) scale(' + s0 + ')';
+            document.body.classList.add('cambia');
+            setTimeout(function () {
+                h2.classList.add('oculto');
+                salta();
+                var rh = h2.getBoundingClientRect();
+                requestAnimationFrame(function () {
+                    v.style.transform = 'translate3d(' + rh.left + 'px,' + rh.top + 'px,0) scale(1)';
+                    document.body.classList.remove('cambia');
+                });
+                setTimeout(function () { h2.classList.remove('oculto'); v.remove(); }, 640);
+            }, 280);
+        });
+    });
+
+    /* escala del iframe al ancho del marco */
+    var vista = document.querySelector('.d-vista'), ifr = vista && vista.querySelector('iframe');
+    function escala() { if (ifr) ifr.style.transform = 'scale(' + (vista.clientWidth / 1440) + ')'; }
+    escala(); addEventListener('resize', escala);
+    /* shared element hacia la demo */
+    var marco = document.getElementById('d-foto');
+    function viaja(e) {
+        if (reducido || !marco || e.metaKey || e.ctrlKey || e.shiftKey) return;
+        e.preventDefault();
+        var r = marco.getBoundingClientRect(), c = document.createElement('div');
+        c.className = 'viaja';
+        c.style.left = r.left + 'px'; c.style.top = r.top + 'px'; c.style.width = r.width + 'px'; c.style.height = r.height + 'px';
+        document.body.appendChild(c);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { c.style.left = '0px'; c.style.top = '0px'; c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px'; }); });
+        setTimeout(function () { location.href = marco.getAttribute('href'); }, 560);
+    }
+    if (marco) marco.addEventListener('click', viaja);
+    var abrir = document.getElementById('abrir-demo'); if (abrir) abrir.addEventListener('click', viaja);
+    addEventListener('pageshow', function () { document.querySelectorAll('.viaja').forEach(function (n) { n.remove(); }); });
+    /* magnification del menu */
+    var nav = document.querySelectorAll('.barra nav a');
+    if (!reducido && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        var barra = document.querySelector('.barra');
+        barra.addEventListener('pointermove', function (e) {
+            nav.forEach(function (a) { var b = a.getBoundingClientRect(), d = Math.abs(e.clientX - (b.left + b.width / 2)); var s = 1 + Math.max(0, 1 - d / 160) * .28; a.style.transform = 'scale(' + s.toFixed(3) + ')'; });
+        });
+        barra.addEventListener('pointerleave', function () { nav.forEach(function (a) { a.style.transform = ''; }); });
+    }
+
+    /* imagen que sigue al cursor en "Para quien" */
+    var flota = document.getElementById('q-flota'), fimg = flota && flota.querySelector('img');
+    var srcs = {}; document.querySelectorAll('.q-foto img').forEach(function (i) { srcs[i.getAttribute('data-k')] = i.getAttribute('src'); });
+    var fx = 0, fy = 0, tx = 0, ty = 0, anim = false;
+    function sigue() { fx += (tx - fx) * .18; fy += (ty - fy) * .18; flota.style.left = fx + 'px'; flota.style.top = fy + 'px'; if (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) requestAnimationFrame(sigue); else anim = false; }
+    if (flota && matchMedia('(hover: hover)').matches) {
+        var lista = document.querySelector('.q-lista');
+        lista.addEventListener('pointermove', function (e) { tx = e.clientX + 40; ty = e.clientY; if (!anim) { anim = true; requestAnimationFrame(sigue); } });
+        lista.querySelectorAll('button').forEach(function (b) { b.addEventListener('pointerenter', function () { fimg.src = srcs[b.getAttribute('data-k')]; flota.classList.add('on'); }); });
+        lista.addEventListener('pointerleave', function () { flota.classList.remove('on'); });
+        addEventListener('scroll', function () { flota.classList.remove('on'); }, { passive: true });
+    }
+    /* cursor propio */
+    var cur = document.getElementById('cursor');
+    if (cur && matchMedia('(hover: hover) and (pointer: fine)').matches && !reducido) {
+        addEventListener('pointermove', function (e) { cur.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0)'; cur.classList.add('vivo'); }, { passive: true });
+        document.querySelectorAll('a, button').forEach(function (el) { el.addEventListener('pointerenter', function () { cur.classList.add('grande'); }); el.addEventListener('pointerleave', function () { cur.classList.remove('grande'); }); });
+        document.addEventListener('pointerleave', function () { cur.classList.remove('vivo'); });
+    }
 
     var imgs = document.querySelectorAll('.q-foto img');
     function muestra(k) { imgs.forEach(function (i) { i.classList.toggle('on', i.getAttribute('data-k') === k); }); }
