@@ -4,18 +4,40 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Sabes cuánto es tu 7% de salud? — Calcúlalo gratis · El Planeador</title>
+<title>¿Sabes cuánto es tu 7% de salud? Calcúlalo gratis · El Planeador</title>
 <meta name="description" content="Ese 7% te lo descuentan igual todos los meses. Calcula gratis cuánto es en pesos y, si quieres, que te contacte un ejecutivo registrado en la Superintendencia de Salud.">
 <link rel="stylesheet" href="css/style.css?v=20261102b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;600&display=swap">
 <script>document.documentElement.classList.add('js');</script>
 <style>
     /* Efectos tomados de la portada de El Planeador (v4), con la paleta de Salud. */
     :root { --ease: cubic-bezier(.2, .7, .2, 1); }
-    .franja { overflow: hidden; background: var(--tinta); color: #F4F7F8; margin: 0 0 28px; border-radius: var(--radio); }
-    .franja-pista { display: flex; width: max-content; padding: 14px 0; will-change: transform; animation: marcha 38s linear infinite; }
-    .franja-pista span { font-weight: 800; font-size: clamp(1.05rem, 2.6vw, 1.6rem); letter-spacing: -.02em; white-space: nowrap; padding-right: 2rem; }
-    .franja-pista span:nth-child(even) { color: #5EEAD4; }
-    @keyframes marcha { to { transform: translate3d(-50%, 0, 0); } }
+    :root { --display: "Bricolage Grotesque", "Instrument Sans", system-ui, sans-serif; --wsp: #128C4A; --wsp-osc: #0E6E3A; }
+    body { font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif; }
+    h1, h2, .marca, .opcion strong, .monto { font-family: var(--display); }
+    ::selection { background: #99E2D6; color: var(--tinta); }
+    input, select { caret-color: var(--acento); }
+    :focus-visible { outline: 3px solid var(--acento-vivo); outline-offset: 2px; }
+
+    /* Portada: la boleta de sueldo. El 7% es el sello de la marca. */
+    .portada { position: relative; overflow: hidden; background: var(--tinta); color: #F4F7F8; border-radius: 16px; padding: 30px 24px 28px; margin: 18px 0 22px; isolation: isolate; }
+    .portada h1 { color: #F4F7F8; font-size: clamp(2.1rem, 7.6vw, 3.4rem); line-height: 1.02; letter-spacing: -.035em; font-weight: 800; max-width: 12ch; margin: 0 0 14px; text-wrap: balance; }
+    .portada .subtitulo { color: #C9D6DC; max-width: 34ch; margin: 0; }
+    .portada .subtitulo strong { color: #FFFFFF; }
+    .sello { position: absolute; z-index: -1; right: -.12em; bottom: -.28em; font: 800 clamp(9rem, 44vw, 15rem)/1 var(--display); letter-spacing: -.06em; color: #1E5F5A; pointer-events: none; user-select: none; }
+
+    .volver { display: inline-block; margin-top: 12px; padding: 10px 0; background: none; border: 0; color: var(--acento); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .boton-wa { background: var(--wsp); }
+    .boton-wa:hover:not(:disabled) { background: var(--wsp-osc); }
+    .resultado-cabecera .monto { font-size: clamp(2.8rem, 12vw, 4rem); letter-spacing: -.04em; line-height: 1; }
+
+    /* Datos de confianza como filas, no como tarjetas. */
+    .confianza { display: block; }
+    .confianza > div { background: none; border: 0; border-top: 1px solid var(--linea); border-radius: 0; padding: 14px 0; box-shadow: none; }
+    .confianza > div:hover { transform: none; }
+    .gracias-caja .tic svg { width: 28px; height: 28px; }
 
     .camino { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
     .camino::before { content: ""; position: absolute; left: 0; right: calc(33% - 18px); top: 7px; height: 1px; background: var(--linea); }
@@ -44,7 +66,7 @@
         .js .rv { opacity: 0; translate: 0 22px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
         .js .rv.vista { opacity: 1; translate: none; transition-delay: calc(var(--i, 0) * 80ms); }
     }
-    @media (prefers-reduced-motion: reduce) { .franja-pista { animation: none; } .luz { display: none; } .js .paso-c { opacity: 1; } .paso-c::before { background: var(--acento); border-color: var(--acento); } }
+    @media (prefers-reduced-motion: reduce) { .luz { display: none; } .js .paso-c { opacity: 1; } .paso-c::before { background: var(--acento); border-color: var(--acento); } }
 </style>
 </head>
 <body>
@@ -61,23 +83,9 @@
 <main class="contenedor">
 
     <section class="portada">
-        <h1>Ese 7% te lo descuentan igual. ¿Sabes cuánto es?</h1>
-        <p class="subtitulo">Todos los meses se va el <strong>7% de tu sueldo</strong> en salud, tengas el plan que tengas. Calcula en 30 segundos cuánto es en pesos — <strong>sin dar tu nombre ni tu teléfono</strong>: el resultado es inmediato.</p>
-    </section>
-
-    <div class="franja" aria-hidden="true"><div class="franja-pista">
-        <span>Tu 7% en pesos</span><span>Gratis</span><span>Isapre o Fonasa</span><span>Ejecutivos registrados</span><span>Sin compromiso</span><span>En 30 segundos</span>
-        <span>Tu 7% en pesos</span><span>Gratis</span><span>Isapre o Fonasa</span><span>Ejecutivos registrados</span><span>Sin compromiso</span><span>En 30 segundos</span>
-    </div></div>
-
-    <section class="tarjeta rv">
-        <h2>Así funciona</h2>
-        <div class="camino" id="camino">
-            <span class="luz" aria-hidden="true"></span>
-            <div class="paso-c" style="--i:0"><span class="n">01</span><strong>Calculas tu 7%</strong></div>
-            <div class="paso-c" style="--i:1"><span class="n">02</span><strong>Dejas tu WhatsApp, si quieres</strong></div>
-            <div class="paso-c" style="--i:2"><span class="n">03</span><strong>Te contacta un ejecutivo registrado</strong></div>
-        </div>
+        <div class="sello" aria-hidden="true">7%</div>
+        <h1>Tu 7% ya está pagado. Descubre cuánto vale.</h1>
+        <p class="subtitulo">Cada mes aportas el <strong>7% de tu sueldo</strong> a tu salud. Mira cuánto es en pesos en 30 segundos y conversa con un ejecutivo registrado cuando tú quieras.</p>
     </section>
 
     <!-- ============ PASO 1 ============ -->
@@ -90,15 +98,15 @@
         <div class="opciones">
             <button type="button" class="opcion" data-prevision="Isapre">
                 <strong>Tengo isapre</strong>
-                <span>Quiero calcular mi 7% y lo que pago de más</span>
+                <span>Quiero calcular mi 7% y lo que pongo aparte</span>
             </button>
             <button type="button" class="opcion" data-prevision="Fonasa">
                 <strong>Estoy en Fonasa</strong>
                 <span>Quiero calcular mi 7% en pesos</span>
             </button>
             <button type="button" class="opcion" data-prevision="No sé">
-                <strong>No estoy seguro</strong>
-                <span>No sé bien dónde estoy hoy</span>
+                <strong>Quiero ver mi número</strong>
+                <span>Calcular mi 7% de inmediato</span>
             </button>
         </div>
     </section>
@@ -113,9 +121,9 @@
         <form id="form-paso-2" novalidate>
             <div class="campo">
                 <label for="renta">Tu sueldo líquido mensual
-                    <span class="ayuda">Lo que te llega a la cuenta. Lo usamos solo para calcular tu 7% en tu propio equipo. No se envía a nadie.</span>
+                    <span class="ayuda">Lo que te llega a la cuenta. El cálculo se hace en tu teléfono y este dato se queda contigo.</span>
                 </label>
-                <input type="number" id="renta" name="renta" inputmode="numeric" min="0" step="10000" placeholder="Ej: 750000" required>
+                <input type="text" id="renta" name="renta" inputmode="numeric" autocomplete="off" placeholder="Ej: 750.000" required>
             </div>
 
             <div class="campo" id="campo-tipo-sueldo">
@@ -130,10 +138,11 @@
                 <label for="pago-actual">¿Cuánto pagas hoy por tu plan?
                     <span class="ayuda">El total mensual, incluyendo lo que te descuentan.</span>
                 </label>
-                <input type="number" id="pago-actual" name="pago-actual" inputmode="numeric" min="0" step="5000" placeholder="Ej: 120000">
+                <input type="text" id="pago-actual" name="pago-actual" inputmode="numeric" autocomplete="off" placeholder="Ej: 120.000">
             </div>
 
             <button type="submit" class="boton">Continuar</button>
+            <button type="button" class="volver" data-volver="paso-1">Volver</button>
         </form>
     </section>
 
@@ -163,6 +172,7 @@
             </div>
 
             <button type="submit" class="boton">Ver mi resultado</button>
+            <button type="button" class="volver" data-volver="paso-2">Volver</button>
         </form>
     </section>
 
@@ -183,14 +193,14 @@
         </ul>
 
         <p class="referencial" id="res-nota"></p>
-        <a class="boton boton-enlace" href="#tarjeta-contacto">Quiero mis opciones</a>
+        <a class="boton boton-wa boton-enlace" href="#tarjeta-contacto">Que me escriban por WhatsApp</a>
     </section>
 
     <!-- ============ CAPTURA ============ -->
     <section class="tarjeta" id="tarjeta-contacto" hidden>
         <h2 id="titulo-oferta">Te contacta un ejecutivo registrado</h2>
-        <p class="ayuda-bloque">Un ejecutivo de ventas inscrito en la Superintendencia de Salud revisa tu caso contigo por WhatsApp. Gratis, y no tienes que contratar nada.</p>
-        <p class="aviso-datos">Recién ahora te pedimos tus datos, solo para que el ejecutivo te contacte.</p>
+        <p class="ayuda-bloque">Un ejecutivo inscrito en la Superintendencia de Salud conversa contigo por WhatsApp, a tu ritmo. Para ti es gratis.</p>
+        <p class="aviso-datos">Solo tu nombre y tu WhatsApp, para que tu ejecutivo te escriba.</p>
 
         <form id="form-contacto" novalidate>
             <!-- Señuelo anti-spam: invisible para personas. NO borrar. -->
@@ -204,7 +214,7 @@
             <div class="campo">
                 <label for="isapre-interes">¿Con qué isapre te gustaría cotizar? <span class="ayuda">Opcional.</span></label>
                 <select id="isapre-interes" name="isapre-interes">
-                    <option value="Me da igual">Me da igual / no sé</option>
+                    <option value="Me da igual">Me da igual (te asignamos un ejecutivo disponible)</option>
                     <option value="Banmédica">Banmédica</option>
                     <option value="Colmena">Colmena</option>
                     <option value="Consalud">Consalud</option>
@@ -231,37 +241,47 @@
             </div>
 
             <p class="aviso-casillas" id="aviso-casillas">Marca la casilla obligatoria para poder enviar.</p>
-            <button type="submit" class="boton" id="boton-enviar" disabled>Quiero que me contacten</button>
-            <p class="micro-copia">Tu ejecutivo te escribe por WhatsApp en horario hábil, normalmente dentro de 24 horas hábiles. Si no te interesa, lo dices y listo.</p>
+            <button type="submit" class="boton boton-wa" id="boton-enviar" disabled>Que me escriban por WhatsApp</button>
+            <p class="micro-copia">Tu ejecutivo te escribe por WhatsApp en horario hábil, normalmente dentro de 24 horas hábiles.</p>
         </form>
     </section>
 
     <!-- ============ GRACIAS ============ -->
     <section class="tarjeta gracias-caja" id="gracias" hidden>
-        <div class="tic" aria-hidden="true">✓</div>
+        <div class="tic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
         <h2>Listo, recibimos tu solicitud</h2>
         <p id="gracias-texto">Un ejecutivo registrado te va a escribir por WhatsApp, normalmente dentro de 24 horas hábiles.</p>
         <p id="gracias-ejecutivo" hidden><a class="boton boton-enlace" id="gracias-pagina" href="#">Conoce a tu ejecutiva</a></p>
     </section>
 
-    <div class="confianza">
-        <div class="rv" style="--i:0"><strong>No te cuesta nada</strong>Ni la calculadora ni el contacto: a ti nunca te cobramos. El ejecutivo le paga a El Planeador por cada contacto.</div>
-        <div class="rv" style="--i:1"><strong>Sin compromiso</strong>Conversas con el ejecutivo y decides. Si no te interesa, no pasa nada.</div>
-        <div class="rv" style="--i:2"><strong>Ejecutivos registrados</strong>Solo te contacta un ejecutivo inscrito en la Superintendencia de Salud.</div>
-    </div>
-
-    <section class="tarjeta rv" id="isapre-o-fonasa">
-        <h2>¿Isapre o Fonasa? Cómo funciona cada uno</h2>
-        <p class="ayuda-bloque">Información general. Nosotros no asesoramos: cuál te sirve a ti lo revisa contigo un ejecutivo registrado.</p>
-        <div class="confianza">
-            <div class="rv" style="--i:0"><strong>Fonasa</strong>Pagas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
-            <div class="rv" style="--i:1"><strong>Isapre</strong>Contratas un plan. Su precio depende del plan y de la edad y el número de personas que cubre; si cuesta más que tu 7%, la diferencia la pones tú.</div>
-            <div class="rv" style="--i:2"><strong>Lo que conviene saber</strong>Tu edad, tus cargas y cuánto ganas cambian qué te sirve. Por eso cada caso se revisa por separado, con un ejecutivo.</div>
+    <section class="tarjeta">
+        <h2>Así funciona</h2>
+        <div class="camino" id="camino">
+            <span class="luz" aria-hidden="true"></span>
+            <div class="paso-c" style="--i:0"><strong>Calculas tu 7%</strong></div>
+            <div class="paso-c" style="--i:1"><strong>Dejas tu WhatsApp, si quieres</strong></div>
+            <div class="paso-c" style="--i:2"><strong>Te contacta un ejecutivo registrado</strong></div>
         </div>
     </section>
 
-    <section class="tarjeta rv" id="problemas">
-        <h2>Lo que más le pasa a la gente</h2>
+    <div class="confianza">
+        <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo.</div>
+        <div><strong>Tú decides</strong>Conversas, preguntas y eliges a tu ritmo.</div>
+        <div><strong>Ejecutivos registrados</strong>Te atiende un ejecutivo inscrito en la Superintendencia de Salud.</div>
+    </div>
+
+    <section class="tarjeta" id="isapre-o-fonasa">
+        <h2>Isapre y Fonasa, en simple</h2>
+        <p class="ayuda-bloque">Lo esencial de cada sistema. Cuál calza contigo lo conversas con un ejecutivo registrado.</p>
+        <div class="confianza">
+            <div><strong>Fonasa</strong>Pagas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
+            <div><strong>Isapre</strong>Contratas un plan. Su precio depende del plan y de la edad y el número de personas que cubre; si cuesta más que tu 7%, la diferencia la pones tú.</div>
+            <div><strong>Tu caso es único</strong>Tu edad, tus cargas y tu sueldo cambian lo que te sirve. Por eso cada caso se mira por separado.</div>
+        </div>
+    </section>
+
+    <section class="tarjeta" id="problemas">
+        <h2>Las preguntas de siempre</h2>
         <ul style="margin:0;padding-left:20px;line-height:1.9;">
             <li><strong>Pago más que mi 7% y no sé por qué.</strong> Lo que pones de tu bolsillo es la diferencia entre el precio de tu plan y tu 7%. Calcúlalo arriba.</li>
             <li><strong>Mi plan sube todos los años.</strong> Los precios de los planes se ajustan cada año. Revisarlo de vez en cuando no cuesta nada.</li>
@@ -278,7 +298,7 @@
         <ul style="margin:0;padding-left:20px;line-height:1.9;">
             <li><a href="articulos/licencia-medica-rechazada.html">Me rechazaron la licencia médica: qué hacer y cuántos días tengo</a></li>
             <li><a href="articulos/cuando-puedo-cambiarme-de-isapre.html">¿Cuándo me puedo cambiar de isapre? Los 12 meses explicados</a></li>
-            <li><a href="articulos/index.html">Ver todas las guías →</a></li>
+            <li><a href="articulos/index.html">Ver todas las guías</a></li>
         </ul>
     </section>
 
@@ -286,7 +306,7 @@
 
 <footer class="contenedor">
     <p><strong>Sobre el cálculo:</strong> el 7% de cotización y el tope imponible son los que fija la ley, y ese número es exacto. Los valores de plan son referenciales y sirven para orientar: el precio real depende de la isapre, del plan y de la tabla de factores de cada persona.</p>
-    <p>El Planeador es una agencia de marketing digital: no es una isapre, no vende planes y no asesora. Te pone en contacto con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te dice a qué isapre representa. Tus datos se tratan conforme a la Ley 19.628. <a href="privacidad/">Política de privacidad</a>.</p>
+    <p>El Planeador es una agencia de marketing digital: no es una isapre, no vende planes y no asesora. Recibe un pago del ejecutivo por cada contacto; para ti es gratis. Te pone en contacto con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te dice a qué isapre representa. Tus datos se tratan conforme a la Ley 19.628. <a href="privacidad/">Política de privacidad</a>.</p>
     <p>El Planeador · BTo Innova SpA · RUT 78.533.592-9 · Ñuñoa, Región Metropolitana · contacto@elplaneador.cl · by BTo Innova soluciones</p>
 </footer>
 
@@ -360,6 +380,21 @@
         return EJECUTIVOS[interes] || null;
     }
 
+    function soloNumero(v) { return Number(String(v || '').replace(/\D/g, '')); }
+    ['renta', 'pago-actual'].forEach(function (id) {
+        var campo = document.getElementById(id);
+        campo.addEventListener('input', function () {
+            var n = soloNumero(campo.value);
+            campo.value = n ? n.toLocaleString('es-CL') : '';
+        });
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-volver]'), function (b) {
+        b.addEventListener('click', function () {
+            b.closest('section').hidden = true;
+            irA(document.getElementById(b.getAttribute('data-volver')));
+        });
+    });
+
     var respuestas = { prevision: '', renta: 0, tipoSueldo: 'liquido', pagoActual: 0, edad: '', cargas: 0 };
     var ultimoCalculo = null;
     var analisisPago = null;
@@ -412,7 +447,7 @@
                 : 'Tu sueldo';
             document.getElementById('ayuda-paso-2').textContent = tieneIsapre
                 ? 'Con esto vemos cuánto de tu plan lo cubre la ley y cuánto lo pones tú.'
-                : 'Con esto calculamos a qué plan podrías acceder sin poner nada extra.';
+                : 'Con esto calculamos cuánto aportas hoy en pesos.';
 
             paso1.hidden = true;
             irA(paso2);
@@ -423,7 +458,7 @@
     document.getElementById('form-paso-2').addEventListener('submit', function (evento) {
         evento.preventDefault();
 
-        var renta = Number(document.getElementById('renta').value);
+        var renta = soloNumero(document.getElementById('renta').value);
         if (!renta || renta < 1) {
             mostrarError(document.getElementById('renta'), 'Escribe tu sueldo para calcular tu 7%.');
             return;
@@ -431,7 +466,7 @@
 
         respuestas.renta = renta;
         respuestas.tipoSueldo = document.getElementById('tipo-sueldo').value;
-        respuestas.pagoActual = Number(document.getElementById('pago-actual').value) || 0;
+        respuestas.pagoActual = soloNumero(document.getElementById('pago-actual').value) || 0;
 
         paso2.hidden = true;
         irA(paso3);
@@ -482,7 +517,7 @@
 
             veredicto.className = 'veredicto justo';
             veredicto.innerHTML = '<strong>Ese es tu número.</strong>'
-                + 'Si quieres, un ejecutivo registrado revisa tu caso contigo.';
+                + 'Un ejecutivo registrado puede revisarlo contigo cuando quieras.';
         } else {
             // NO TIENE ISAPRE: el titular es a cuánto accede con lo que ya
             // le descuentan. Nunca se le dice "no te alcanza".
@@ -492,7 +527,7 @@
 
             veredicto.className = 'veredicto justo';
             veredicto.innerHTML = '<strong>Ese es tu número.</strong>'
-                + 'Si quieres, un ejecutivo registrado revisa contigo qué opciones tienes.';
+                + 'Un ejecutivo registrado puede mostrarte qué hacer con él cuando quieras.';
         }
 
         var nota = 'Calculado con la UF de hoy ($' + Math.round(r.uf).toLocaleString('es-CL') + ').';
