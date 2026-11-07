@@ -38,6 +38,14 @@
     .confianza > div { background: none; border: 0; border-top: 1px solid var(--linea); border-radius: 0; padding: 14px 0; box-shadow: none; }
     .confianza > div:hover { transform: none; }
     .gracias-caja .tic svg { width: 28px; height: 28px; }
+    .portada .acciones { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-top: 22px; }
+    .boton-claro { display: inline-block; width: auto; background: #F4F7F8; color: var(--tinta); padding: 14px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; }
+    .boton-claro:hover { background: #FFFFFF; }
+    .portada .acciones a.enlace { color: #C9D6DC; font-weight: 600; text-underline-offset: 3px; }
+    .relato h2 { font-size: clamp(1.45rem, 5.4vw, 1.9rem); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 10px; }
+    .relato > p { margin: 0 0 14px; }
+    .relato .confianza > div:first-child { border-top: 0; padding-top: 4px; }
+    .relato .cifra { font: 800 2.2rem/1 var(--display); letter-spacing: -.03em; color: var(--acento); display: block; margin-bottom: 4px; }
 
     .camino { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
     .camino::before { content: ""; position: absolute; left: 0; right: calc(33% - 18px); top: 7px; height: 1px; background: var(--linea); }
@@ -86,6 +94,54 @@
         <div class="sello" aria-hidden="true">7%</div>
         <h1>Tu 7% ya está pagado. Descubre cuánto vale.</h1>
         <p class="subtitulo">Cada mes aportas el <strong>7% de tu sueldo</strong> a tu salud. Mira cuánto es en pesos en 30 segundos y conversa con un ejecutivo registrado cuando tú quieras.</p>
+        <div class="acciones">
+            <a class="boton-claro" href="#paso-1">Calcular mi 7%</a>
+            <a class="enlace" href="#que-es">¿Qué es El Planeador Salud?</a>
+        </div>
+    </section>
+
+    <section class="tarjeta relato" id="que-es">
+        <h2>Qué es El Planeador Salud</h2>
+        <p>Es el punto de partida para revisar tu salud con calma. Te mostramos cuánto es tu 7% en pesos y, si quieres ir más allá, te ponemos en contacto con un ejecutivo de ventas inscrito en la Superintendencia de Salud, que te orienta en tu caso. Para ti es gratis.</p>
+        <p>El Planeador es una agencia de marketing digital chilena, parte de BTo Innova soluciones.</p>
+    </section>
+
+    <section class="tarjeta relato" id="por-que">
+        <h2>¿Por qué revisar tu sistema de salud?</h2>
+        <div class="confianza">
+            <div><strong>Tu plan cambia cada año</strong>Si tienes isapre, el precio de tu plan se ajusta cada año. Muchas personas siguen con el plan que eligieron hace tiempo, sin volver a mirarlo.</div>
+            <div><strong>Tu vida también cambia</strong>Un hijo, un nuevo trabajo, otro sueldo o más años: lo que te servía antes puede no ser lo que necesitas hoy.</div>
+            <div><strong>Y la letra chica no es fácil</strong>Topes, coberturas, copagos y redes de clínicas cuestan de leer solo. Con alguien que te lo explique, decides mejor.</div>
+        </div>
+    </section>
+
+    <section class="tarjeta relato" id="mercado">
+        <h2>Lo que hay hoy en Chile</h2>
+        <div class="confianza">
+            <div><span class="cifra">Fonasa</span>El sistema público. Aportas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
+            <div><span class="cifra">7 isapres</span>Abiertas a todo público, con miles de planes distintos: cada uno con su precio, su red de clínicas y sus topes. El precio depende del plan, de la edad y de cuántas personas cubre.</div>
+            <div><span class="cifra">Seguros complementarios</span>Se suman a Fonasa o a una isapre para cubrir parte de lo que tu plan no cubre.</div>
+        </div>
+        <p class="ayuda-bloque" style="margin:14px 0 0">Cuál calza contigo depende de tu edad, tus cargas y tu sueldo. Por eso cada caso se mira por separado.</p>
+    </section>
+
+    <section class="tarjeta relato" id="confianza">
+        <h2>Con quién vas a hablar</h2>
+        <div class="confianza">
+            <div><strong>Una persona, no un call center</strong>Te atiende un ejecutivo inscrito en el Registro de Agentes de Ventas de la Superintendencia de Salud, que te dice desde el primer mensaje a qué isapre representa.</div>
+            <div><strong>Solo si tú lo pides</strong>Te escribe únicamente quien tú autorizas, por WhatsApp, en horario hábil.</div>
+            <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo. Tú decides a tu ritmo.</div>
+        </div>
+    </section>
+
+    <section class="tarjeta relato">
+        <h2>Empieza por tu número</h2>
+        <div class="camino" id="camino">
+            <span class="luz" aria-hidden="true"></span>
+            <div class="paso-c" style="--i:0"><strong>Calculas tu 7%</strong></div>
+            <div class="paso-c" style="--i:1"><strong>Dejas tu WhatsApp, si quieres</strong></div>
+            <div class="paso-c" style="--i:2"><strong>Un ejecutivo registrado te orienta</strong></div>
+        </div>
     </section>
 
     <!-- ============ PASO 1 ============ -->
@@ -198,8 +254,8 @@
 
     <!-- ============ CAPTURA ============ -->
     <section class="tarjeta" id="tarjeta-contacto" hidden>
-        <h2 id="titulo-oferta">Te contacta un ejecutivo registrado</h2>
-        <p class="ayuda-bloque">Un ejecutivo inscrito en la Superintendencia de Salud conversa contigo por WhatsApp, a tu ritmo. Para ti es gratis.</p>
+        <h2 id="titulo-oferta">¿Conversamos tu caso?</h2>
+        <p class="ayuda-bloque">Deja tu WhatsApp y recibe la orientación de un ejecutivo inscrito en la Superintendencia de Salud, a tu ritmo. Para ti es gratis.</p>
         <p class="aviso-datos">Solo tu nombre y tu WhatsApp, para que tu ejecutivo te escriba.</p>
 
         <form id="form-contacto" novalidate>
@@ -252,32 +308,6 @@
         <h2>Listo, recibimos tu solicitud</h2>
         <p id="gracias-texto">Un ejecutivo registrado te va a escribir por WhatsApp, normalmente dentro de 24 horas hábiles.</p>
         <p id="gracias-ejecutivo" hidden><a class="boton boton-enlace" id="gracias-pagina" href="#">Conoce a tu ejecutiva</a></p>
-    </section>
-
-    <section class="tarjeta">
-        <h2>Así funciona</h2>
-        <div class="camino" id="camino">
-            <span class="luz" aria-hidden="true"></span>
-            <div class="paso-c" style="--i:0"><strong>Calculas tu 7%</strong></div>
-            <div class="paso-c" style="--i:1"><strong>Dejas tu WhatsApp, si quieres</strong></div>
-            <div class="paso-c" style="--i:2"><strong>Te contacta un ejecutivo registrado</strong></div>
-        </div>
-    </section>
-
-    <div class="confianza">
-        <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo.</div>
-        <div><strong>Tú decides</strong>Conversas, preguntas y eliges a tu ritmo.</div>
-        <div><strong>Ejecutivos registrados</strong>Te atiende un ejecutivo inscrito en la Superintendencia de Salud.</div>
-    </div>
-
-    <section class="tarjeta" id="isapre-o-fonasa">
-        <h2>Isapre y Fonasa, en simple</h2>
-        <p class="ayuda-bloque">Lo esencial de cada sistema. Cuál calza contigo lo conversas con un ejecutivo registrado.</p>
-        <div class="confianza">
-            <div><strong>Fonasa</strong>Pagas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
-            <div><strong>Isapre</strong>Contratas un plan. Su precio depende del plan y de la edad y el número de personas que cubre; si cuesta más que tu 7%, la diferencia la pones tú.</div>
-            <div><strong>Tu caso es único</strong>Tu edad, tus cargas y tu sueldo cambian lo que te sirve. Por eso cada caso se mira por separado.</div>
-        </div>
     </section>
 
     <section class="tarjeta" id="problemas">
@@ -541,7 +571,7 @@
         document.getElementById('res-nota').textContent = nota;
 
         // La oferta se adapta a lo que la persona acaba de ver.
-        document.getElementById('titulo-oferta').textContent = 'Te contacta un ejecutivo registrado';
+        document.getElementById('titulo-oferta').textContent = '¿Conversamos tu caso?';
     }
 
     /* ---------- Consentimientos ---------- */
