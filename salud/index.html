@@ -41,6 +41,17 @@
     .foto-relato img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.08); transition: transform 1.6s var(--ease); }
     .vista .foto-relato img, .foto-relato.vista img { transform: scale(1); }
     .relato h2 { position: relative; }
+    /* Tarjetas cortas: se escanean como historias en el celular. */
+    .tarjetas { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 6px -22px 0; padding: 4px 22px 14px; scrollbar-width: none; }
+    .tarjetas::-webkit-scrollbar { display: none; }
+    .tarjetas > div { scroll-snap-align: start; background: #F6EFE6; border-radius: 14px; padding: 18px 16px; line-height: 1.45; }
+    .tarjetas strong, .tarjetas .cifra { display: block; margin-bottom: 6px; }
+    .tarjetas strong { font-family: var(--display); font-size: 1.15rem; line-height: 1.2; }
+    .tarjetas .cifra { font-size: 1.7rem; }
+    .desliza { font-size: 13px; color: var(--tinta-suave); margin: 2px 0 0; }
+    @media (min-width: 620px) { .tarjetas { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); grid-auto-columns: auto; overflow: visible; margin: 6px 0 0; padding: 4px 0 0; } .desliza { display: none; } }
+    .confianza-boton { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: var(--tinta-suave); margin: 10px 0 0; text-align: center; }
+    .confianza-boton svg { width: 16px; height: 16px; flex: none; color: var(--wsp); }
 
     .volver { display: inline-block; margin-top: 12px; padding: 10px 0; background: none; border: 0; color: var(--acento); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
     .boton-wa { background: var(--wsp); }
@@ -114,46 +125,48 @@
         <div class="foto" aria-hidden="true"><img id="foto-portada" src="img/papa-hijo-campo.jpg" alt="" width="1080" height="1664" fetchpriority="high"></div>
         <div class="sello" aria-hidden="true"><b>7%</b> de tu sueldo, cada mes</div>
         <h1>Tu 7% de salud no es solo para ti. También es para tu familia.</h1>
-        <p class="subtitulo">Tu descuento de salud se aplica mes a mes y puede cubrir también a tus cargas. Descubre cuánto es en pesos en 30 segundos y, cuando quieras, conversa con un ejecutivo registrado que te orienta en tu caso.</p>
+        <p class="subtitulo">Ese descuento se aplica todos los meses y también puede cubrir a tus cargas. Calcula cuánto es en pesos en 30 segundos y, cuando quieras, recibe orientación de un ejecutivo registrado.</p>
         <div class="acciones">
-            <a class="boton-claro" href="#paso-1">Calcular mi 7%</a>
+            <a class="boton-claro" href="#paso-1">Calcular mi 7% gratis</a>
             <a class="enlace" href="#que-es">¿Qué es El Planeador Salud?</a>
         </div>
     </section>
 
     <section class="tarjeta relato rv" id="que-es">
         <h2>Qué es El Planeador Salud</h2>
-        <p>Es el punto de partida para revisar tu salud con calma. Te mostramos cuánto es tu 7% en pesos y, si quieres ir más allá, te ponemos en contacto con un ejecutivo de ventas inscrito en la Superintendencia de Salud, que te orienta en tu caso. Para ti es gratis.</p>
-        <p>El Planeador es una agencia de marketing digital chilena.</p>
+        <p>El punto de partida para tomar el control de tu salud. Calculas tu 7% en pesos en segundos y, si quieres ir más allá, te conectamos con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te orienta en tu caso. Sin costo para ti.</p>
+        <p>El Planeador es una agencia chilena de marketing digital.</p>
     </section>
 
     <section class="tarjeta relato rv" id="por-que">
         <figure class="foto-relato"><img src="img/mama-hija.jpg" alt="Una mamá y su hija se abrazan sonriendo." loading="lazy" width="1080" height="720" style="object-position:50% 35%"></figure>
-        <h2>¿Por qué revisar tu sistema de salud?</h2>
-        <div class="confianza">
-            <div><strong>Tu plan cambia cada año</strong>Si tienes isapre, el precio de tu plan se ajusta cada año. Muchas personas siguen con el plan que eligieron hace tiempo, sin volver a mirarlo.</div>
-            <div><strong>Tu vida también cambia</strong>Un hijo, un nuevo trabajo, otro sueldo o más años: lo que te servía antes puede no ser lo que necesitas hoy.</div>
-            <div><strong>Y la letra chica no es fácil</strong>Topes, coberturas, copagos y redes de clínicas cuestan de leer solo. Con alguien que te lo explique, decides mejor.</div>
+        <h2>¿Por qué revisar hoy tu salud?</h2>
+        <div class="tarjetas">
+            <div><strong>Tu plan cambia cada año</strong>Si tienes isapre, su precio se ajusta todos los años.</div>
+            <div><strong>Tu vida también cambia</strong>Un hijo, un nuevo trabajo o un nuevo sueldo cambian lo que necesitas.</div>
+            <div><strong>La letra chica no es fácil</strong>Topes, copagos y redes de clínicas se entienden mejor con alguien que te los explique.</div>
         </div>
+        <p class="desliza">Desliza para ver más</p>
     </section>
 
     <section class="tarjeta relato rv" id="mercado">
         <h2>Lo que hay hoy en Chile</h2>
-        <div class="confianza">
-            <div><span class="cifra">Fonasa</span>El sistema público. Aportas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
-            <div><span class="cifra">7 isapres</span>Abiertas a todo público, con miles de planes distintos: cada uno con su precio, su red de clínicas y sus topes. El precio depende del plan, de la edad y de cuántas personas cubre.</div>
-            <div><span class="cifra">Seguros complementarios</span>Se suman a Fonasa o a una isapre para cubrir parte de lo que tu plan no cubre.</div>
+        <div class="tarjetas">
+            <div><span class="cifra">Fonasa</span>El sistema público: aportas tu 7%, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas.</div>
+            <div><span class="cifra">7 isapres</span>Miles de planes, cada uno con su precio, su red de clínicas y sus topes.</div>
+            <div><span class="cifra">Seguros complementarios</span>Se suman a Fonasa o a tu isapre para cubrir parte de lo que tu plan no cubre.</div>
         </div>
-        <p class="ayuda-bloque" style="margin:14px 0 0">Cuál calza contigo depende de tu edad, tus cargas y tu sueldo. Por eso cada caso se mira por separado.</p>
+        <p class="desliza">Desliza para ver más</p>
+        <p class="ayuda-bloque" style="margin:14px 0 0">Lo que calza contigo depende de tu edad, tus cargas y tu sueldo. Por eso cada caso se revisa por separado.</p>
     </section>
 
     <section class="tarjeta relato rv" id="confianza">
         <figure class="foto-relato"><img src="img/mama-hijo-sofa.jpg" alt="Una mamá abraza a su hijo en el sofá de su casa." loading="lazy" width="1080" height="681"></figure>
         <h2>Con quién vas a hablar</h2>
         <div class="confianza">
-            <div><strong>Una persona, no un call center</strong>Te atiende un ejecutivo inscrito en el Registro de Agentes de Ventas de la Superintendencia de Salud, que te dice desde el primer mensaje a qué isapre representa.</div>
-            <div><strong>Solo si tú lo pides</strong>Te escribe únicamente quien tú autorizas, por WhatsApp, en horario hábil.</div>
-            <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo. Tú decides a tu ritmo.</div>
+            <div><strong>Una persona real, no un call center</strong>Un ejecutivo registrado en la Superintendencia de Salud, que te dice desde el primer mensaje a qué isapre representa.</div>
+            <div><strong>Tú pones el ritmo</strong>Te escribe solo si tú lo pides, por WhatsApp y en horario hábil.</div>
+            <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo.</div>
         </div>
     </section>
 
@@ -274,13 +287,14 @@
 
         <p class="referencial" id="res-nota"></p>
         <a class="boton boton-wa boton-enlace" href="#tarjeta-contacto">Que me escriban por WhatsApp</a>
+        <p class="confianza-boton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Te atiende una persona, por WhatsApp. Sin llamadas automáticas.</p>
     </section>
 
     <!-- ============ CAPTURA ============ -->
     <section class="tarjeta" id="tarjeta-contacto" hidden>
         <figure class="foto-relato vista"><img src="img/familia-campo.jpg" alt="Una pareja con su bebé en un campo al atardecer." loading="lazy" width="1080" height="720"></figure>
-        <h2 id="titulo-oferta">¿Conversamos tu caso?</h2>
-        <p class="ayuda-bloque">Deja tu WhatsApp y recibe la orientación de un ejecutivo inscrito en la Superintendencia de Salud, a tu ritmo. Para ti es gratis.</p>
+        <h2 id="titulo-oferta">Recibe orientación personalizada, gratis</h2>
+        <p class="ayuda-bloque">Deja tu WhatsApp y un ejecutivo registrado en la Superintendencia de Salud revisa tu caso contigo, a tu ritmo.</p>
         <p class="aviso-datos">Solo tu nombre y tu WhatsApp, para que tu ejecutivo te escriba.</p>
 
         <form id="form-contacto" novalidate>
@@ -323,7 +337,8 @@
 
             <p class="aviso-casillas" id="aviso-casillas">Marca la casilla obligatoria para poder enviar.</p>
             <button type="submit" class="boton boton-wa" id="boton-enviar" disabled>Que me escriban por WhatsApp</button>
-            <p class="micro-copia">Tu ejecutivo te escribe por WhatsApp en horario hábil, normalmente dentro de 24 horas hábiles.</p>
+            <p class="confianza-boton"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Te atiende una persona, por WhatsApp. Sin llamadas automáticas.</p>
+            <p class="micro-copia">Normalmente te escribe dentro de 24 horas hábiles.</p>
         </form>
     </section>
 
@@ -332,7 +347,7 @@
         <div class="tic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
         <h2>Listo, recibimos tu solicitud</h2>
         <p id="gracias-texto">Un ejecutivo registrado te va a escribir por WhatsApp, normalmente dentro de 24 horas hábiles.</p>
-        <p id="gracias-ejecutivo" hidden><a class="boton boton-enlace" id="gracias-pagina" href="#">Conoce a tu ejecutiva</a></p>
+        <p id="gracias-ejecutivo" hidden><a class="boton boton-wa boton-enlace" id="gracias-wsp" href="#" target="_blank" rel="noopener">Escribirle ahora por WhatsApp</a><a class="volver" id="gracias-pagina" href="#">Conoce a tu ejecutiva</a></p>
     </section>
 
     <section class="tarjeta" id="problemas">
@@ -451,7 +466,7 @@
        quién la atenderá. Con un solo ejecutivo por isapre, es ese. */
     var EJECUTIVOS = {
         'Banmédica': { nombre: 'Carol', cargo: 'ejecutiva de Banmédica',
-                       pagina: 'https://btoinnova.github.io/BANMEDICA/salud/banmedica/carol-jara/v2/' }
+                       pagina: 'https://btoinnova.github.io/BANMEDICA/salud/banmedica/carol-jara/v2/', whatsapp: '56923971471' }
     };
     var ISAPRE_POR_DEFECTO = 'Banmédica';
     function asignarEjecutivo(interes) {
@@ -620,7 +635,7 @@
         document.getElementById('res-nota').textContent = nota;
 
         // La oferta se adapta a lo que la persona acaba de ver.
-        document.getElementById('titulo-oferta').textContent = '¿Conversamos tu caso?';
+        document.getElementById('titulo-oferta').textContent = 'Recibe orientación personalizada, gratis';
     }
 
     /* ---------- Consentimientos ---------- */
@@ -682,6 +697,9 @@
                     + ', por WhatsApp, normalmente dentro de 24 horas hábiles.';
                 document.getElementById('gracias-pagina').href = ejecutivo.pagina;
                 document.getElementById('gracias-pagina').textContent = 'Conoce a ' + ejecutivo.nombre;
+                document.getElementById('gracias-wsp').href = 'https://wa.me/' + ejecutivo.whatsapp + '?text='
+                    + encodeURIComponent('Hola ' + ejecutivo.nombre + ', vengo de El Planeador y quiero entender qué opciones tengo con mi 7%.');
+                document.getElementById('gracias-wsp').textContent = 'Escribirle a ' + ejecutivo.nombre + ' por WhatsApp';
                 document.getElementById('gracias-ejecutivo').hidden = false;
             } else {
                 document.getElementById('gracias-texto').textContent = 'Todavía no trabajamos con ejecutivos de ' + interes
