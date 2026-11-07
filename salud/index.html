@@ -4,9 +4,48 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Tu 7% de salud está rindiendo lo que debería? — Revísalo gratis</title>
-<meta name="description" content="Ese 7% te lo descuentan igual todos los meses. Revisa gratis y en 30 segundos a qué plan de isapre podrías acceder con lo que ya pagas, y cuánto estás poniendo de tu bolsillo de más.">
+<title>¿Sabes cuánto es tu 7% de salud? — Calcúlalo gratis · El Planeador</title>
+<meta name="description" content="Ese 7% te lo descuentan igual todos los meses. Calcula gratis cuánto es en pesos y, si quieres, que te contacte un ejecutivo registrado en la Superintendencia de Salud.">
 <link rel="stylesheet" href="css/style.css?v=20261102b">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+    /* Efectos tomados de la portada de El Planeador (v4), con la paleta de Salud. */
+    :root { --ease: cubic-bezier(.2, .7, .2, 1); }
+    .franja { overflow: hidden; background: var(--tinta); color: #F4F7F8; margin: 0 0 28px; border-radius: var(--radio); }
+    .franja-pista { display: flex; width: max-content; padding: 14px 0; will-change: transform; animation: marcha 38s linear infinite; }
+    .franja-pista span { font-weight: 800; font-size: clamp(1.05rem, 2.6vw, 1.6rem); letter-spacing: -.02em; white-space: nowrap; padding-right: 2rem; }
+    .franja-pista span:nth-child(even) { color: #5EEAD4; }
+    @keyframes marcha { to { transform: translate3d(-50%, 0, 0); } }
+
+    .camino { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
+    .camino::before { content: ""; position: absolute; left: 0; right: calc(33% - 18px); top: 7px; height: 1px; background: var(--linea); }
+    .luz { position: absolute; top: 6px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, transparent, var(--acento), transparent); transform: translateX(-120px); opacity: 0; }
+    .camino.vista .luz { animation: pasa 2.4s linear .3s 1 forwards; }
+    @keyframes pasa { 0% { opacity: 1; transform: translateX(-120px); } 85% { opacity: 1; } 100% { opacity: 0; transform: translateX(var(--fin, 600px)); } }
+    .paso-c { position: relative; padding-top: 30px; transition: opacity .5s; }
+    .js .paso-c { opacity: .35; }
+    .paso-c::before { content: ""; position: absolute; top: 0; left: 0; width: 15px; height: 15px; background: var(--superficie); border: 1px solid var(--linea); border-radius: 50%; transition: background .4s, border-color .4s; }
+    .camino.vista .paso-c { opacity: 1; transition-delay: calc(var(--i) * .6s + .3s); }
+    .camino.vista .paso-c::before { background: var(--acento); border-color: var(--acento); transition-delay: calc(var(--i) * .6s + .3s); }
+    .paso-c .n { font: 600 12px/1 ui-monospace, Consolas, monospace; color: var(--acento); }
+    .paso-c strong { display: block; margin-top: 6px; line-height: 1.25; }
+    @media (max-width: 640px) { .camino { grid-template-columns: 1fr; } .camino::before { left: 7px; right: auto; width: 1px; top: 0; bottom: 0; height: auto; } .luz { display: none; } .paso-c { padding: 0 0 0 34px; } .paso-c::before { top: 2px; } }
+
+    .opcion, .confianza > div { transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s; }
+    .opcion:hover { transform: translateY(-3px); box-shadow: var(--sombra); border-color: var(--acento); }
+    .confianza > div:hover { transform: translateY(-3px); }
+    .monto { font-variant-numeric: tabular-nums; }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .js .portada h1 { opacity: 0; transform: translateY(18px); animation: sube .9s var(--ease) .1s forwards; }
+        .js .portada .subtitulo { opacity: 0; animation: aparece .9s var(--ease) .35s forwards; }
+        @keyframes sube { to { opacity: 1; transform: none; } }
+        @keyframes aparece { to { opacity: 1; } }
+        .js .rv { opacity: 0; translate: 0 22px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
+        .js .rv.vista { opacity: 1; translate: none; transition-delay: calc(var(--i, 0) * 80ms); }
+    }
+    @media (prefers-reduced-motion: reduce) { .franja-pista { animation: none; } .luz { display: none; } .js .paso-c { opacity: 1; } .paso-c::before { background: var(--acento); border-color: var(--acento); } }
+</style>
 </head>
 <body>
 
@@ -22,8 +61,23 @@
 <main class="contenedor">
 
     <section class="portada">
-        <h1>Ese 7% te lo descuentan igual. ¿Está rindiendo lo que debería?</h1>
-        <p class="subtitulo">Todos los meses se va el <strong>7% de tu sueldo</strong> en salud, tengas el plan que tengas. Revisa en 30 segundos a qué podrías acceder con esa misma plata — <strong>sin dar tu nombre ni tu teléfono</strong>: el resultado es inmediato.</p>
+        <h1>Ese 7% te lo descuentan igual. ¿Sabes cuánto es?</h1>
+        <p class="subtitulo">Todos los meses se va el <strong>7% de tu sueldo</strong> en salud, tengas el plan que tengas. Calcula en 30 segundos cuánto es en pesos — <strong>sin dar tu nombre ni tu teléfono</strong>: el resultado es inmediato.</p>
+    </section>
+
+    <div class="franja" aria-hidden="true"><div class="franja-pista">
+        <span>Tu 7% en pesos</span><span>Gratis</span><span>Isapre o Fonasa</span><span>Ejecutivos registrados</span><span>Sin compromiso</span><span>En 30 segundos</span>
+        <span>Tu 7% en pesos</span><span>Gratis</span><span>Isapre o Fonasa</span><span>Ejecutivos registrados</span><span>Sin compromiso</span><span>En 30 segundos</span>
+    </div></div>
+
+    <section class="tarjeta rv">
+        <h2>Así funciona</h2>
+        <div class="camino" id="camino">
+            <span class="luz" aria-hidden="true"></span>
+            <div class="paso-c" style="--i:0"><span class="n">01</span><strong>Calculas tu 7%</strong></div>
+            <div class="paso-c" style="--i:1"><span class="n">02</span><strong>Dejas tu WhatsApp, si quieres</strong></div>
+            <div class="paso-c" style="--i:2"><span class="n">03</span><strong>Te contacta un ejecutivo registrado</strong></div>
+        </div>
     </section>
 
     <!-- ============ PASO 1 ============ -->
@@ -36,11 +90,11 @@
         <div class="opciones">
             <button type="button" class="opcion" data-prevision="Isapre">
                 <strong>Tengo isapre</strong>
-                <span>Quiero saber si me conviene lo que pago</span>
+                <span>Quiero calcular mi 7% y lo que pago de más</span>
             </button>
             <button type="button" class="opcion" data-prevision="Fonasa">
                 <strong>Estoy en Fonasa</strong>
-                <span>Quiero ver si me alcanza para una isapre</span>
+                <span>Quiero calcular mi 7% en pesos</span>
             </button>
             <button type="button" class="opcion" data-prevision="No sé">
                 <strong>No estoy seguro</strong>
@@ -59,7 +113,7 @@
         <form id="form-paso-2" novalidate>
             <div class="campo">
                 <label for="renta">Tu sueldo líquido mensual
-                    <span class="ayuda">Lo que te llega a la cuenta. Lo usamos solo para calcular tu 7%; si después pides que te escriba un asesor, él también lo verá.</span>
+                    <span class="ayuda">Lo que te llega a la cuenta. Lo usamos solo para calcular tu 7% en tu propio equipo. No se envía a nadie.</span>
                 </label>
                 <input type="number" id="renta" name="renta" inputmode="numeric" min="0" step="10000" placeholder="Ej: 750000" required>
             </div>
@@ -134,9 +188,9 @@
 
     <!-- ============ CAPTURA ============ -->
     <section class="tarjeta" id="tarjeta-contacto" hidden>
-        <h2 id="titulo-oferta">Te mandamos opciones de planes para tu caso</h2>
-        <p class="ayuda-bloque">Con nombre de isapre, valor estimado y qué cubre cada una — para tu edad, tus cargas y tu presupuesto. Gratis, y no tienes que contratar nada.</p>
-        <p class="aviso-datos">Recién ahora te pedimos tus datos, solo para enviarte tus opciones.</p>
+        <h2 id="titulo-oferta">Te contacta un ejecutivo registrado</h2>
+        <p class="ayuda-bloque">Un ejecutivo de ventas inscrito en la Superintendencia de Salud revisa tu caso contigo por WhatsApp. Gratis, y no tienes que contratar nada.</p>
+        <p class="aviso-datos">Recién ahora te pedimos tus datos, solo para que el ejecutivo te contacte.</p>
 
         <form id="form-contacto" novalidate>
             <!-- Señuelo anti-spam: invisible para personas. NO borrar. -->
@@ -148,38 +202,75 @@
             </div>
 
             <div class="campo">
-                <label for="telefono">¿A qué WhatsApp te las mandamos?</label>
+                <label for="isapre-interes">¿Con qué isapre te gustaría cotizar? <span class="ayuda">Opcional.</span></label>
+                <select id="isapre-interes" name="isapre-interes">
+                    <option value="Me da igual">Me da igual / no sé</option>
+                    <option value="Banmédica">Banmédica</option>
+                    <option value="Colmena">Colmena</option>
+                    <option value="Consalud">Consalud</option>
+                    <option value="Cruz Blanca">Cruz Blanca</option>
+                    <option value="Esencial">Esencial</option>
+                    <option value="Nueva Masvida">Nueva Masvida</option>
+                    <option value="Vida Tres">Vida Tres</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="telefono">¿A qué WhatsApp te contactamos?</label>
                 <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="9 1234 5678" required>
             </div>
 
             <div class="consentimiento">
                 <input type="checkbox" id="consentimiento" name="consentimiento" required>
-                <label for="consentimiento">He leído y acepto la Política de Privacidad y autorizo que El Planeador guarde mis datos y los derive a un ejecutivo acreditado, para que me contacte por esta consulta.</label>
+                <label for="consentimiento">Acepto la <a href="privacidad/" target="_blank" rel="noopener">política de privacidad</a> y autorizo que El Planeador (BTo Innova SpA) guarde mis datos hasta 90 días y los entregue a un ejecutivo de ventas registrado en la Superintendencia de Salud que trabaja con El Planeador, para que me contacte. Si no me contacta en 24 horas hábiles, puede atenderme otro ejecutivo de la misma isapre. Si elijo una isapre con la que aún no trabajan, guardan mi solicitud hasta tener un ejecutivo, dentro de esos 90 días. Es voluntario y puedo pedir acceso, corrección o borrado en contacto@elplaneador.cl.</label>
             </div>
 
             <div class="consentimiento">
                 <input type="checkbox" id="consentimiento-comercial" name="consentimiento-comercial">
-                <label for="consentimiento-comercial"><strong>Opcional:</strong> quiero recibir información de otros planes y de otras aplicaciones del grupo BTo Innova. Puedo darme de baja cuando quiera.</label>
+                <label for="consentimiento-comercial"><strong>Opcional:</strong> quiero recibir novedades de El Planeador y de otras aplicaciones del grupo BTo Innova (por ejemplo, el aviso del alza anual). Puedo darme de baja cuando quiera.</label>
             </div>
 
             <p class="aviso-casillas" id="aviso-casillas">Marca la casilla obligatoria para poder enviar.</p>
-            <button type="submit" class="boton" id="boton-enviar" disabled>Quiero mis opciones por WhatsApp</button>
-            <p class="micro-copia">Un asesor te escribe por WhatsApp en horario hábil. Si no te sirve ninguna opción, lo dices y listo.</p>
+            <button type="submit" class="boton" id="boton-enviar" disabled>Quiero que me contacten</button>
+            <p class="micro-copia">Tu ejecutivo te escribe por WhatsApp en horario hábil, normalmente dentro de 24 horas hábiles. Si no te interesa, lo dices y listo.</p>
         </form>
     </section>
 
     <!-- ============ GRACIAS ============ -->
     <section class="tarjeta gracias-caja" id="gracias" hidden>
         <div class="tic" aria-hidden="true">✓</div>
-        <h2>Listo, ya vamos a buscarlos</h2>
-        <p>Un asesor te va a escribir por WhatsApp con las alternativas concretas para tu caso.</p>
+        <h2>Listo, recibimos tu solicitud</h2>
+        <p id="gracias-texto">Un ejecutivo registrado te va a escribir por WhatsApp, normalmente dentro de 24 horas hábiles.</p>
+        <p id="gracias-ejecutivo" hidden><a class="boton boton-enlace" id="gracias-pagina" href="#">Conoce a tu ejecutiva</a></p>
     </section>
 
     <div class="confianza">
-        <div><strong>No te cuesta nada</strong>Ni la revisión ni la asesoría. Nunca te cobramos a ti.</div>
-        <div><strong>Sin compromiso</strong>Ves las alternativas y decides. Si no te sirven, no pasa nada.</div>
-        <div><strong>Tus datos son tuyos</strong>Los usamos solo para contactarte por esto.</div>
+        <div class="rv" style="--i:0"><strong>No te cuesta nada</strong>Ni la calculadora ni el contacto: a ti nunca te cobramos. El ejecutivo le paga a El Planeador por cada contacto.</div>
+        <div class="rv" style="--i:1"><strong>Sin compromiso</strong>Conversas con el ejecutivo y decides. Si no te interesa, no pasa nada.</div>
+        <div class="rv" style="--i:2"><strong>Ejecutivos registrados</strong>Solo te contacta un ejecutivo inscrito en la Superintendencia de Salud.</div>
     </div>
+
+    <section class="tarjeta rv" id="isapre-o-fonasa">
+        <h2>¿Isapre o Fonasa? Cómo funciona cada uno</h2>
+        <p class="ayuda-bloque">Información general. Nosotros no asesoramos: cuál te sirve a ti lo revisa contigo un ejecutivo registrado.</p>
+        <div class="confianza">
+            <div class="rv" style="--i:0"><strong>Fonasa</strong>Pagas el 7% de tu sueldo, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas sin pagar más.</div>
+            <div class="rv" style="--i:1"><strong>Isapre</strong>Contratas un plan. Su precio depende del plan y de la edad y el número de personas que cubre; si cuesta más que tu 7%, la diferencia la pones tú.</div>
+            <div class="rv" style="--i:2"><strong>Lo que conviene saber</strong>Tu edad, tus cargas y cuánto ganas cambian qué te sirve. Por eso cada caso se revisa por separado, con un ejecutivo.</div>
+        </div>
+    </section>
+
+    <section class="tarjeta rv" id="problemas">
+        <h2>Lo que más le pasa a la gente</h2>
+        <ul style="margin:0;padding-left:20px;line-height:1.9;">
+            <li><strong>Pago más que mi 7% y no sé por qué.</strong> Lo que pones de tu bolsillo es la diferencia entre el precio de tu plan y tu 7%. Calcúlalo arriba.</li>
+            <li><strong>Mi plan sube todos los años.</strong> Los precios de los planes se ajustan cada año. Revisarlo de vez en cuando no cuesta nada.</li>
+            <li><strong>Estoy en Fonasa y quiero saber mis opciones.</strong> Calcula tu 7% y, si quieres, un ejecutivo registrado lo revisa contigo.</li>
+            <li><strong>Me rechazaron una licencia médica.</strong> Tienes plazos para reclamar. <a href="articulos/licencia-medica-rechazada.html">Te lo explicamos aquí</a>.</li>
+            <li><strong>¿Cuándo me puedo cambiar?</strong> Por decisión propia, después de 12 meses en tu isapre. <a href="articulos/cuando-puedo-cambiarme-de-isapre.html">Los detalles aquí</a>.</li>
+        </ul>
+        <a class="boton boton-enlace" href="#paso-1">Calcular mi 7%</a>
+    </section>
 
     <section class="tarjeta">
         <h2>Guías sin vendedor</h2>
@@ -195,10 +286,51 @@
 
 <footer class="contenedor">
     <p><strong>Sobre el cálculo:</strong> el 7% de cotización y el tope imponible son los que fija la ley, y ese número es exacto. Los valores de plan son referenciales y sirven para orientar: el precio real depende de la isapre, del plan y de la tabla de factores de cada persona.</p>
-    <p>Este sitio no es una isapre ni está afiliado a una. Te conectamos con asesores de salud que te explican alternativas y te dicen a qué isapre representan. Los datos que entregas se tratan conforme a la Ley 19.628 y la Ley 21.719.</p>
-    <p>El Planeador · Chile · by BTo Innova soluciones</p>
+    <p>El Planeador es una agencia de marketing digital: no es una isapre, no vende planes y no asesora. Te pone en contacto con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te dice a qué isapre representa. Tus datos se tratan conforme a la Ley 19.628. <a href="privacidad/">Política de privacidad</a>.</p>
+    <p>El Planeador · BTo Innova SpA · RUT 78.533.592-9 · Ñuñoa, Región Metropolitana · contacto@elplaneador.cl · by BTo Innova soluciones</p>
 </footer>
 
+<script>
+(function () {
+    'use strict';
+    var reducido = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var vistos = document.querySelectorAll('.rv, #camino');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vista'); io.unobserve(e.target); } });
+        }, { threshold: .15 });
+        vistos.forEach(function (el) { io.observe(el); });
+    } else { vistos.forEach(function (el) { el.classList.add('vista'); }); }
+
+    var camino = document.getElementById('camino');
+    function fin() { if (camino) camino.style.setProperty('--fin', Math.max(camino.clientWidth * .67 - 120, 0) + 'px'); }
+    fin(); addEventListener('resize', fin);
+
+    /* El monto del resultado cuenta hacia arriba al aparecer. */
+    var monto = document.getElementById('res-monto');
+    if (monto && !reducido && 'MutationObserver' in window) {
+        var animando = false, ultimo = '';
+        new MutationObserver(function () {
+            if (animando || monto.textContent === ultimo) return;
+            var texto = monto.textContent;
+            var m = texto.match(/[\d.]+/);
+            if (!m) return;
+            var final = Number(m[0].replace(/\./g, ''));
+            if (!final) return;
+            var inicio = null;
+            animando = true;
+            function paso(t) {
+                if (!inicio) inicio = t;
+                var k = Math.min((t - inicio) / 900, 1);
+                var v = Math.round(final * (1 - Math.pow(1 - k, 3)));
+                monto.textContent = texto.replace(m[0], v.toLocaleString('es-CL'));
+                if (k < 1) requestAnimationFrame(paso); else { ultimo = texto; monto.textContent = texto; animando = false; }
+            }
+            requestAnimationFrame(paso);
+        }).observe(monto, { childList: true, characterData: true, subtree: true });
+    }
+})();
+</script>
 <script src="assets/calculadora.js"></script>
 <script src="assets/captura-maestra.js"></script>
 <script>
@@ -214,6 +346,19 @@
     var boton = document.getElementById('boton-enviar');
     var check1 = document.getElementById('consentimiento');
     var check2 = document.getElementById('consentimiento-comercial');
+
+    /* Ejecutivos activos por isapre. El reparto real (turno) lo hace El
+       Planeador al entregar el contacto; aquí solo se le dice a la persona
+       quién la atenderá. Con un solo ejecutivo por isapre, es ese. */
+    var EJECUTIVOS = {
+        'Banmédica': { nombre: 'Carol', cargo: 'ejecutiva de Banmédica',
+                       pagina: 'https://btoinnova.github.io/BANMEDICA/salud/banmedica/carol-jara/v2/' }
+    };
+    var ISAPRE_POR_DEFECTO = 'Banmédica';
+    function asignarEjecutivo(interes) {
+        if (interes === 'Me da igual') interes = ISAPRE_POR_DEFECTO;
+        return EJECUTIVOS[interes] || null;
+    }
 
     var respuestas = { prevision: '', renta: 0, tipoSueldo: 'liquido', pagoActual: 0, edad: '', cargas: 0 };
     var ultimoCalculo = null;
@@ -335,17 +480,9 @@
             document.getElementById('fila-bolsillo').hidden = false;
             document.getElementById('res-bolsillo').textContent = Calculadora.formatearPesos(pago.deSuBolsillo) + ' al mes';
 
-            if (pago.hayMargen) {
-                veredicto.className = 'veredicto holgado';
-                veredicto.innerHTML = '<strong>Hay margen para mejorar tu plan.</strong>'
-                    + 'Estás pagando por sobre lo que cuesta un plan típico para tu grupo. '
-                    + 'Con la misma plata deberías poder acceder a mejor cobertura — o al mismo plan, pagando menos.';
-            } else {
-                veredicto.className = 'veredicto justo';
-                veredicto.innerHTML = '<strong>Estás en un rango habitual, y aun así conviene comparar.</strong>'
-                    + 'Las isapres cobran distinto por coberturas parecidas, '
-                    + 'y las diferencias entre una y otra suelen ser de decenas de miles de pesos al año.';
-            }
+            veredicto.className = 'veredicto justo';
+            veredicto.innerHTML = '<strong>Ese es tu número.</strong>'
+                + 'Si quieres, un ejecutivo registrado revisa tu caso contigo.';
         } else {
             // NO TIENE ISAPRE: el titular es a cuánto accede con lo que ya
             // le descuentan. Nunca se le dice "no te alcanza".
@@ -353,22 +490,9 @@
             monto.textContent = Calculadora.formatearPesos(r.cotizacionPesos) + '/mes';
             enUf.textContent = 'Son ' + Calculadora.formatearPesos(r.cotizacionPesos * 12) + ' al año que ya pagas por salud';
 
-            if (r.holgura === 'holgado') {
-                veredicto.className = 'veredicto holgado';
-                veredicto.innerHTML = '<strong>Te alcanza sin poner un peso más.</strong>'
-                    + 'Con lo que ya te descuentan accedes a planes de isapre sin costo adicional. '
-                    + 'Tu 7% te abre la puerta a planes de isapre.';
-            } else if (r.holgura === 'justo') {
-                veredicto.className = 'veredicto justo';
-                veredicto.innerHTML = '<strong>Te alcanza para planes completos.</strong>'
-                    + 'Tu 7% cubre planes de isapre sin costo adicional. Para coberturas más amplias '
-                    + 'habría una diferencia mensual, y hay alternativas en varios rangos.';
-            } else {
-                veredicto.className = 'veredicto justo';
-                veredicto.innerHTML = '<strong>Hay planes dentro de tu presupuesto.</strong>'
-                    + 'Para tu grupo familiar conviene mirar los planes más ajustados, y comparar bien '
-                    + 'contra lo que Fonasa te da hoy. A veces conviene uno, a veces el otro — eso se revisa caso a caso.';
-            }
+            veredicto.className = 'veredicto justo';
+            veredicto.innerHTML = '<strong>Ese es tu número.</strong>'
+                + 'Si quieres, un ejecutivo registrado revisa contigo qué opciones tienes.';
         }
 
         var nota = 'Calculado con la UF de hoy ($' + Math.round(r.uf).toLocaleString('es-CL') + ').';
@@ -382,9 +506,7 @@
         document.getElementById('res-nota').textContent = nota;
 
         // La oferta se adapta a lo que la persona acaba de ver.
-        document.getElementById('titulo-oferta').textContent = pago && pago.hayMargen
-            ? 'Te mandamos opciones que cuestan lo mismo o menos'
-            : 'Te mandamos opciones de planes para tu caso';
+        document.getElementById('titulo-oferta').textContent = 'Te contacta un ejecutivo registrado';
     }
 
     /* ---------- Consentimientos ---------- */
@@ -420,6 +542,9 @@
         boton.disabled = true;
         boton.textContent = 'Enviando...';
 
+        var interes = document.getElementById('isapre-interes').value;
+        var ejecutivo = asignarEjecutivo(interes);
+
         CapturaMaestra.enviarLead({
             nombre: nombre,
             telefono: telefonoCrudo,
@@ -429,13 +554,24 @@
             senuelo: document.getElementById('senuelo').value,
             consentidoEn: consentidoEn,
             comercial: check2.checked,
-            consentidoComercialEn: consentidoComercialEn
+            consentidoComercialEn: consentidoComercialEn,
+            notas: 'Isapre de interés: ' + interes + (ejecutivo ? ' · Asignado: ' + ejecutivo.nombre : ' · Sin ejecutivo aún')
         }).then(function (resultado) {
             // Se agradece aunque falle el guardado: la persona ya hizo su
             // parte y no gana nada con ver un error. El fallo queda en la
             // consola para poder diagnosticarlo.
             if (!resultado.ok) {
                 console.warn('[web-maestra] El lead no se pudo guardar:', resultado);
+            }
+            if (ejecutivo) {
+                document.getElementById('gracias-texto').textContent = 'Te va a contactar ' + ejecutivo.nombre + ', ' + ejecutivo.cargo
+                    + ', por WhatsApp, normalmente dentro de 24 horas hábiles.';
+                document.getElementById('gracias-pagina').href = ejecutivo.pagina;
+                document.getElementById('gracias-pagina').textContent = 'Conoce a ' + ejecutivo.nombre;
+                document.getElementById('gracias-ejecutivo').hidden = false;
+            } else {
+                document.getElementById('gracias-texto').textContent = 'Todavía no trabajamos con ejecutivos de ' + interes
+                    + '. Guardamos tu solicitud y te escribimos apenas tengamos uno (hasta 90 días).';
             }
             seccionRes.hidden = true;
             seccionCont.hidden = true;

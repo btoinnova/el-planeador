@@ -25,9 +25,9 @@
 
         origen: 'web-maestra',
         vertical: 'salud',
-        marca: 'maestra',
+        marca: 'planeador-salud',
 
-        versionPolitica: '2026-11-v2',
+        versionPolitica: '2026-11-v3',
         diasAtribucion: 30
     };
 
@@ -192,6 +192,8 @@
             marca: CONFIG.marca,
             estado: 'nuevo',
             es_prueba: CONFIG.modoPrueba ? 'SI' : '',
+
+            notas: datos.notas || '',
 
             consentimiento: true,
             consentimiento_en: datos.consentidoEn || new Date().toISOString(),
