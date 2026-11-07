@@ -466,9 +466,12 @@
        quién la atenderá. Con un solo ejecutivo por isapre, es ese. */
     var EJECUTIVOS = {
         'Banmédica': { nombre: 'Carol', cargo: 'ejecutiva de Banmédica',
-                       pagina: 'https://btoinnova.github.io/BANMEDICA/salud/banmedica/carol-jara/v2/', whatsapp: '56923971471' }
+                       pagina: 'banmedica/carol-jara/v2/', whatsapp: '56923971471' }
     };
     var ISAPRE_POR_DEFECTO = 'Banmédica';
+    /* Apagado por decisión de Alberto (7-nov): aún no se muestra ni se enlaza
+       la página ni el WhatsApp del ejecutivo. La asignación queda solo en notas. */
+    var CONECTAR_EJECUTIVO = false;
     function asignarEjecutivo(interes) {
         if (interes === 'Me da igual') interes = ISAPRE_POR_DEFECTO;
         return EJECUTIVOS[interes] || null;
@@ -692,7 +695,7 @@
             if (!resultado.ok) {
                 console.warn('[web-maestra] El lead no se pudo guardar:', resultado);
             }
-            if (ejecutivo) {
+            if (ejecutivo && CONECTAR_EJECUTIVO) {
                 document.getElementById('gracias-texto').textContent = 'Te va a contactar ' + ejecutivo.nombre + ', ' + ejecutivo.cargo
                     + ', por WhatsApp, normalmente dentro de 24 horas hábiles.';
                 document.getElementById('gracias-pagina').href = ejecutivo.pagina;
@@ -701,7 +704,7 @@
                     + encodeURIComponent('Hola ' + ejecutivo.nombre + ', vengo de El Planeador y quiero entender qué opciones tengo con mi 7%.');
                 document.getElementById('gracias-wsp').textContent = 'Escribirle a ' + ejecutivo.nombre + ' por WhatsApp';
                 document.getElementById('gracias-ejecutivo').hidden = false;
-            } else {
+            } else if (!ejecutivo) {
                 document.getElementById('gracias-texto').textContent = 'Todavía no trabajamos con ejecutivos de ' + interes
                     + '. Guardamos tu solicitud y te escribimos apenas tengamos uno (hasta 90 días).';
             }
