@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>El Planeador · Maqueta de diseño</title>
+<meta name="description" content="Maqueta de diseño de la página principal de El Planeador. No es la página publicada.">
+<meta name="theme-color" content="#0F2547">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' rx='44' fill='%230F2547'/%3E%3Cpath d='M176 28L30 92l54 16z' fill='%23F4F6F8'/%3E%3Cpath d='M176 28L84 108l14 60z' fill='%239DB8E8'/%3E%3Cpath d='M84 108l14 60 20-36z' fill='%23D2A55A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+    :root {
+        --suelo: #EEF2F7;
+        --superficie: #FFFFFF;
+        --linea: #D3DCE8;
+        --tinta: #0C1A33;
+        --suave: #46566F;
+        --marino: #0F2547;
+        --azul: #1D4C9E;
+        --oro: #C98F1E;
+        --oro-suave: #F6E7C3;
+        --valido: #0B7766;
+        --valido-suave: #DDF2EC;
+        --hondo: #0F2547;
+        --sobre-hondo: #EEF2F7;
+        --sobre-hondo-suave: #B5C3DC;
+        --foco: #1D4C9E;
+        --sombra: 0 1px 2px rgba(15, 37, 71, .06), 0 24px 48px -16px rgba(15, 37, 71, .18);
+        --logo-a: #0F2547; --logo-b: #3D5A80;
+        --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+        --texto: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+            --suelo: #08111F; --superficie: #101B2F; --linea: #22314B; --tinta: #EAF0FA; --suave: #A3B1C9;
+            --marino: #EAF0FA; --azul: #8FB2F0; --oro: #E2B04A; --oro-suave: #3A2F14;
+            --valido: #4FD1B8; --valido-suave: #0F2D2A; --hondo: #0C1A33; --foco: #8FB2F0;
+            --sombra: 0 1px 2px rgba(0,0,0,.4), 0 24px 48px -16px rgba(0,0,0,.55);
+            --logo-a: #EAF0FA; --logo-b: #8FB2F0;
+        }
+    }
+    :root[data-theme="dark"] {
+        --suelo: #08111F; --superficie: #101B2F; --linea: #22314B; --tinta: #EAF0FA; --suave: #A3B1C9;
+        --marino: #EAF0FA; --azul: #8FB2F0; --oro: #E2B04A; --oro-suave: #3A2F14;
+        --valido: #4FD1B8; --valido-suave: #0F2D2A; --hondo: #0C1A33; --foco: #8FB2F0;
+        --sombra: 0 1px 2px rgba(0,0,0,.4), 0 24px 48px -16px rgba(0,0,0,.55);
+        --logo-a: #EAF0FA; --logo-b: #8FB2F0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--suelo); color: var(--tinta); font: 400 17px/1.6 var(--texto); -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--oro); color: #0C1A33; }
+    :focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; border-radius: 6px; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); margin: 0; color: var(--marino); text-wrap: balance; letter-spacing: -.03em; line-height: 1.04; }
+    p { margin: 0; text-wrap: pretty; }
+    .caja { width: min(1180px, 100% - 32px); margin-inline: auto; }
+    .solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+    /* ---- botones ---- */
+    .boton { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; font: 700 16px/1 var(--display); border-radius: 14px; text-decoration: none; border: 0; cursor: pointer; transition: transform .2s cubic-bezier(.2,.8,.2,1), background-color .2s; }
+    .boton:hover { transform: translateY(-2px); }
+    .boton-primario { background: var(--marino); color: var(--suelo); }
+    .boton-primario:hover { background: var(--azul); color: var(--suelo); }
+    .boton-oro { background: var(--oro); color: #0C1A33; }
+    .boton-oro:hover { background: #E2B04A; }
+    .enlace { font-weight: 600; color: var(--azul); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+    .logo { width: 1em; height: 1em; display: block; }
+    .logo .a { fill: var(--logo-a); } .logo .b { fill: var(--logo-b); } .logo .c { fill: #C98F1E; } .logo .d { stroke: #C98F1E; }
+
+    /* ---- barra ---- */
+    .barra { position: sticky; top: 12px; z-index: 20; margin-top: 12px; }
+    .barra .caja { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: color-mix(in srgb, var(--superficie) 90%, transparent); backdrop-filter: blur(14px); border: 1px solid var(--linea); border-radius: 18px; padding: 8px 10px 8px 16px; box-shadow: var(--sombra); }
+    .marca { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 800 21px/1 var(--display); color: var(--marino); letter-spacing: -.03em; }
+    .marca .logo { font-size: 32px; }
+    .menu { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 600; }
+    .menu a { text-decoration: none; }
+    .menu a:not(.boton):hover, .sub-boton:hover { color: var(--azul); }
+    .menu .boton { min-height: 42px; padding: 0 18px; font-size: 14px; border-radius: 12px; }
+    .sub { position: relative; }
+    .sub-boton { font: inherit; font-weight: 600; color: inherit; background: none; border: 0; padding: 8px 4px; cursor: pointer; }
+    .sub-lista { display: none; position: absolute; top: 100%; left: -12px; min-width: 190px; padding: 8px; background: var(--superficie); border: 1px solid var(--linea); border-radius: 14px; box-shadow: var(--sombra); }
+    .sub:hover .sub-lista, .sub:focus-within .sub-lista, .sub.abierto .sub-lista { display: block; }
+    .sub-lista a { display: block; padding: 10px 14px; border-radius: 10px; white-space: nowrap; }
+    .sub-lista a:hover { background: var(--suelo); }
+    @media (max-width: 720px) { .menu > a:not(.boton) { display: none; } .menu { gap: 8px; } .marca { font-size: 17px; gap: 7px; } .marca .logo { font-size: 26px; } .sub-boton { font-size: 13px; padding: 8px 2px; } .menu .boton { padding: 0 14px; font-size: 13px; } .sub-lista { right: 0; left: auto; } }
+
+    /* ---- hero ---- */
+    .hero { position: relative; padding: 40px 0 72px; overflow: clip; }
+    .hero .caja { position: relative; display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+    .hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); font-weight: 800; line-height: .98; }
+    .hero h1 .subraya { display: inline-block; text-decoration: underline; text-decoration-color: var(--oro); text-decoration-thickness: .09em; text-underline-offset: .12em; text-decoration-skip-ink: none; }
+    .bajada { margin-top: 24px; max-width: 34em; font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--suave); }
+    .controles { margin: 36px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--linea); }
+    .controles li { padding: 18px 20px 4px 0; display: grid; gap: 6px; align-content: start; }
+    .controles li + li { padding-left: 20px; border-left: 1px solid var(--linea); }
+    .controles svg { width: 22px; height: 22px; color: var(--valido); }
+    .controles strong { font: 700 1.02rem/1.2 var(--display); color: var(--marino); letter-spacing: -.01em; }
+    .controles span { font-size: .95rem; line-height: 1.45; color: var(--suave); }
+    .acciones { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+    @media (max-width: 960px) { .hero .caja { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+        .hero { padding-top: 36px; }
+        .controles { grid-template-columns: 1fr; }
+        .controles li, .controles li + li { padding: 14px 0; border-left: 0; border-top: 1px solid var(--linea); grid-template-columns: 26px 1fr; column-gap: 12px; }
+        .controles li:first-child { border-top: 0; }
+        .controles svg { grid-row: span 2; }
+    }
+
+    /* ruta de vuelo decorativa */
+    .ruta { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .ruta path { fill: none; stroke: var(--oro); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 2 12; opacity: .55; }
+    .avion { position: absolute; top: 0; left: 0; width: 40px; height: 40px; pointer-events: none; z-index: 1; margin: -20px 0 0 -20px; offset-path: path('M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20'); offset-rotate: auto 12deg; offset-distance: 100%; opacity: .9; }
+    .hero .caja > * { position: relative; z-index: 1; }
+    @media (max-width: 960px) { .ruta, .avion { display: none; } }
+
+    /* tarjeta de consulta */
+    .consulta { background: var(--superficie); border: 1px solid var(--linea); border-radius: 24px; box-shadow: var(--sombra); padding: 28px; display: grid; gap: 16px; }
+    .consulta h2 { font-size: 1.7rem; font-weight: 800; }
+    .consulta > p { color: var(--suave); font-size: 15.5px; }
+    .consulta fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .op { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1px solid var(--linea); border-radius: 999px; font: 700 15px/1 var(--display); cursor: pointer; }
+    .op input { position: absolute; opacity: 0; pointer-events: none; }
+    .op:has(input:checked) { background: var(--marino); color: var(--suelo); border-color: var(--marino); }
+    .op:has(input:focus-visible) { outline: 3px solid var(--foco); outline-offset: 3px; }
+    .op.off { opacity: .5; cursor: not-allowed; }
+    .op small { font: 500 12px var(--texto); color: var(--suave); }
+    .campo { display: grid; gap: 8px; font: 700 15px/1.2 var(--display); color: var(--marino); }
+    .campo select { min-height: 52px; padding: 0 14px; font: 500 16px var(--texto); color: var(--tinta); background: var(--suelo); border: 1px solid var(--linea); border-radius: 12px; }
+    .consulta .boton { width: 100%; }
+    .nota { font-size: 13px; color: var(--suave); line-height: 1.45; }
+
+    /* ---- secciones ---- */
+    .seccion { padding: 88px 0; }
+    .seccion > .caja > h2, .titulo-sec { font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 800; max-width: 15em; }
+    .intro { margin-top: 16px; max-width: 38em; color: var(--suave); font-size: 1.1rem; }
+
+    /* ficha validada */
+    .validacion { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+    .no-hacemos { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .no-hacemos li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; font-size: 1rem; color: var(--suave); }
+    .no-hacemos svg { width: 20px; height: 20px; color: var(--suave); margin-top: 3px; }
+    .ficha { position: relative; background: var(--superficie); border: 1px solid var(--linea); border-radius: 22px; box-shadow: var(--sombra); padding: 28px; transform: rotate(-1.6deg); max-width: 460px; justify-self: center; width: 100%; }
+    .ficha-ejemplo { position: absolute; top: -13px; right: 22px; background: var(--oro-suave); color: var(--tinta); font: 700 12px/1 var(--display); letter-spacing: .06em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; }
+    .ficha-cab { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px dashed var(--linea); }
+    .ficha-foto { width: 56px; height: 56px; border-radius: 16px; background: var(--suelo); border: 1px solid var(--linea); display: grid; place-items: center; color: var(--suave); }
+    .ficha-foto svg { width: 28px; height: 28px; }
+    .ficha-cab strong { display: block; font: 700 1.15rem/1.15 var(--display); color: var(--marino); }
+    .ficha-cab span { font-size: .92rem; color: var(--suave); }
+    .ficha dl { margin: 0; padding-top: 6px; }
+    .ficha dl > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--linea); }
+    .ficha dl > div:last-child { border-bottom: 0; }
+    .ficha dt { font: 600 .98rem/1.3 var(--display); color: var(--marino); }
+    .ficha dt small { display: block; font: 400 .85rem/1.35 var(--texto); color: var(--suave); }
+    .valido { flex: none; display: inline-flex; align-items: center; gap: 6px; background: var(--valido-suave); color: var(--valido); font: 700 13px/1 var(--display); padding: 8px 12px; border-radius: 999px; }
+    .valido svg { width: 15px; height: 15px; }
+    .ficha-pie { margin-top: 10px; font-size: .82rem; color: var(--suave); }
+
+    /* ruta de pasos */
+    .hondo { background: var(--hondo); color: var(--sobre-hondo); position: relative; overflow: clip; }
+    .hondo h2 { color: var(--sobre-hondo); }
+    .hondo .intro { color: var(--sobre-hondo-suave); }
+    .pasos { margin: 56px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+    .pasos::before { content: ""; position: absolute; left: 0; right: 0; top: 13px; border-top: 2px dashed rgba(226,176,74,.55); }
+    .pasos li { position: relative; padding: 48px 32px 0 0; }
+    .pasos li::before { content: ""; position: absolute; top: 4px; left: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--hondo); border: 3px solid #E2B04A; }
+    .pasos li:last-child::before { background: #E2B04A; }
+    .pasos h3 { color: var(--sobre-hondo); font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+    .pasos p { color: var(--sobre-hondo-suave); font-size: 1rem; max-width: 22em; }
+    @media (max-width: 760px) {
+        .pasos { grid-template-columns: 1fr; gap: 28px; }
+        .pasos::before { top: 0; bottom: 0; left: 9px; right: auto; border-top: 0; border-left: 2px dashed rgba(226,176,74,.55); }
+        .pasos li { padding: 0 0 0 44px; }
+        .pasos li::before { top: 2px; }
+    }
+
+    /* herramientas */
+    .herr { margin-top: 48px; display: grid; grid-template-columns: 7fr 5fr; gap: 20px; align-items: stretch; }
+    .calc { background: var(--hondo); color: #EEF2F7; border-radius: 24px; padding: clamp(28px, 4vw, 48px); display: grid; align-content: space-between; gap: 28px; }
+    .calc .gran { font: 800 clamp(5rem, 14vw, 9rem)/.85 var(--display); letter-spacing: -.06em; color: #E2B04A; }
+    .calc h3 { color: #EEF2F7; font-size: 1.7rem; font-weight: 700; margin-bottom: 8px; }
+    .calc p { color: #B5C3DC; max-width: 28em; }
+    .calc .boton { justify-self: start; }
+    .guias { display: grid; align-content: start; border-top: 2px solid var(--marino); }
+    .guias a { display: grid; gap: 4px; padding: 22px 8px 22px 0; text-decoration: none; border-bottom: 1px solid var(--linea); transition: padding-left .2s cubic-bezier(.2,.8,.2,1); }
+    .guias a:hover { padding-left: 10px; }
+    .guias strong { font: 700 1.3rem/1.2 var(--display); color: var(--marino); letter-spacing: -.02em; }
+    .guias span { color: var(--suave); font-size: 1rem; }
+    .guias em { font-style: normal; font-weight: 700; color: var(--azul); font-size: .95rem; }
+    .guias-tit { font: 700 .95rem/1 var(--display); color: var(--suave); letter-spacing: .02em; padding: 14px 0 10px; }
+    @media (max-width: 860px) { .herr { grid-template-columns: 1fr; } .validacion { grid-template-columns: 1fr; } .ficha { transform: rotate(-1deg); } }
+
+    /* ejecutivos */
+    .ejec { background: var(--hondo); border-radius: 28px; padding: clamp(32px, 6vw, 72px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end; color: var(--sobre-hondo); }
+    .ejec h2 { color: var(--sobre-hondo); font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 800; }
+    .ejec p { margin-top: 16px; color: var(--sobre-hondo-suave); max-width: 36em; }
+    .ejec .boton { justify-self: start; }
+    @media (max-width: 860px) { .ejec { grid-template-columns: 1fr; } }
+
+    .pie { padding: 40px 0 56px; font-size: 14px; color: var(--suave); }
+    .pie .caja { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; border-top: 1px solid var(--linea); padding-top: 24px; }
+    .pie .marca { font-size: 18px; } .pie .marca .logo { font-size: 26px; }
+    .pie-enlaces { display: flex; flex-wrap: wrap; gap: 8px 22px; font-weight: 600; }
+    .pie-enlaces a { text-decoration: none; padding: 8px 0; }
+    .pie-enlaces a:hover { color: var(--azul); text-decoration: underline; text-underline-offset: 4px; }
+
+    /* quiénes somos */
+    .quienes { padding-bottom: 24px; }
+    .quienes .titulo-sec { max-width: 17em; }
+    .quienes-cols { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--marino); }
+    .quienes-cols > div { padding: 24px 28px 8px 0; }
+    .quienes-cols > div + div { padding-left: 28px; border-left: 1px solid var(--linea); }
+    .quienes-cols h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+    .quienes-cols p { color: var(--suave); font-size: 1.02rem; }
+    @media (max-width: 860px) {
+        .quienes-cols { grid-template-columns: 1fr; }
+        .quienes-cols > div, .quienes-cols > div + div { padding: 22px 0; border-left: 0; border-top: 1px solid var(--linea); }
+        .quienes-cols > div:first-child { border-top: 0; }
+    }
+
+    /* un solo momento animado: el avión recorre la ruta al cargar */
+    @media (prefers-reduced-motion: no-preference) {
+        .avion { animation: vuela 2.6s cubic-bezier(.16,.84,.3,1) .2s both; }
+        @keyframes vuela { from { offset-distance: 0%; opacity: 0; } 12% { opacity: .9; } to { offset-distance: 100%; } }
+        .hero h1, .hero .bajada, .controles, .acciones, .consulta { animation: sube .7s cubic-bezier(.16,.84,.3,1) both; }
+        .hero .bajada { animation-delay: .06s; } .controles { animation-delay: .12s; } .acciones { animation-delay: .18s; } .consulta { animation-delay: .14s; }
+        @keyframes sube { from { opacity: 0; transform: translateY(16px); } }
+    }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="planeador" viewBox="0 0 200 200">
+        <path style="fill:var(--logo-a)" d="M176 28 30 92l54 16z"/>
+        <path style="fill:var(--logo-b)" d="M176 28 84 108l14 60z"/>
+        <path style="fill:#C98F1E" d="M84 108l14 60 20-36z"/>
+        <path style="stroke:#C98F1E" d="M14 176C34 186 60 176 72 150" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
+    </symbol>
+    <symbol id="ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="no" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="persona" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="barra">
+    <div class="caja">
+        <a class="marca" href="./" aria-label="El Planeador, inicio"><svg class="logo" aria-hidden="true"><use href="#planeador"/></svg>El Planeador</a>
+        <nav class="menu" aria-label="Principal">
+            <a href="#quienes">Quiénes somos</a>
+            <a href="#validacion">Qué validamos</a>
+            <a href="#como">Cómo funciona</a>
+            <div class="sub">
+                <button type="button" class="sub-boton" aria-expanded="false" aria-controls="sub-salud">Planes de salud <span aria-hidden="true">▾</span></button>
+                <div class="sub-lista" id="sub-salud"><a href="../salud/banmedica/">Banmédica</a></div>
+            </div>
+            <a class="boton boton-primario" href="#ejecutivos">Soy ejecutivo</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <svg class="ruta" viewBox="0 0 1440 700" preserveAspectRatio="xMinYMin slice" aria-hidden="true">
+            <path d="M 760 760 C 1040 720, 1240 520, 1310 320 S 1400 90, 1470 20"/>
+        </svg>
+        <svg class="avion" viewBox="0 0 200 200" aria-hidden="true"><use href="#planeador"/></svg>
+        <div class="caja">
+            <div>
+                <h1>Una plataforma de marketing digital <span class="subraya">que valida la identidad de los ejecutivos.</span></h1>
+                <p class="bajada">Hacemos la página y la publicidad de ejecutivos de ventas, hoy en planes de salud, y antes de publicarla validamos su identidad y su vínculo laboral con la empresa que representan. Somos una plataforma chilena, by BTo Innova soluciones.</p>
+                <ul class="controles" aria-label="Lo que hacemos por ti">
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Identidad validada</strong><span>Revisamos su cédula y su contrato de trabajo vigente para confirmar que es quien dice ser y que trabaja para esa empresa.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Tus datos, donde decides</strong><span>Aquí no pedimos datos personales; los dejas en la página del ejecutivo.</span></li>
+                    <li><svg aria-hidden="true"><use href="#ok"/></svg><strong>Sin costo para ti</strong><span>Los ejecutivos pagan por su página y su publicidad.</span></li>
+                </ul>
+                <div class="acciones">
+                    <a class="boton boton-primario" href="#consulta">Cuéntanos qué necesitas</a>
+                    <a class="enlace" href="#ejecutivos">Soy ejecutivo: quiero mi página</a>
+                </div>
+            </div>
+            <form class="consulta" id="consulta" action="../salud/banmedica/carol-jara/" method="get" aria-labelledby="c-tit">
+                <h2 id="c-tit">¿Qué necesitas?</h2>
+                <p>Dinos qué buscas y te llevamos a la página de un ejecutivo con identidad validada. Aquí no te pedimos ningún dato personal.</p>
+                <fieldset>
+                    <legend class="solo-lector">Rubro</legend>
+                    <label class="op"><input type="radio" name="rubro" value="salud" checked><span>Salud</span></label>
+                    <label class="op off"><input type="radio" name="rubro" value="seguros" disabled><span>Seguros <small>pronto</small></span></label>
+                    <label class="op off"><input type="radio" name="rubro" value="educacion" disabled><span>Educación <small>pronto</small></span></label>
+                    <label class="op off"><input type="radio" name="rubro" value="telefonia" disabled><span>Telefonía <small>pronto</small></span></label>
+                    <label class="op off"><input type="radio" name="rubro" value="internet" disabled><span>Internet <small>pronto</small></span></label>
+                </fieldset>
+                <label class="campo" for="busco">¿Qué estás buscando?
+                    <select id="busco" name="busco" required>
+                        <option value="" disabled selected>Elige una opción</option>
+                        <option value="plan-nuevo">Un plan de salud nuevo</option>
+                        <option value="cambiar">Cambiarme de plan o de isapre</option>
+                        <option value="entender">Entender mi plan actual</option>
+                        <option value="otro">Otra consulta de salud</option>
+                    </select>
+                </label>
+                <button class="boton boton-primario" type="submit">Hablar con un ejecutivo</button>
+                <p class="nota">Esta página no pide datos personales. Si decides dejarlos en la página del ejecutivo, ahí verás cómo se tratan antes de enviarlos.</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="seccion quienes" id="quienes">
+        <div class="caja">
+            <h2 class="titulo-sec">Hoy cuesta confiar en quien publica y pide tus datos en internet.</h2>
+            <div class="quienes-cols">
+                <div>
+                    <h3>El problema</h3>
+                    <p>Cualquiera puede publicar un anuncio, decir que representa a una empresa y pedirte el RUT o el teléfono. A la mayoría de las personas les pasa lo mismo: no saben con quién están hablando.</p>
+                </div>
+                <div>
+                    <h3>Cómo lo resolvemos</h3>
+                    <p>Antes de publicar a un ejecutivo, confirmamos que es quien dice ser y que trabaja para la empresa que representa. Solo entonces le hacemos su página y su publicidad, para que sepas con quién hablas.</p>
+                </div>
+                <div>
+                    <h3>Quiénes somos</h3>
+                    <p>Somos El Planeador, una plataforma chilena de marketing digital, by BTo Innova soluciones. No asesoramos, no comparamos planes ni cobramos comisión por ventas: eso lo ve cada persona directamente con el ejecutivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="validacion">
+        <div class="caja validacion">
+            <div>
+                <h2 class="titulo-sec">Antes de publicar a un ejecutivo, revisamos dos cosas.</h2>
+                <p class="intro">Su identidad y su vínculo laboral con la empresa que dice representar. Para eso revisamos su cédula de identidad y su contrato de trabajo vigente, antes de que su página llegue a ti. Es lo único que validamos.</p>
+                <ul class="no-hacemos" aria-label="Lo que no hacemos">
+                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No asesoramos ni recomendamos planes: eso lo hace el ejecutivo.</span></li>
+                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No comparamos ni cerramos ventas.</span></li>
+                    <li><svg aria-hidden="true"><use href="#no"/></svg><span>No cobramos comisión ni te cobramos a ti.</span></li>
+                </ul>
+            </div>
+            <div class="ficha" role="img" aria-label="Ejemplo de ficha de ejecutivo validado, con identidad y vínculo laboral validados">
+                <span class="ficha-ejemplo">Ejemplo de ficha</span>
+                <div class="ficha-cab">
+                    <div class="ficha-foto"><svg aria-hidden="true"><use href="#persona"/></svg></div>
+                    <div><strong>Nombre del ejecutivo</strong><span>Empresa que representa</span></div>
+                </div>
+                <dl>
+                    <div><dt>Identidad<small>Cédula de identidad</small></dt><dd class="valido" style="margin:0"><svg aria-hidden="true"><use href="#ok"/></svg>Validada</dd></div>
+                    <div><dt>Vínculo laboral<small>Contrato de trabajo vigente</small></dt><dd class="valido" style="margin:0"><svg aria-hidden="true"><use href="#ok"/></svg>Validado</dd></div>
+                </dl>
+                <p class="ficha-pie">Cada ficha muestra su fecha de validación. Si el vínculo laboral termina, la ficha se retira. ¿Algo no cuadra con un ejecutivo? Escríbenos a contacto@elplaneador.cl y revisamos su ficha.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion hondo" id="como">
+        <div class="caja">
+            <h2 class="titulo-sec">Así llegas a un ejecutivo, sin dar un solo dato antes de decidir.</h2>
+            <ol class="pasos">
+                <li><h3>Eliges el rubro y qué buscas</h3><p>Con tus palabras, sin tecnicismos. Aquí no se pide ningún dato personal.</p></li>
+                <li><h3>Te llevamos a su página</h3><p>La de un ejecutivo con identidad y vínculo laboral validados. Nosotros no comparamos ni recomendamos planes.</p></li>
+                <li><h3>Decides tú</h3><p>Si te convence, le dejas tus datos en su página, donde verás cómo se tratan antes de enviarlos.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <div class="caja">
+            <h2 class="titulo-sec">Antes de hablar con alguien, entiende tus números.</h2>
+            <div class="herr">
+                <article class="calc">
+                    <div class="gran" aria-hidden="true">7%</div>
+                    <div>
+                        <h3>Calculadora del 7%</h3>
+                        <p>Mira cuánto es el 7% de tu sueldo y cuánto sale realmente de tu bolsillo. Primero ves el resultado, después decides.</p>
+                    </div>
+                    <a class="boton boton-oro" href="../salud/">Calcular ahora</a>
+                </article>
+                <div class="guias">
+                    <div class="guias-tit">Guías de salud</div>
+                    <a href="../salud/articulos/licencia-medica-rechazada.html"><strong>Licencia médica rechazada</strong><span>Qué hacer, paso a paso.</span><em>Leer la guía →</em></a>
+                    <a href="../salud/articulos/cuando-puedo-cambiarme-de-isapre.html"><strong>Cambiarse de isapre</strong><span>Cuándo puedes hacerlo y cómo.</span><em>Leer la guía →</em></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion" id="ejecutivos">
+        <div class="caja">
+            <div class="ejec">
+                <div>
+                    <h2>¿Eres ejecutivo de ventas? Te hacemos la página y la publicidad.</h2>
+                    <p>Validamos tu identidad y tu vínculo laboral antes de publicarte. Después las personas que buscan en tu rubro llegan a tu página. La página y la publicidad son un servicio con costo mensual: escríbenos y te contamos.</p>
+                </div>
+                <a class="boton boton-oro" href="mailto:contacto@elplaneador.cl?subject=Quiero%20que%20me%20validen%20y%20publiquen%20en%20El%20Planeador">Quiero que me validen</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="pie">
+    <div class="caja">
+        <a class="marca" href="./"><svg class="logo" aria-hidden="true"><use href="#planeador"/></svg>El Planeador</a>
+        <nav class="pie-enlaces" aria-label="Pie de página">
+            <a href="#quienes">Quiénes somos</a>
+            <a href="#validacion">Qué validamos</a>
+            <a href="#como">Cómo funciona</a>
+            <a href="#ejecutivos">Soy ejecutivo</a>
+        </nav>
+        <span>Chile · by BTo Innova soluciones</span>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var f = document.getElementById('consulta');
+    if (f) {
+        f.addEventListener('submit', function (e) {
+            e.preventDefault();
+            try { sessionStorage.setItem('planeador_busca', JSON.stringify({ rubro: f.rubro.value, busco: f.busco.value })); } catch (x) { /* sin almacenamiento */ }
+            window.location.href = f.getAttribute('action');
+        });
+    }
+    document.querySelectorAll('.sub-boton').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var s = b.parentNode, a = s.classList.toggle('abierto');
+            b.setAttribute('aria-expanded', a ? 'true' : 'false');
+        });
+    });
+})();
+</script>
+</body>
+</html>
