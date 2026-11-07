@@ -1,11 +1,11 @@
 # Licencias de imágenes — El Planeador Salud
 
-Fuente: Unsplash, licencia Unsplash (https://unsplash.com/license): uso comercial permitido, sin atribución obligatoria. Todas servidas desde images.unsplash.com con enlace de descarga libre (no Unsplash+). Descargadas el 7-nov-2026, 1080 px de ancho. Uso: escenas de vida cotidiana; no se presentan como clientes ni como respaldo de nadie.
+Fuente: Unsplash, licencia Unsplash (https://unsplash.com/license): uso comercial permitido, sin atribución obligatoria. Fotos gratuitas (no Unsplash+), servidas desde images.unsplash.com. Descargadas el 7-nov-2026, 1080 px de ancho. Escenas de vida cotidiana de clase media urbana (referencia: publicidad de Seguros Falabella); no se presentan como clientes ni como respaldo de nadie.
 
-| Archivo | Foto | Autor |
-|---|---|---|
-| mama-hija.jpg | https://unsplash.com/photos/3WgkTDw7XyE | Jhon David |
-| mama-hijo-sofa.jpg | https://unsplash.com/photos/a-_1PPjnbUg | Vivek Kumar |
-| familia-caminando.jpg | https://unsplash.com/photos/6cBKMxTYmWw | Jeniffer Araújo |
-| papa-hijo-campo.jpg | https://unsplash.com/photos/Za03n9MIt4s | Omar Lopez |
-| familia-campo.jpg | https://unsplash.com/photos/hiqLAaOJqW8 | Omar Lopez |
+| Archivo | Foto | Autor | Uso |
+|---|---|---|---|
+| familia-sofa-bebe.jpg | https://unsplash.com/photos/Qzvq_SJ0xqQ | Javier González Fotógrafo | Portada |
+| mama-hijo-living.jpg | https://unsplash.com/photos/hXKqWugt0-A | Vitaly Gariev | ¿Por qué revisar? |
+| profesional-escritorio.jpg | https://unsplash.com/photos/eWAzhlcOX4Y | Aleksei Zhivilov | Con quién vas a hablar |
+| pareja-hijo-living.jpg | https://unsplash.com/photos/2xb1csEK8As | Vitaly Gariev | Empieza por tu número |
+| familia-dos-ninos.jpg | https://unsplash.com/photos/FU0m9_pC_WU | Javier González Fotógrafo | Cierre |

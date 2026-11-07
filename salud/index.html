@@ -4,7 +4,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>¿Sabes cuánto es tu 7% de salud? Calcúlalo gratis · El Planeador</title>
+<title>Tu salud también es la de tu familia · El Planeador Salud</title>
 <meta name="description" content="Ese 7% te lo descuentan igual todos los meses. Calcula gratis cuánto es en pesos y, si quieres, que te contacte un ejecutivo registrado en la Superintendencia de Salud.">
 <link rel="stylesheet" href="css/style.css?v=20261102b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,33 +28,94 @@
     /* Portada: una escena real, no un formulario. */
     .portada { position: relative; overflow: hidden; isolation: isolate; color: #FFFFFF; background: #13202A; border-radius: 22px; margin: 16px 0 22px; min-height: min(78svh, 640px); display: flex; flex-direction: column; justify-content: flex-end; padding: 26px 22px 24px; }
     .portada .foto { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
-    .portada .foto img { width: 100%; height: 115%; object-fit: cover; object-position: 50% 6%; display: block; will-change: transform; }
+    .portada .foto img { width: 100%; height: 115%; object-fit: cover; object-position: 50% 14%; display: block; will-change: transform; }
     .portada::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(19, 32, 42, 0) 28%, rgba(19, 32, 42, .62) 58%, rgba(19, 32, 42, .92) 100%); }
     .portada h1 { color: #FFFFFF; font-size: clamp(1.95rem, 7.6vw, 3.3rem); line-height: 1.04; letter-spacing: -.035em; font-weight: 800; max-width: 15ch; margin: 0 0 14px; text-wrap: balance; text-shadow: 0 2px 18px rgba(0, 0, 0, .25); }
     .portada .subtitulo { color: #E6EEF1; max-width: 36ch; margin: 0; }
     .portada .subtitulo strong { color: #FFFFFF; }
-    .sello { position: absolute; top: 18px; left: 18px; display: inline-flex; align-items: baseline; gap: 8px; padding: 8px 14px 9px; border-radius: 999px; background: rgba(255, 255, 255, .9); color: var(--tinta); font-size: 14px; font-weight: 600; box-shadow: 0 6px 20px rgba(19, 32, 42, .18); }
-    .sello b { font: 800 1.35rem/1 var(--display); color: var(--acento); letter-spacing: -.03em; }
+    :root { --amarillo: #F5B323; --amarillo-osc: #2A1F05; }
+    .sello { position: relative; align-self: flex-start; margin-bottom: auto; display: grid; justify-items: start; gap: 6px; padding: 12px 14px 14px; border-radius: 18px; background: rgba(19, 32, 42, .28); border: 1px solid rgba(255, 255, 255, .28); backdrop-filter: blur(10px) saturate(1.2); -webkit-backdrop-filter: blur(10px) saturate(1.2); box-shadow: 0 10px 30px rgba(19, 32, 42, .22); }
+    .pildora { display: inline-block; background: var(--amarillo); color: var(--amarillo-osc); font-weight: 700; font-size: 13px; line-height: 1; padding: 7px 11px 8px; border-radius: 999px; }
+    .sello .cifra-grande { font: 800 clamp(3.6rem, 18vw, 5.2rem)/.86 var(--display); letter-spacing: -.05em; color: #FFFFFF; text-shadow: 0 4px 24px rgba(0, 0, 0, .25); }
 
     /* Fotos dentro del relato */
     .foto-relato { margin: -22px -22px 18px; border-radius: var(--radio) var(--radio) 0 0; overflow: hidden; aspect-ratio: 16 / 10; background: #E9E1D6; }
     .foto-relato img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.08); transition: transform 1.6s var(--ease); }
     .vista .foto-relato img, .foto-relato.vista img { transform: scale(1); }
     .relato h2 { position: relative; }
+
+    /* ===== Maquetación de marca comercial (no pila de tarjetas iguales) ===== */
+    main.contenedor, .barra .contenedor { max-width: 1080px; }
+    .portada .sello + h1 { margin-top: 28px; }
+    #paso-1, #paso-2, #paso-3, #resultado, #tarjeta-contacto, #gracias, #problemas, main > section.tarjeta:last-of-type { max-width: 640px; margin-left: auto; margin-right: auto; }
+    .relato { background: none; border: 0; box-shadow: none; padding: 0; margin: 0 0 56px; }
+    .relato .foto-relato { margin: 0 0 18px; border-radius: 20px; aspect-ratio: 4 / 3; }
+    .relato h2 { font-size: clamp(1.7rem, 6.4vw, 2.6rem); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 14px; }
+    #que-es { padding: 8px 0 0; }
+    #que-es p:first-of-type { font-size: clamp(1.1rem, 4.2vw, 1.35rem); line-height: 1.5; color: var(--tinta); max-width: 52ch; }
+    #mercado .tarjetas > div:nth-child(1) { background: #E8F0FA; }
+    #mercado .tarjetas > div:nth-child(2) { background: #E3F2EF; }
+    #mercado .tarjetas > div:nth-child(3) { background: #FDF1D6; }
+    /* Banda de marca a todo el ancho: rompe el ritmo y da peso a la confianza */
+    #confianza { position: relative; color: #FFFFFF; background: var(--acento); box-shadow: 0 0 0 100vmax var(--acento); clip-path: inset(0 -100vmax); padding: 40px 0; }
+    #confianza h2 { color: #FFFFFF; }
+    #confianza .confianza > div { border-color: rgba(255, 255, 255, .25); color: #D7F0EC; }
+    #confianza .confianza strong { color: #FFFFFF; }
+    @media (min-width: 900px) {
+        .portada { min-height: 600px; padding: 40px 44px; }
+        .portada h1 { font-size: 3.6rem; }
+        .relato:has(> .foto-relato) { display: grid; grid-template-columns: 1fr 1fr; column-gap: 56px; align-items: center; }
+        .relato > .foto-relato { grid-column: 1; grid-row: 1 / span 6; margin: 0; aspect-ratio: 5 / 4; }
+        .relato:nth-of-type(odd) > .foto-relato { grid-column: 2; }
+        .relato:has(> .foto-relato) > :not(.foto-relato) { grid-column: auto; }
+        .tarjetas { grid-template-columns: repeat(3, 1fr); }
+        .relato:has(> .foto-relato) .tarjetas { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Efectos con propósito ===== */
+    .boton-claro, .boton-wa, .tarjetas > div, .opcion { transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .2s; }
+    .boton-claro:hover, .boton-wa:hover:not(:disabled) { transform: translateY(-2px); }
+    .boton-claro:active, .boton-wa:active, .opcion:active { transform: scale(.98); }
+    .tarjetas > div:hover { transform: translateY(-4px) rotate(-.4deg); box-shadow: 0 14px 30px rgba(19, 32, 42, .10); }
+    .barra-prog i { transition: width .7s var(--ease); }
+    .relato .foto-relato img { will-change: transform; }
+    .icono-ok { width: 20px; height: 20px; flex: none; margin-right: 8px; vertical-align: -4px; color: #FFFFFF; }
+    .icono-ok path { stroke-dasharray: 24; stroke-dashoffset: 24; transition: stroke-dashoffset .6s var(--ease); }
+    .vista .icono-ok path { stroke-dashoffset: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+        .boton-claro { position: relative; overflow: hidden; }
+        .boton-claro::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%); transform: translateX(-120%); animation: brillo 4.5s var(--ease) 2.2s 3; }
+        @keyframes brillo { 0%, 70% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+        .js .sello .pildora { opacity: 0; transform: translateX(-12px); animation: entra .6s var(--ease) forwards; }
+        .js .sello .pildora:first-child { animation-delay: .5s; }
+        .js .sello .pildora:last-child { animation-delay: 1.1s; }
+        @keyframes entra { to { opacity: 1; transform: none; } }
+        .js .tarjetas > div { opacity: 0; transform: translateY(18px); }
+        .js .vista .tarjetas > div { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .6s var(--ease); }
+        .js .vista .tarjetas > div:nth-child(2) { transition-delay: .12s; }
+        .js .vista .tarjetas > div:nth-child(3) { transition-delay: .24s; }
+        .js #confianza .confianza > div { opacity: 0; transform: translateX(-14px); }
+        .js #confianza.vista .confianza > div { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .6s var(--ease); }
+        .js #confianza.vista .confianza > div:nth-child(2) { transition-delay: .15s; }
+        .js #confianza.vista .confianza > div:nth-child(3) { transition-delay: .3s; }
+        .boton-wa.latido { animation: latido 2.4s var(--ease) 1; }
+        @keyframes latido { 0% { box-shadow: 0 0 0 0 rgba(18, 140, 74, .45); } 70% { box-shadow: 0 0 0 16px rgba(18, 140, 74, 0); } 100% { box-shadow: 0 8px 20px rgba(19, 32, 42, .16); } }
+    }
     /* Tarjetas cortas: se escanean como historias en el celular. */
     .tarjetas { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 6px -22px 0; padding: 4px 22px 14px; scrollbar-width: none; }
     .tarjetas::-webkit-scrollbar { display: none; }
     .tarjetas > div { scroll-snap-align: start; background: #F6EFE6; border-radius: 14px; padding: 18px 16px; line-height: 1.45; }
     .tarjetas strong, .tarjetas .cifra { display: block; margin-bottom: 6px; }
     .tarjetas strong { font-family: var(--display); font-size: 1.15rem; line-height: 1.2; }
-    .tarjetas .cifra { font-size: 1.7rem; }
+    .tarjetas .cifra { font-size: 1.7rem; background: linear-gradient(transparent 62%, rgba(245, 179, 35, .45) 62%); display: inline; padding: 0 2px; }
     .desliza { font-size: 13px; color: var(--tinta-suave); margin: 2px 0 0; }
     @media (min-width: 620px) { .tarjetas { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); grid-auto-columns: auto; overflow: visible; margin: 6px 0 0; padding: 4px 0 0; } .desliza { display: none; } }
     .confianza-boton { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: var(--tinta-suave); margin: 10px 0 0; text-align: center; }
     .confianza-boton svg { width: 16px; height: 16px; flex: none; color: var(--wsp); }
 
     .volver { display: inline-block; margin-top: 12px; padding: 10px 0; background: none; border: 0; color: var(--acento); font: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-    .boton-wa { background: var(--wsp); }
+    .boton { border-radius: 999px; }
+    .boton-wa { background: var(--wsp); box-shadow: 0 8px 20px rgba(19, 32, 42, .16); }
     .boton-wa:hover:not(:disabled) { background: var(--wsp-osc); }
     .resultado-cabecera .monto { font-size: clamp(2.8rem, 12vw, 4rem); letter-spacing: -.04em; line-height: 1; }
 
@@ -64,8 +125,8 @@
     .confianza > div:hover { transform: none; }
     .gracias-caja .tic svg { width: 28px; height: 28px; }
     .portada .acciones { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-top: 22px; }
-    .boton-claro { display: inline-block; width: auto; background: #F4F7F8; color: var(--tinta); padding: 14px 22px; border-radius: 10px; font-weight: 700; text-decoration: none; }
-    .boton-claro:hover { background: #FFFFFF; }
+    .boton-claro { display: inline-block; width: auto; background: var(--amarillo); color: var(--amarillo-osc); padding: 15px 24px; border-radius: 999px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 22px rgba(0, 0, 0, .22); }
+    .boton-claro:hover { background: #FFC23D; }
     .portada .acciones a.enlace { color: #C9D6DC; font-weight: 600; text-underline-offset: 3px; }
     .relato h2 { font-size: clamp(1.45rem, 5.4vw, 1.9rem); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 10px; }
     .relato > p { margin: 0 0 14px; }
@@ -122,24 +183,24 @@
 <main class="contenedor">
 
     <section class="portada">
-        <div class="foto" aria-hidden="true"><img id="foto-portada" src="img/papa-hijo-campo.jpg" alt="" width="1080" height="1664" fetchpriority="high"></div>
-        <div class="sello" aria-hidden="true"><b>7%</b> de tu sueldo, cada mes</div>
-        <h1>Tu 7% de salud no es solo para ti. También es para tu familia.</h1>
-        <p class="subtitulo">Ese descuento se aplica todos los meses y también puede cubrir a tus cargas. Calcula cuánto es en pesos en 30 segundos y, cuando quieras, recibe orientación de un ejecutivo registrado.</p>
+        <div class="foto" aria-hidden="true"><img id="foto-portada" src="img/familia-sofa-bebe.jpg" alt="" width="1080" height="1620" fetchpriority="high"></div>
+        <div class="sello" aria-hidden="true"><span class="pildora">Tu aporte de salud</span><span class="cifra-grande">7%</span><span class="pildora">de tu sueldo, cada mes</span></div>
+        <h1>Tu salud también es la de tu familia.</h1>
+        <p class="subtitulo">Cada mes aportas parte de tu sueldo a salud, y ese aporte puede cubrir también a tus cargas. Revisa cuánto es y conversa con un ejecutivo registrado que te explique tus opciones, sin costo.</p>
         <div class="acciones">
-            <a class="boton-claro" href="#paso-1">Calcular mi 7% gratis</a>
+            <a class="boton-claro" href="#paso-1">Calcular mi aporte gratis</a>
             <a class="enlace" href="#que-es">¿Qué es El Planeador Salud?</a>
         </div>
     </section>
 
     <section class="tarjeta relato rv" id="que-es">
         <h2>Qué es El Planeador Salud</h2>
-        <p>El punto de partida para tomar el control de tu salud. Calculas tu 7% en pesos en segundos y, si quieres ir más allá, te conectamos con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te orienta en tu caso. Sin costo para ti.</p>
+        <p>El punto de partida para tomar el control de tu salud. Calculas cuánto aportas cada mes en segundos y, si quieres ir más allá, te conectamos con un ejecutivo de ventas registrado en la Superintendencia de Salud, que te orienta en tu caso. Sin costo para ti.</p>
         <p>El Planeador es una agencia chilena de marketing digital.</p>
     </section>
 
     <section class="tarjeta relato rv" id="por-que">
-        <figure class="foto-relato"><img src="img/mama-hija.jpg" alt="Una mamá y su hija se abrazan sonriendo." loading="lazy" width="1080" height="720" style="object-position:50% 35%"></figure>
+        <figure class="foto-relato"><img src="img/mama-hijo-living.jpg" alt="Una mamá conversa con su hijo en el living de su casa." loading="lazy" width="1080" height="608"></figure>
         <h2>¿Por qué revisar hoy tu salud?</h2>
         <div class="tarjetas">
             <div><strong>Tu plan cambia cada año</strong>Si tienes isapre, su precio se ajusta todos los años.</div>
@@ -161,21 +222,21 @@
     </section>
 
     <section class="tarjeta relato rv" id="confianza">
-        <figure class="foto-relato"><img src="img/mama-hijo-sofa.jpg" alt="Una mamá abraza a su hijo en el sofá de su casa." loading="lazy" width="1080" height="681"></figure>
+        <figure class="foto-relato"><img src="img/profesional-escritorio.jpg" alt="Una profesional sonríe mientras trabaja en su computador." loading="lazy" width="1080" height="696"></figure>
         <h2>Con quién vas a hablar</h2>
         <div class="confianza">
-            <div><strong>Una persona real, no un call center</strong>Un ejecutivo registrado en la Superintendencia de Salud, que te dice desde el primer mensaje a qué isapre representa.</div>
-            <div><strong>Tú pones el ritmo</strong>Te escribe solo si tú lo pides, por WhatsApp y en horario hábil.</div>
-            <div><strong>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo.</div>
+            <div><strong><svg class="icono-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Una persona real, no un call center</strong>Un ejecutivo registrado en la Superintendencia de Salud, que te dice desde el primer mensaje a qué isapre representa.</div>
+            <div><strong><svg class="icono-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tú pones el ritmo</strong>Te escribe solo si tú lo pides, por WhatsApp y en horario hábil.</div>
+            <div><strong><svg class="icono-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Gratis para ti</strong>La calculadora y la conversación con tu ejecutivo no tienen costo.</div>
         </div>
     </section>
 
     <section class="tarjeta relato rv">
-        <figure class="foto-relato"><img src="img/familia-caminando.jpg" alt="Una familia camina de la mano por el pasto." loading="lazy" width="1080" height="720"></figure>
+        <figure class="foto-relato"><img src="img/pareja-hijo-living.jpg" alt="Una pareja y su hijo sonríen en el sofá de su casa." loading="lazy" width="1080" height="608"></figure>
         <h2>Empieza por tu número</h2>
         <div class="camino" id="camino">
             <span class="luz" aria-hidden="true"></span>
-            <div class="paso-c" style="--i:0"><strong>Calculas tu 7%</strong></div>
+            <div class="paso-c" style="--i:0"><strong>Calculas tu aporte</strong></div>
             <div class="paso-c" style="--i:1"><strong>Dejas tu WhatsApp, si quieres</strong></div>
             <div class="paso-c" style="--i:2"><strong>Un ejecutivo registrado te orienta</strong></div>
         </div>
@@ -191,15 +252,15 @@
         <div class="opciones">
             <button type="button" class="opcion" data-prevision="Isapre">
                 <strong>Tengo isapre</strong>
-                <span>Quiero calcular mi 7% y lo que pongo aparte</span>
+                <span>Quiero ver cuánto aporto y cuánto pongo aparte</span>
             </button>
             <button type="button" class="opcion" data-prevision="Fonasa">
                 <strong>Estoy en Fonasa</strong>
-                <span>Quiero calcular mi 7% en pesos</span>
+                <span>Quiero ver cuánto aporto en pesos</span>
             </button>
             <button type="button" class="opcion" data-prevision="No sé">
                 <strong>Quiero ver mi número</strong>
-                <span>Calcular mi 7% de inmediato</span>
+                <span>Ver mi número de inmediato</span>
             </button>
         </div>
     </section>
@@ -209,7 +270,7 @@
         <div class="barra-prog" aria-hidden="true"><i style="width:66%"></i></div>
         <span class="paso-numero">Paso 2 de 3</span>
         <h2 id="titulo-paso-2">Tu sueldo</h2>
-        <p class="ayuda-bloque" id="ayuda-paso-2">Con esto calculamos cuánto es tu 7%.</p>
+        <p class="ayuda-bloque" id="ayuda-paso-2">Con esto calculamos cuánto aportas.</p>
 
         <form id="form-paso-2" novalidate>
             <div class="campo">
@@ -292,7 +353,7 @@
 
     <!-- ============ CAPTURA ============ -->
     <section class="tarjeta" id="tarjeta-contacto" hidden>
-        <figure class="foto-relato vista"><img src="img/familia-campo.jpg" alt="Una pareja con su bebé en un campo al atardecer." loading="lazy" width="1080" height="720"></figure>
+        <figure class="foto-relato vista"><img src="img/familia-dos-ninos.jpg" alt="Una familia con sus dos hijos en el sofá de su casa." loading="lazy" width="1080" height="1620" style="object-position:50% 40%"></figure>
         <h2 id="titulo-oferta">Recibe orientación personalizada, gratis</h2>
         <p class="ayuda-bloque">Deja tu WhatsApp y un ejecutivo registrado en la Superintendencia de Salud revisa tu caso contigo, a tu ritmo.</p>
         <p class="aviso-datos">Solo tu nombre y tu WhatsApp, para que tu ejecutivo te escriba.</p>
@@ -355,11 +416,11 @@
         <ul style="margin:0;padding-left:20px;line-height:1.9;">
             <li><strong>Pago más que mi 7% y no sé por qué.</strong> Lo que pones de tu bolsillo es la diferencia entre el precio de tu plan y tu 7%. Calcúlalo arriba.</li>
             <li><strong>Mi plan sube todos los años.</strong> Los precios de los planes se ajustan cada año. Revisarlo de vez en cuando no cuesta nada.</li>
-            <li><strong>Estoy en Fonasa y quiero saber mis opciones.</strong> Calcula tu 7% y, si quieres, un ejecutivo registrado lo revisa contigo.</li>
+            <li><strong>Estoy en Fonasa y quiero saber mis opciones.</strong> Calcula tu aporte y, si quieres, un ejecutivo registrado lo revisa contigo.</li>
             <li><strong>Me rechazaron una licencia médica.</strong> Tienes plazos para reclamar. <a href="articulos/licencia-medica-rechazada.html">Te lo explicamos aquí</a>.</li>
             <li><strong>¿Cuándo me puedo cambiar?</strong> Por decisión propia, después de 12 meses en tu isapre. <a href="articulos/cuando-puedo-cambiarme-de-isapre.html">Los detalles aquí</a>.</li>
         </ul>
-        <a class="boton boton-enlace" href="#paso-1">Calcular mi 7%</a>
+        <a class="boton boton-enlace" href="#paso-1">Calcular mi aporte</a>
     </section>
 
     <section class="tarjeta">
@@ -415,6 +476,47 @@
     addEventListener('scroll', revisarVistos, { passive: true });
     addEventListener('load', revisarVistos);
     setTimeout(revisarVistos, 600);
+
+    /* El 7% de la portada cuenta de 0 a 7 al cargar. */
+    var cifra = document.querySelector('.sello .cifra-grande');
+    if (cifra && !reducido) {
+        var t0 = null;
+        cifra.textContent = '0%';
+        setTimeout(function () {
+            requestAnimationFrame(function paso(t) {
+                if (!t0) t0 = t;
+                var k = Math.min((t - t0) / 900, 1);
+                cifra.textContent = Math.round(7 * (1 - Math.pow(1 - k, 3))) + '%';
+                if (k < 1) requestAnimationFrame(paso);
+            });
+        }, 450);
+    }
+
+    /* Paralaje suave dentro de cada foto del relato. */
+    var fotos = document.querySelectorAll('.relato .foto-relato img');
+    if (fotos.length && !reducido) {
+        var esperando = false;
+        addEventListener('scroll', function () {
+            if (esperando) return; esperando = true;
+            requestAnimationFrame(function () {
+                fotos.forEach(function (img) {
+                    var r = img.parentNode.getBoundingClientRect();
+                    if (r.bottom < 0 || r.top > innerHeight) return;
+                    var c = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+                    img.style.transform = 'translate3d(0,' + (c * -24).toFixed(1) + 'px,0) scale(1.08)';
+                });
+                esperando = false;
+            });
+        }, { passive: true });
+    }
+
+    /* El botón verde late una vez cuando entra en pantalla. */
+    if ('IntersectionObserver' in window && !reducido) {
+        var ioWa = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('latido'); ioWa.unobserve(e.target); } });
+        }, { threshold: .6 });
+        document.querySelectorAll('.boton-wa').forEach(function (b) { ioWa.observe(b); });
+    }
 
     var camino = document.getElementById('camino');
     function fin() { if (camino) camino.style.setProperty('--fin', Math.max(camino.clientWidth * .67 - 120, 0) + 'px'); }
