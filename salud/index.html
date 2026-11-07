@@ -36,6 +36,8 @@
     :root { --amarillo: #F5B323; --amarillo-osc: #2A1F05; }
     .sello { position: relative; align-self: flex-start; margin-bottom: auto; display: grid; justify-items: start; gap: 6px; padding: 12px 14px 14px; border-radius: 18px; background: rgba(19, 32, 42, .28); border: 1px solid rgba(255, 255, 255, .28); backdrop-filter: blur(10px) saturate(1.2); -webkit-backdrop-filter: blur(10px) saturate(1.2); box-shadow: 0 10px 30px rgba(19, 32, 42, .22); }
     .pildora { display: inline-block; background: var(--amarillo); color: var(--amarillo-osc); font-weight: 700; font-size: 13px; line-height: 1; padding: 7px 11px 8px; border-radius: 999px; }
+    .cifra-linea { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .cifra-texto { font: 800 clamp(1.4rem, 6vw, 2rem)/1 var(--display); color: #FFFFFF; letter-spacing: -.02em; }
     .sello .cifra-grande { font: 800 clamp(3.6rem, 18vw, 5.2rem)/.86 var(--display); letter-spacing: -.05em; color: #FFFFFF; text-shadow: 0 4px 24px rgba(0, 0, 0, .25); }
 
     /* Fotos dentro del relato */
@@ -87,8 +89,7 @@
         .boton-claro::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%); transform: translateX(-120%); animation: brillo 4.5s var(--ease) 2.2s 3; }
         @keyframes brillo { 0%, 70% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
         .js .sello .pildora { opacity: 0; transform: translateX(-12px); animation: entra .6s var(--ease) forwards; }
-        .js .sello .pildora:first-child { animation-delay: .5s; }
-        .js .sello .pildora:last-child { animation-delay: 1.1s; }
+                .js .sello .pildora { animation-delay: 1.1s; }
         @keyframes entra { to { opacity: 1; transform: none; } }
         .js .tarjetas > div { opacity: 0; transform: translateY(18px); }
         .js .vista .tarjetas > div { opacity: 1; transform: none; transition: opacity .6s var(--ease), transform .6s var(--ease); }
@@ -184,7 +185,7 @@
 
     <section class="portada">
         <div class="foto" aria-hidden="true"><img id="foto-portada" src="img/familia-sofa-bebe.jpg" alt="" width="1080" height="1620" fetchpriority="high"></div>
-        <div class="sello" aria-hidden="true"><span class="pildora">Tu aporte de salud</span><span class="cifra-grande">7%</span><span class="pildora">de tu sueldo, cada mes</span></div>
+        <div class="sello" aria-hidden="true"><span class="cifra-linea"><span class="cifra-texto">Tu</span><span class="cifra-grande">7%</span><span class="cifra-texto">de salud</span></span><span class="pildora">es para ti y para tu familia</span></div>
         <h1>Tu salud también es la de tu familia.</h1>
         <p class="subtitulo">Cada mes aportas parte de tu sueldo a salud, y ese aporte puede cubrir también a tus cargas. Revisa cuánto es y conversa con un ejecutivo registrado que te explique tus opciones, sin costo.</p>
         <div class="acciones">
