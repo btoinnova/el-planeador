@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Carol Jara · Asesora Comercial Banmédica</title>
+<meta name="description" content="Carol Jara, asesora comercial de Banmédica. Compara planes y clínicas, revisa los beneficios y pide tu cotización.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+    :root {
+        --fondo: #FAF8F6; --blanco: #FFFFFF; --tinta: #16181D; --suave: #555B66; --linea: #E6E1DC;
+        --rojo: #E4231B; --rojo-t: #C0170F; --rojo-suave: #FDECEB; --arena: #F3EFEA; --oscuro: #16181D;
+        --serif: "DM Serif Display", Georgia, serif; --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        --m: clamp(20px, 5vw, 72px); --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3, h4, p { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; text-wrap: balance; }
+    :focus-visible { outline: 2px solid var(--rojo); outline-offset: 3px; }
+    .caja { width: min(1200px, 100% - var(--m) * 2); margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--rojo); color: #fff; font: 500 16px/1 var(--sans); text-decoration: none; border: 0; cursor: pointer; transition: background .2s, transform .2s; }
+    .btn:hover { background: var(--rojo-t); transform: translateY(-1px); }
+    .btn:disabled { background: #C9C4BF; cursor: not-allowed; transform: none; }
+    .btn.claro { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 1px var(--tinta); }
+    .btn.claro:hover { background: var(--tinta); color: #fff; }
+    .btn.wsp { background: #1F8F55; }
+    .btn.wsp:hover { background: #18774A; }
+    .btn svg { width: 20px; height: 20px; }
+
+    /* cabecera */
+    .cab { position: sticky; top: 0; z-index: 10; background: rgba(250, 248, 246, .97); border-bottom: 1px solid var(--linea); }
+    .cab .caja { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+    .marca { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .marca img { height: 30px; width: auto; }
+    .marca span { padding-left: 14px; border-left: 1px solid var(--linea); font-size: 14px; color: var(--suave); line-height: 1.2; }
+    .cab nav { display: flex; align-items: center; gap: 24px; font-size: 15px; font-weight: 500; }
+    .cab nav a:not(.btn) { text-decoration: none; }
+    .cab nav a:not(.btn):hover { color: var(--rojo-t); }
+    .cab .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
+    @media (max-width: 900px) { header.cab nav a:not(.btn) { display: none; } }
+    @media (max-width: 420px) { .marca span { display: none; } }
+
+    /* portada */
+    .portada { padding: clamp(36px, 6vw, 84px) 0 clamp(48px, 7vw, 96px); }
+    .portada .caja { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
+    .chips-rol { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rol { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--rojo-suave); color: var(--rojo-t); }
+    .rol i { width: 7px; height: 7px; border-radius: 50%; background: var(--rojo); }
+    .sello { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 500; padding: 7px 14px; border-radius: 999px; background: var(--blanco); border: 1px solid var(--linea); text-decoration: none; }
+    .sello svg { width: 16px; height: 16px; color: #1F8F55; }
+    .portada h1 { margin-top: 22px; font-size: clamp(2.5rem, 5vw, 4.3rem); line-height: 1.03; }
+    .portada h1 em { color: var(--rojo-t); }
+    .bajada { margin-top: 22px; font-size: clamp(1.05rem, 1.35vw, 1.2rem); color: var(--suave); max-width: 33em; }
+    .acciones { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .micro { margin-top: 14px; font-size: 14px; color: var(--suave); }
+    .respaldo { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--linea); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; font-size: 14.5px; color: var(--suave); }
+    .respaldo span { display: flex; align-items: center; gap: 8px; }
+    .respaldo svg { width: 18px; height: 18px; color: var(--rojo); flex: none; }
+    .foto { position: relative; margin: 0; border-radius: 28px; overflow: hidden; aspect-ratio: 4 / 4.6; background: var(--arena); }
+    .foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+    .foto-pie { position: absolute; left: 16px; right: 16px; bottom: 16px; background: rgba(255, 255, 255, .97); border-radius: 18px; padding: 14px 18px; }
+    .foto-pie small { display: block; font-size: 12.5px; font-weight: 500; color: #1F8F55; margin-bottom: 4px; }
+    .foto-pie p { font-size: 15px; line-height: 1.45; }
+    @media (max-width: 900px) { .portada .caja { grid-template-columns: 1fr; } .foto { aspect-ratio: 4 / 4.2; order: -1; } .respaldo { grid-template-columns: 1fr; } }
+
+    /* secciones */
+    .sec { padding: clamp(64px, 9vw, 116px) 0; }
+    .sec.arena { background: var(--arena); }
+    .sec h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.06; max-width: 17em; }
+    .sec .intro { margin-top: 14px; color: var(--suave); max-width: 42em; font-size: 1.05rem; }
+    .nota { margin-top: 14px; font-size: 13.5px; color: var(--suave); max-width: 60em; }
+
+    /* comparador */
+    .guia { margin-top: 30px; padding: 22px 24px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; }
+    .guia h3 { font-size: 17px; }
+    .guia > p { margin-top: 4px; font-size: 15px; color: var(--suave); }
+    .gchips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .gchip input { position: absolute; opacity: 0; pointer-events: none; }
+    .gchip span { display: inline-block; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--linea); font-size: 14px; cursor: pointer; background: var(--fondo); transition: background .2s, color .2s, border-color .2s; }
+    .gchip input:checked + span { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+    .gchip input:focus-visible + span { outline: 2px solid var(--rojo); outline-offset: 2px; }
+    .guia-estado { margin-top: 14px; font-size: 15px; font-weight: 500; }
+    .guia-acciones { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .guia-acciones .btn { min-height: 46px; font-size: 15px; }
+    .limpiar { background: none; border: 0; font: 500 14px/1 var(--sans); text-decoration: underline; cursor: pointer; color: var(--suave); }
+    .regalo-frase { margin-top: 26px; font-weight: 700; }
+    .comun { margin-top: 6px; font-size: 15px; color: var(--suave); }
+    .tabla-envoltura { margin-top: 18px; overflow-x: auto; border: 1px solid var(--linea); border-radius: 22px; background: var(--blanco); }
+    table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 14.5px; }
+    th, td { padding: 12px 14px; text-align: center; border-bottom: 1px solid var(--linea); vertical-align: middle; transition: background .25s, opacity .25s; }
+    thead th { background: #FCFBFA; vertical-align: bottom; padding-top: 18px; }
+    thead th:first-child, tbody th { text-align: left; }
+    tbody th { font-weight: 500; white-space: nowrap; position: sticky; left: 0; background: var(--blanco); }
+    .pc span { display: block; font-size: 12px; font-weight: 500; color: var(--suave); }
+    .pc b { display: block; font: 400 20px/1.15 var(--serif); margin-top: 2px; }
+    .pc a { display: inline-block; margin-top: 8px; font-size: 12.5px; font-weight: 500; color: var(--rojo-t); }
+    td svg { width: 20px; height: 20px; color: var(--rojo); }
+    td .no { color: #C7C1BA; font-size: 20px; }
+    tr.regalo td { vertical-align: top; text-align: left; font-size: 13px; color: var(--suave); }
+    tr.regalo ul { margin: 0; padding-left: 16px; }
+    tr.regalo td, tr.regalo th { border-bottom: 0; }
+    tr.c-sel th { color: var(--rojo-t); }
+    tr.c-sel td, tr.c-sel th { background: #FFF7F6; }
+    .col-ok { background: #FFF2F1; }
+    .col-fuera { opacity: .32; }
+
+    /* regiones */
+    .regional { margin-top: 56px; }
+    .regional h3 { font: 400 clamp(1.6rem, 3vw, 2.3rem)/1.1 var(--serif); }
+    .noticia { margin-top: 22px; padding: 22px 24px; background: var(--blanco); border: 1px solid var(--linea); border-left: 3px solid var(--rojo); border-radius: 4px 18px 18px 4px; }
+    .noticia h4 { font-size: 17px; }
+    .noticia p { margin-top: 8px; font-size: 15.5px; color: var(--suave); }
+    .noticia .fuente { font-size: 13px; }
+    .zonas { margin-top: 18px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .zona { background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; padding: 20px; }
+    .zona h4 { font-size: 15.5px; }
+    .zona ul { margin: 10px 0 0; padding-left: 16px; font-size: 14px; color: var(--suave); }
+    @media (max-width: 900px) { .zonas { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .zonas { grid-template-columns: 1fr; } }
+
+    /* pilares y pasos */
+    .pilares { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--tinta); }
+    .pilar { padding: 24px 24px 0 0; }
+    .pilar + .pilar { padding-left: 24px; border-left: 1px solid var(--linea); }
+    .pilar h3 { font: 400 26px/1.15 var(--serif); }
+    .pilar p { margin-top: 8px; color: var(--suave); }
+    .pasos { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--tinta); }
+    .paso { padding: 24px 22px 0 0; }
+    .paso + .paso { padding-left: 22px; border-left: 1px solid var(--linea); }
+    .paso .n { font: 400 15px/1 var(--serif); color: var(--rojo-t); }
+    .paso h3 { margin-top: 12px; font-size: 17.5px; line-height: 1.3; }
+    .paso p { margin-top: 8px; color: var(--suave); font-size: 15.5px; }
+    .destacado { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 24px 28px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; }
+    .destacado p { max-width: 46em; }
+    @media (max-width: 900px) { .pilares, .pasos { grid-template-columns: 1fr; } .pilar + .pilar, .paso + .paso { padding-left: 0; border-left: 0; border-top: 1px solid var(--linea); } .pilar, .paso { padding-bottom: 22px; } }
+
+    /* beneficios */
+    .bento { margin-top: 40px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .ben { background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; padding: 26px; overflow: hidden; position: relative; }
+    .ben h3 { font: 400 25px/1.12 var(--serif); }
+    .ben p, .ben li { color: var(--suave); font-size: 15px; }
+    .ben p { margin-top: 10px; }
+    .chip { display: inline-block; margin-bottom: 12px; font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 999px; background: var(--rojo-suave); color: var(--rojo-t); }
+    .chip.gris { background: var(--arena); color: var(--suave); }
+    .cifra { display: block; margin-top: 12px; font: 400 44px/1 var(--serif); }
+    .cifra small { font: 500 14px/1 var(--sans); color: var(--suave); margin-left: 6px; }
+    .ben.seguro { grid-column: span 4; display: grid; grid-template-columns: 1fr .8fr; gap: 24px; padding: 0; background: var(--oscuro); color: #EEE9E4; border-color: var(--oscuro); }
+    .ben.seguro .txt { padding: 28px; }
+    .ben.seguro h3 { color: #fff; }
+    .ben.seguro p { color: #C9C3BC; }
+    .ben.seguro .chip { background: #fff; color: var(--rojo-t); }
+    .ben.seguro img { width: 100%; height: 100%; object-fit: cover; min-height: 280px; }
+    .dos-cifras { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .dos-cifras .cifra { display: block; color: #fff; margin-top: 0; font: 400 44px/1 var(--serif); }
+    .dos-cifras .cifra small { color: #C9C3BC; }
+    .dos-cifras span { display: block; margin-top: 6px; font-size: 13px; color: #C9C3BC; }
+    .ben.pet { grid-column: span 2; }
+    .ben.pet img { margin: 14px -26px -26px; width: calc(100% + 52px); height: 150px; object-fit: cover; max-width: none; }
+    .ben.viaje { grid-column: span 2; }
+    .ben.protesis { grid-column: span 2; }
+    .ben.ges { grid-column: span 2; background: var(--rojo-suave); border-color: #F6CFCC; }
+    .ben details { margin-top: 12px; font-size: 14.5px; }
+    .ben summary { cursor: pointer; font-weight: 500; color: var(--rojo-t); }
+    .ben ul { margin: 8px 0 0; padding-left: 18px; }
+    .ges-pasos { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .ges-pasos div { background: #fff; border-radius: 14px; padding: 12px; font-size: 13px; color: var(--suave); }
+    .ges-pasos b { display: block; font: 400 26px/1 var(--serif); color: var(--tinta); }
+    .ben a.ver { display: inline-block; margin-top: 12px; font-size: 14px; font-weight: 500; color: var(--rojo-t); }
+    @media (max-width: 960px) { .bento { grid-template-columns: 1fr 1fr; } .ben.seguro { grid-column: span 2; } .ben.pet, .ben.viaje, .ben.protesis, .ben.ges { grid-column: span 1; } }
+    @media (max-width: 640px) { .bento { grid-template-columns: 1fr; } .ben.seguro, .ben.pet, .ben.viaje, .ben.protesis, .ben.ges { grid-column: span 1; } .ben.seguro { grid-template-columns: 1fr; } }
+
+    /* salud extendida */
+    .se-cifras { margin-top: 36px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-top: 1px solid var(--tinta); }
+    .se-c { padding: 22px 18px 0 0; }
+    .se-c + .se-c { padding-left: 18px; border-left: 1px solid var(--linea); }
+    .se-c b { display: block; font: 400 38px/1 var(--serif); color: var(--rojo-t); }
+    .se-c small { display: block; margin-top: 4px; font-size: 12.5px; color: var(--suave); }
+    .se-c h3 { margin-top: 12px; font-size: 15.5px; line-height: 1.3; }
+    .se-c p { margin-top: 6px; font-size: 14px; color: var(--suave); }
+    .programas { margin-top: 40px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+    .prog { text-align: center; font-size: 13.5px; font-weight: 500; }
+    .prog img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 16px; margin-bottom: 8px; }
+    .se-info { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .se-info > div { background: var(--blanco); border: 1px solid var(--linea); border-radius: 20px; padding: 22px; }
+    .se-info h3 { font-size: 17px; }
+    .se-info p { margin-top: 8px; color: var(--suave); font-size: 15px; }
+    .tramos { margin-top: 12px; display: flex; gap: 8px; }
+    .tramos span { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--tinta); color: #fff; font-weight: 700; }
+    @media (max-width: 960px) { .se-cifras { grid-template-columns: 1fr 1fr; row-gap: 22px; } .se-c:nth-child(odd) { border-left: 0; padding-left: 0; } .programas { grid-template-columns: repeat(4, 1fr); } .se-info { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .se-cifras { grid-template-columns: 1fr; } .se-c + .se-c { border-left: 0; padding-left: 0; } .programas { grid-template-columns: repeat(3, 1fr); } }
+
+    /* preguntas */
+    .preguntas { margin-top: 32px; border-top: 1px solid var(--tinta); max-width: 880px; }
+    details.faq { border-bottom: 1px solid var(--linea); }
+    details.faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 20px; padding: 20px 0; font-size: 17.5px; font-weight: 500; }
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq summary::after { content: "+"; font: 400 26px/1 var(--serif); color: var(--rojo); transition: transform .25s var(--ease); }
+    details.faq[open] summary::after { transform: rotate(45deg); }
+    details.faq p { padding: 0 0 20px; color: var(--suave); max-width: 46em; }
+
+    /* cotizar */
+    .cotizar { background: var(--oscuro); color: #DDD8D2; }
+    .cotizar .caja { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 6vw, 88px); align-items: start; }
+    .cotizar h2 { color: #fff; }
+    .cotizar .intro { color: #B8B2AB; }
+    .horario { margin-top: 26px; font-size: 15px; color: #B8B2AB; }
+    .cotizar .lado .btn { margin-top: 22px; }
+    form { background: var(--blanco); color: var(--tinta); border-radius: 26px; padding: clamp(22px, 3vw, 38px); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .campo { display: grid; gap: 7px; font-size: 14px; font-weight: 500; }
+    .campo.ancho { grid-column: 1 / -1; }
+    input[type="text"], input[type="tel"], input[type="number"], select { font: 400 16px/1.3 var(--sans); color: var(--tinta); min-height: 50px; padding: 0 14px; border: 1px solid #CFC8C1; border-radius: 12px; background: #fff; width: 100%; }
+    input:focus, select:focus { outline: 2px solid var(--rojo); outline-offset: 1px; border-color: var(--rojo); }
+    .consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; font-weight: 400; color: var(--suave); line-height: 1.5; }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--rojo); }
+    .enlace-politica { color: var(--rojo-t); text-decoration: underline; cursor: pointer; }
+    form .btn { grid-column: 1 / -1; width: 100%; }
+    @media (max-width: 900px) { .cotizar .caja { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { form { grid-template-columns: 1fr; } }
+
+    /* politica */
+    .overlay-popup { position: fixed; inset: 0; z-index: 50; background: rgba(22, 24, 29, .55); display: none; align-items: center; justify-content: center; padding: 16px; }
+    .overlay-popup.activo { display: flex; }
+    .popup { background: #fff; border-radius: 22px; max-width: 680px; width: 100%; max-height: 86vh; display: flex; flex-direction: column; overflow: hidden; }
+    .popup-cabecera { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 20px 24px; border-bottom: 1px solid var(--linea); }
+    .popup-cabecera h3 { font: 400 22px/1.2 var(--serif); }
+    .popup-cerrar { background: none; border: 0; font-size: 28px; line-height: 1; cursor: pointer; color: var(--suave); }
+    .popup-contenido { padding: 20px 24px; overflow-y: auto; font-size: 14.5px; color: var(--suave); }
+    .popup-contenido h4 { margin-top: 14px; color: var(--tinta); font-size: 15px; }
+    .popup-contenido p { margin-top: 6px; }
+    .popup-pie { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 16px 24px; border-top: 1px solid var(--linea); }
+    .popup-aceptar { display: flex; align-items: center; gap: 8px; font-size: 14px; margin-right: auto; }
+    .popup-boton { min-height: 42px; padding: 0 18px; border-radius: 999px; border: 0; font: 500 14.5px/1 var(--sans); cursor: pointer; }
+    .popup-boton.aceptar { background: var(--rojo); color: #fff; }
+    .popup-boton.cerrar { background: var(--arena); color: var(--tinta); }
+
+    footer { padding: 40px 0 100px; font-size: 14px; color: var(--suave); border-top: 1px solid var(--linea); }
+    footer .caja { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+    footer b { color: var(--tinta); }
+    footer p + p { margin-top: 8px; }
+    footer .derecha { text-align: right; }
+    @media (max-width: 720px) { footer .caja { grid-template-columns: 1fr; } footer .derecha { text-align: left; } }
+
+    .wsp-fijo { position: fixed; right: 20px; bottom: 20px; z-index: 20; display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 20px 0 16px; border-radius: 999px; background: #1F8F55; color: #fff; font: 500 15px/1 var(--sans); text-decoration: none; box-shadow: 0 0 0 3px #fff, 0 10px 28px rgba(22, 24, 29, .25); }
+    .wsp-fijo svg { width: 24px; height: 24px; }
+
+    /* ---- interaccion y movimiento (como la pagina original, en el formato nuevo) ---- */
+    .ico { display: block; width: 30px; height: 30px; color: var(--rojo); margin-bottom: 14px; transition: transform .35s var(--ease); }
+    .pilar:hover .ico, .paso:hover .ico { transform: translateY(-3px) rotate(-6deg) scale(1.1); }
+    .respaldo svg { transition: transform .3s var(--ease); }
+    .respaldo span:hover svg { transform: scale(1.25); }
+    .escribiendo { display: inline-flex; gap: 4px; padding: 8px 12px; background: var(--arena); border-radius: 14px; }
+    .escribiendo i { width: 7px; height: 7px; border-radius: 50%; background: #9AA0A9; animation: puntos 1.2s ease-in-out infinite; }
+    .escribiendo i:nth-child(2) { animation-delay: .15s; } .escribiendo i:nth-child(3) { animation-delay: .3s; }
+    @keyframes puntos { 0%, 60%, 100% { transform: translateY(0); opacity: .45; } 30% { transform: translateY(-4px); opacity: 1; } }
+    #chat { display: flex; flex-direction: column; }
+    #chat small { order: 0; } #chat .msg { order: 1; } #chat .escribiendo { order: 2; align-self: flex-start; margin-top: 10px; }
+    .js #chat:not(.escribio) .msg { opacity: 0; }
+    .js #chat.escribio .msg { animation: aparece .5s var(--ease); }
+    @keyframes aparece { from { opacity: 0; transform: translateY(6px); } }
+    .wsp-fijo { animation: late 2.6s ease-in-out infinite; }
+    @keyframes late { 0%, 100% { box-shadow: 0 0 0 3px #fff, 0 10px 28px rgba(22, 24, 29, .25), 0 0 0 3px rgba(31, 143, 85, 0); } 50% { box-shadow: 0 0 0 3px #fff, 0 10px 28px rgba(22, 24, 29, .25), 0 0 0 12px rgba(31, 143, 85, .2); } }
+    .cab nav a:not(.btn) { position: relative; padding: 6px 0; }
+    .cab nav a:not(.btn)::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--rojo); transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s var(--ease); }
+    .cab nav a:not(.btn):hover::after, .cab nav a.activo::after { transform: scaleX(1); }
+    .cab nav a.activo { color: var(--rojo-t); }
+    .banda { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 28px 32px; background: var(--oscuro); color: #EEE9E4; border-radius: 22px; }
+    .banda h3 { font: 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.15 var(--serif); color: #fff; max-width: 20em; }
+    .banda ul { margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; }
+    .banda li::before { content: "✓"; color: var(--rojo); font-weight: 700; margin-right: 8px; }
+    .banda .btn { background: #fff; color: var(--tinta); }
+    .banda .btn:hover { background: var(--rojo); color: #fff; }
+    .portada .caja { grid-template-columns: 1.35fr .65fr; }
+    .foto { aspect-ratio: 4 / 4.4; max-height: 64vh; max-width: 420px; justify-self: end; width: 100%; }
+    @media (max-width: 900px) { .portada .caja { grid-template-columns: 1fr; } .foto { aspect-ratio: auto; max-height: none; max-width: none; justify-self: stretch; overflow: visible; background: none; border-radius: 0; } .foto img { height: 44vh; border-radius: 24px; object-position: 50% 25%; } .foto-pie { position: static; margin-top: -28px; margin-inline: 14px; box-shadow: 0 10px 28px -12px rgba(22,24,29,.35); position: relative; } }
+    th.pc { cursor: pointer; }
+    th.pc:hover b, th.pc.sel b { color: var(--rojo-t); }
+    td.hov, th.hov { background: #FFF7F6; }
+    .col-sel { background: #FFEDEB !important; }
+    .detalle-plan { margin-top: 14px; padding: 16px 20px; background: var(--blanco); border: 1px solid var(--linea); border-left: 3px solid var(--rojo); border-radius: 4px 16px 16px 4px; font-size: 15px; display: none; }
+    .detalle-plan.on { display: block; animation: aparece .4s var(--ease); }
+    .detalle-plan b { font: 400 20px/1.2 var(--serif); }
+    .detalle-plan p { margin-top: 6px; color: var(--suave); }
+    .tabla-pista { margin-top: 12px; font-size: 13.5px; color: var(--suave); }
+    .ben, .zona, .se-info > div { transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+    .ben:hover, .zona:hover, .se-info > div:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -18px rgba(22, 24, 29, .35); }
+    .ben.seguro img, .ben.pet img { transition: transform .8s var(--ease); }
+    .ben.seguro:hover img, .ben.pet:hover img { transform: scale(1.05); }
+    .ilu-viaje { position: absolute; right: 18px; top: 18px; width: 64px; height: 64px; color: var(--tinta); transition: transform .6s var(--ease); }
+    .ben.viaje:hover .ilu-viaje { transform: translate(8px, -8px) rotate(8deg); }
+    .ilu-prot { position: absolute; right: 18px; top: 18px; width: 64px; height: 64px; transition: transform .6s var(--ease); }
+    .ben.protesis:hover .ilu-prot { transform: rotate(18deg) scale(1.08); }
+    .ges-pasos .barra { display: block; margin-top: 10px; height: 6px; border-radius: 6px; background: #EFD9D7; overflow: hidden; }
+    .ges-pasos .barra u { display: block; height: 100%; width: var(--w); background: var(--rojo); border-radius: 6px; transform-origin: 0 50%; }
+    .programas .prog { transition: transform .35s var(--ease); }
+    .programas .prog img { transition: transform .5s var(--ease), box-shadow .35s; }
+    .programas .prog:hover { transform: translateY(-4px); }
+    .programas .prog:hover img { transform: scale(1.06); box-shadow: 0 14px 30px -14px rgba(22, 24, 29, .45); }
+    .se-c b { display: inline-block; transition: transform .35s var(--ease); }
+    .se-c:hover b { transform: scale(1.08); }
+    .gchip span { display: inline-block; transition: transform .2s var(--ease), background .2s, color .2s, border-color .2s; }
+    .gchip:hover span { transform: translateY(-2px); border-color: var(--tinta); }
+    @media (prefers-reduced-motion: no-preference) {
+        .js .ben.seguro img, .js .ben.pet img { clip-path: inset(0 100% 0 0); }
+        .js .ben.vista img { clip-path: inset(0 0 0 0); transition: clip-path 1.1s var(--ease) .2s, transform .8s var(--ease); }
+        .js .ges-pasos .barra u { transform: scaleX(0); }
+        .js .ben.vista .ges-pasos .barra u { transform: scaleX(1); transition: transform 1.2s var(--ease) .5s; }
+        .js .tramos span { transform: scale(.4); opacity: 0; }
+        .js .vista .tramos span { transform: none; opacity: 1; transition: transform .5s cubic-bezier(.34, 1.56, .64, 1) calc(var(--i) * .15s + .3s), opacity .3s calc(var(--i) * .15s + .3s); }
+        .js .programas .prog { opacity: 0; translate: 0 14px; }
+        .js .programas.vista .prog { opacity: 1; translate: none; transition: opacity .6s var(--ease) calc(var(--k, 0) * 70ms), translate .6s var(--ease) calc(var(--k, 0) * 70ms), transform .35s var(--ease); }
+    }
+    @media (prefers-reduced-motion: reduce) { .escribiendo i, .wsp-fijo { animation: none; } .js #chat .msg { opacity: 1; } }
+
+
+    .invita { margin-top: 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; color: var(--rojo-t); }
+    .invita svg { width: 24px; height: 24px; animation: toca 1.6s ease-in-out infinite; }
+    @keyframes toca { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+    .gchip span { box-shadow: 0 1px 0 rgba(22, 24, 29, .06); }
+    @media (prefers-reduced-motion: no-preference) {
+        .gchips.llama .gchip span { animation: llama .9s var(--ease) calc(var(--k, 0) * 70ms) 1 both; }
+        @keyframes llama { 0% { transform: none; } 35% { transform: translateY(-4px); background: var(--rojo-suave); border-color: var(--rojo); color: var(--rojo-t); } 100% { transform: none; } }
+    }
+    @media (prefers-reduced-motion: reduce) { .invita svg { animation: none; } }
+    /* ---- menos texto a la vista: pestanas, plegado, pasos que avanzan, cifras que cuentan ---- */
+    .tabs-zona { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .tabs-zona button { font: 500 14.5px/1 var(--sans); padding: 11px 18px; border-radius: 999px; border: 1px solid var(--linea); background: var(--blanco); cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .2s var(--ease); }
+    .tabs-zona button:hover { transform: translateY(-2px); border-color: var(--tinta); }
+    .tabs-zona button[aria-selected="true"] { background: var(--tinta); color: #fff; border-color: var(--tinta); }
+    .js .zonas.con-tabs { grid-template-columns: 1fr; max-width: 720px; }
+    .js .zonas.con-tabs .zona { display: none; }
+    .js .zonas.con-tabs .zona.on { display: block; animation: aparece .4s var(--ease); }
+    .js .zonas.con-tabs .zona ul { columns: 2; column-gap: 28px; }
+    @media (max-width: 560px) { .js .zonas.con-tabs .zona ul { columns: 1; } }
+    .js .noticia.cerrada p:not(.fuente) { display: none; }
+    .leer { margin-top: 10px; background: none; border: 0; padding: 0; font: 500 14.5px/1 var(--sans); color: var(--rojo-t); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .pasos { position: relative; }
+    .pasos::before { content: ""; position: absolute; left: 0; top: -1px; height: 3px; width: var(--avance, 0%); background: var(--rojo); transition: width .6s var(--ease); }
+    .js .pasos.vivo .paso { opacity: .45; transition: opacity .4s ease; }
+    .js .pasos.vivo .paso.activo { opacity: 1; }
+    .js .pasos.vivo .paso.activo .ico { transform: translateY(-3px) rotate(-6deg) scale(1.12); }
+
+    /* ---- recursos del Planeador, en version sobria ---- */
+    /* interruptor tarjetas / comparativo */
+    .vistas { margin-top: 22px; display: inline-flex; padding: 4px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 999px; }
+    .vistas button { font: 500 14.5px/1 var(--sans); padding: 11px 20px; border: 0; border-radius: 999px; background: transparent; cursor: pointer; color: var(--suave); transition: background .25s, color .25s; }
+    .vistas button[aria-selected="true"] { background: var(--tinta); color: #fff; }
+    .vista-planes { position: relative; margin-top: 18px; }
+    .vista-planes > .tarjetas, .vista-planes > .tabla-envoltura { transition: opacity .45s ease; }
+    .vista-planes[data-v="tarjetas"] > .tabla-envoltura, .vista-planes[data-v="tabla"] > .tarjetas { display: none; }
+    .vista-planes.fundiendo > * { opacity: 0; }
+    .vista-planes .tabla-envoltura { margin-top: 0; }
+    .tarjetas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .plan { position: relative; background: var(--blanco); border: 1px solid var(--linea); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; transition: transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s ease, opacity .35s ease; }
+    .plan-fam { align-self: flex-start; font-size: 12.5px; font-weight: 500; padding: 5px 11px; border-radius: 999px; background: var(--arena); color: var(--suave); }
+    .plan h3 { margin-top: 12px; font: 400 26px/1.1 var(--serif); }
+    .plan-sub { margin-top: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--suave); }
+    .plan ul { margin: 8px 0 0; padding: 0; list-style: none; font-size: 14.5px; }
+    .plan-red li { padding: 3px 0 3px 22px; position: relative; }
+    .plan-red li::before { content: ""; position: absolute; left: 2px; top: 10px; width: 10px; height: 6px; border-left: 2px solid var(--rojo); border-bottom: 2px solid var(--rojo); transform: rotate(-45deg); }
+    .plan-regalo li { padding: 4px 0 4px 22px; position: relative; color: var(--suave); }
+    .plan-regalo li::before { content: "+"; position: absolute; left: 4px; top: 2px; font-weight: 700; color: var(--rojo); }
+    .plan .ask { margin-top: auto; padding-top: 18px; font-size: 14.5px; font-weight: 500; color: var(--rojo-t); }
+    .plan:nth-child(6) { background: var(--oscuro); color: #EEE9E4; border-color: var(--oscuro); }
+    .plan:nth-child(6) .plan-fam { background: #2B2E35; color: #D9D3CC; }
+    .plan:nth-child(6) .plan-sub, .plan:nth-child(6) .plan-regalo li { color: #B8B2AB; }
+    .plan:nth-child(6) .ask { color: #fff; }
+    .plan.dentro { box-shadow: 0 0 0 2px var(--rojo); }
+    .plan.fuera { opacity: .35; }
+    @media (hover: hover) and (pointer: fine) {
+        .tarjetas:hover .plan:not(:hover) { filter: blur(2px); opacity: .55; }
+        .plan:hover { transform: translateY(-6px); box-shadow: 0 22px 44px -20px rgba(22, 24, 29, .45); }
+    }
+    @media (max-width: 960px) { .tarjetas { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .tarjetas { grid-template-columns: 1fr; } }
+    .comparativa { margin-top: 22px; }
+    .comparativa summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: 500 16px/1 var(--sans); color: var(--rojo-t); padding: 12px 0; }
+    .comparativa summary::-webkit-details-marker { display: none; }
+    .comparativa summary::after { content: "+"; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--rojo); font: 400 20px/1 var(--serif); transition: transform .3s var(--ease); }
+    .comparativa[open] summary::after { transform: rotate(45deg); }
+    .comparativa summary:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .comparativa[open] > :not(summary) { animation: aparece .45s var(--ease); }
+    .lado-foto { display: grid; gap: 14px; justify-items: end; }
+    .lado-foto .chips-rol { justify-content: center; width: 100%; max-width: 420px; }
+    .portada { padding: clamp(28px, 4vw, 52px) 0 clamp(32px, 4vw, 52px); }
+    .portada h1 { margin-top: 0; }
+    @media (max-width: 900px) { .lado-foto { justify-items: stretch; order: -1; } .lado-foto .chips-rol { max-width: none; justify-content: flex-start; } }
+    /* primera pantalla compacta: la cinta de clinicas debe verse sin bajar */
+    .portada h1 { font-size: clamp(2.1rem, 3.6vw, 3.3rem); line-height: 1.06; }
+    .portada .bajada { margin-top: 14px; font-size: 1.05rem; }
+    .portada .acciones { margin-top: 20px; }
+    .portada .micro { margin-top: 10px; }
+    .portada .respaldo { margin-top: 18px; padding-top: 14px; gap: 6px 24px; }
+    .foto { max-height: 52vh; }
+    .lado-foto { gap: 10px; }
+    @media (max-width: 900px) { header.cab nav a:not(.btn) { display: none; } }
+    /* franja de clinicas */
+    .cinta { overflow: hidden; border-block: 1px solid var(--linea); background: var(--blanco); }
+    .cinta-pista { display: flex; width: max-content; animation: cinta 48s linear infinite; }
+    .cinta-pista span { padding: 16px 0; font: 400 clamp(1.1rem, 2vw, 1.5rem)/1 var(--serif); color: var(--suave); white-space: nowrap; }
+    .cinta-pista span::after { content: "·"; margin: 0 22px; color: var(--rojo); }
+    @keyframes cinta { to { transform: translateX(-50%); } }
+    .cinta:hover .cinta-pista { animation-play-state: paused; }
+    /* programas con foto que sigue al cursor */
+    .sub-h { margin-top: 40px; font: 400 clamp(1.4rem, 2.4vw, 1.9rem)/1.15 var(--serif); }
+    ul.programas { margin: 18px 0 0; padding: 0; list-style: none; display: block; border-top: 1px solid var(--tinta); }
+    ul.programas li { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--linea); font: 400 clamp(1.25rem, 2.2vw, 1.75rem)/1.15 var(--serif); transition: color .25s, padding-left .3s var(--ease); cursor: default; }
+    ul.programas li img { display: none; }
+    ul.programas li em { font: 500 13px/1 var(--sans); font-style: normal; color: var(--suave); }
+    ul.programas li:hover { color: var(--rojo-t); padding-left: 10px; }
+    .p-flota { position: fixed; left: 0; top: 0; width: 260px; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; pointer-events: none; z-index: 30; opacity: 0; transform: translate3d(-50%, -50%, 0) scale(.9); transition: opacity .25s ease, transform .3s var(--ease); box-shadow: 0 20px 40px -18px rgba(22, 24, 29, .5); }
+    .p-flota img { width: 100%; height: 100%; object-fit: cover; }
+    .p-flota.on { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1); }
+    @media not all and (hover: hover) {
+        .p-flota { display: none; }
+        ul.programas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; border-top: 0; }
+        ul.programas li { flex-direction: column; align-items: center; text-align: center; border: 0; padding: 0; font: 500 13.5px/1.3 var(--sans); }
+        ul.programas li img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 14px; }
+        ul.programas li em { display: none; }
+    }
+    /* menu: lupa suave y paso a la seccion con fundido */
+    .cab nav a:not(.btn) { display: inline-block; transform-origin: 50% 100%; transition: transform .18s ease-out, color .2s; }
+    main, footer { transition: opacity .28s ease; }
+    body.cambia main, body.cambia footer, body.cambia .cinta { opacity: 0; }
+    .vuela { display: block; position: fixed; z-index: 70; margin: 0; pointer-events: none; transform-origin: 0 0; transition: transform .6s var(--ease); }
+    .js h2.oculto { visibility: hidden; }
+    /* pie como la v1 */
+    footer { background: var(--oscuro); color: #B8B2AB; border-top: 0; padding: 48px 0 100px; }
+    footer .pie-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 32px; }
+    .pie-grid h4 { color: #fff; font-size: 15px; margin-bottom: 12px; }
+    .pie-grid a { display: block; color: #D9D3CC; text-decoration: none; padding: 4px 0; font-size: 14.5px; }
+    .pie-grid a:hover { color: #fff; text-decoration: underline; }
+    .pie-grid p { font-size: 14.5px; }
+    .pie-grid p + p { margin-top: 10px; }
+    .pie-legal { margin-top: 32px; padding-top: 22px; border-top: 1px solid #2E3138; font-size: 13px; }
+    @media (max-width: 760px) { footer .pie-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { .cinta-pista { animation: none; } .tarjetas:hover .plan:not(:hover) { filter: none; opacity: 1; } }
+
+    @media (prefers-reduced-motion: no-preference) {
+        .js .rv { opacity: 0; translate: 0 18px; transition: opacity .7s var(--ease), translate .7s var(--ease); }
+        .js .rv.vista { opacity: 1; translate: none; }
+    }
+    /* ---- ajustes de celular ---- */
+    [hidden] { display: none !important; }
+    .desliza { display: none; font-size: 14px; font-weight: 500; color: var(--rojo-t); margin-bottom: 10px; }
+    @media (max-width: 900px) { .foto { max-height: none; } }
+    @media (max-width: 600px) {
+        .desliza { display: block; }
+        .tarjetas { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin-inline: calc(var(--m) * -1); padding: 4px var(--m) 14px; scrollbar-width: none; }
+        .tarjetas::-webkit-scrollbar { display: none; }
+        .tarjetas .plan { flex: 0 0 84%; scroll-snap-align: center; }
+        .lado-foto .chips-rol { margin-top: 4px; }
+    }
+    @media (max-width: 420px) { .marca span { display: block; font-size: 12px; padding-left: 10px; } .marca img { height: 24px; } .marca { gap: 10px; } }
+    @media (max-width: 560px) { .se-cifras { grid-template-columns: 1fr 1fr; column-gap: 16px; row-gap: 20px; } .se-c, .se-c + .se-c { border-left: 0; padding-left: 0; padding-right: 0; } .se-c b { font-size: 32px; } }
+    @media (max-width: 900px) { .foto img { height: 46vh; object-position: 50% 12%; } .foto-pie { margin-top: -14px; margin-inline: 20px; } }
+    /* el mensaje va bajo la foto (sobresale un poco) para no tapar el rostro, en todos los tamanos */
+    .foto { overflow: visible; background: none; aspect-ratio: auto; max-height: none; border-radius: 0; }
+    .foto img { display: block; width: 100%; height: clamp(180px, 31vh, 360px); border-radius: 24px; object-fit: cover; object-position: 50% 15%; }
+    .foto-pie { position: relative; left: auto; right: auto; bottom: auto; margin: -14px 16px 0; box-shadow: 0 10px 28px -12px rgba(22, 24, 29, .35); }
+    @media (max-width: 900px) { .foto img { height: 44vh; } }
+    .portada { padding: clamp(16px, 2.4vw, 34px) 0 clamp(24px, 3vw, 40px); }
+    @media (min-width: 901px) {
+        .lado-foto { justify-items: end; }
+        .foto { max-width: 420px; width: 100%; }
+        .foto img { height: clamp(260px, 50vh, 480px); object-position: 50% 12%; }
+        .foto-pie { margin: -64px -30px 0 46px; }
+    }
+    @media (min-width: 901px) {
+        .portada .caja { grid-template-columns: 1.1fr .9fr; }
+        .foto { max-width: 500px; }
+        .foto img { height: clamp(320px, 60vh, 560px); object-position: 50% 18%; }
+        .foto-pie { margin: -72px -30px 0 56px; }
+    }
+    @media (min-width: 901px) { .foto img { height: auto; aspect-ratio: 890 / 979; max-height: 62vh; object-position: 50% 20%; } }
+    /* foto de Carol: marco redondeado, foto completa a todo el ancho (sin relleno) */
+    .foto .marco { position: relative; display: block; overflow: hidden; border-radius: 24px; background: #E9E3DD; }
+    .foto .marco img { position: relative; display: block; width: 100%; height: clamp(320px, 60vh, 560px); object-fit: cover; object-position: 50% 8%; border-radius: 0; }
+    @media (max-width: 900px) { .foto .marco img { height: 44vh; } }
+
+    /* ---- menu del telefono: colgante, con Cotizar al pie ---- */
+    .menu-btn { display: none; }
+    .menu-movil { display: none; }
+    @media (max-width: 900px) {
+        header.cab > .caja > nav { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border: 1px solid var(--tinta); border-radius: 999px; background: transparent; color: var(--tinta); font: 500 15px/1 var(--sans); cursor: pointer; }
+        .menu-btn span { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }
+        .menu-btn span + span { margin-left: -28px; margin-top: 0; }
+        .menu-btn { position: relative; }
+        .menu-btn span:nth-child(1) { position: absolute; left: 16px; top: 15px; }
+        .menu-btn span:nth-child(2) { position: absolute; left: 16px; top: 21px; margin: 0; }
+        .menu-btn span:nth-child(3) { position: absolute; left: 16px; top: 27px; margin: 0; }
+        .menu-btn b { font-weight: 500; margin-left: 28px; }
+        .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+        .menu-movil { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--fondo); border-bottom: 1px solid var(--linea); box-shadow: 0 24px 40px -24px rgba(22, 24, 29, .45); padding: 6px var(--m) 20px; max-height: calc(100vh - 80px); overflow-y: auto; }
+        .menu-movil.abierto { display: block; animation: baja .25s var(--ease); }
+        @keyframes baja { from { opacity: 0; transform: translateY(-8px); } }
+        .menu-movil nav { display: grid; }
+        .menu-movil nav a { padding: 16px 0; border-bottom: 1px solid var(--linea); font: 400 20px/1.2 var(--serif); text-decoration: none; color: var(--tinta); }
+        .menu-movil nav a:active { color: var(--rojo-t); }
+        .menu-movil .menu-cotizar { display: flex; margin-top: 18px; width: 100%; }
+        .menu-abierto .wsp-fijo { visibility: hidden; }
+    }
+    @media (max-width: 900px) {
+        header.cab .menu-movil nav a { display: block; position: static; transform: none !important; padding: 16px 0; }
+        header.cab .menu-movil nav a::after { display: none; }
+    }
+    /* videos */
+    .videos { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .video { margin: 0; }
+    .video video { width: 100%; aspect-ratio: 9 / 16; border-radius: 22px; background: var(--oscuro); object-fit: cover; }
+    .video figcaption { margin-top: 10px; font-size: 15px; font-weight: 500; }
+    @media (max-width: 760px) { .videos { grid-auto-flow: column; grid-auto-columns: 78%; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; } .video { scroll-snap-align: start; } }
+</style>
+<script>document.documentElement.className = 'js';</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-calc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/></g></symbol>
+    <symbol id="i-clinic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6M12 8v4M10 10h4"/></g></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h8"/></g></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></g></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H4zM2 19h20"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></g></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.6-.8-1.5-1.2-2.5-1.2-1.4 0-2.5.8-2.5 2s1 1.7 2.5 2 2.5.8 2.5 2-1.1 2-2.5 2c-1 0-1.9-.4-2.5-1.2M12 6v2M12 16v2"/></g></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6zM8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-wsp" viewBox="0 0 448 512"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></symbol>
+</svg>
+
+<header class="cab">
+    <div class="caja">
+        <a class="marca" href="#inicio" aria-label="Carol Jara, planes de salud Banmédica, inicio"><img src="img/logo-banmedica.png" alt="Banmédica" width="118" height="38"><span>Carol Jara<br>Asesora Comercial</span></a>
+        <nav aria-label="Principal">
+            <a href="#planes">Planes</a>
+            <a href="#beneficios-plan">Beneficios</a>
+            <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#preguntas">Preguntas</a>
+            <a class="btn" href="#cotizar">Cotizar</a>
+        </nav>
+        <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir el menú"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><b>Menú</b></button>
+    </div>
+    <div class="menu-movil" id="menu-movil" aria-label="Secciones de la página">
+        <nav>
+            <a href="#planes">Planes y clínicas</a>
+            <a href="#regionales">Planes regionales</a>
+            <a href="#acompano">Cómo te acompaño</a>
+            <a href="#beneficios-plan">Beneficios del plan</a>
+            <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#videos">Videos</a>
+            <a href="#preguntas">Preguntas frecuentes</a>
+        </nav>
+        <a class="btn menu-cotizar" href="#cotizar">Cotizar</a>
+    </div>
+</header>
+
+<main id="inicio">
+    <section class="portada">
+        <div class="caja">
+            <div>
+                <h1>¿Pagas mucho por tu plan de salud? <em>Revisemos juntos</em> tus opciones.</h1>
+                <p class="bajada">Revisamos juntos tu plan actual y te ayudo a elegir el plan <strong>Banmédica</strong> que mejor calce contigo y tu familia. Sin costo y sin compromiso.</p>
+                <div class="acciones">
+                    <a class="btn" href="#cotizar">Quiero mi cotización</a>
+                    <a class="btn claro" href="#planes">Comparar planes y clínicas</a>
+                </div>
+                <div class="respaldo">
+                    <span><svg aria-hidden="true"><use href="#i-clinic"/></svg>Amplia red de clínicas</span>
+                    <span><svg aria-hidden="true"><use href="#i-users"/></svg>Planes flexibles para tu familia</span>
+                    <span><svg aria-hidden="true"><use href="#i-laptop"/></svg>Te acompaño en todo el trámite</span>
+                    <span><svg aria-hidden="true"><use href="#i-heart"/></svg>Más beneficios para tu salud</span>
+                </div>
+            </div>
+            <div class="lado-foto">
+            <figure class="foto">
+                <span class="marco"><img src="img/carol3.jpg?v=1" alt="Carol Jara, Asesora Comercial Banmédica" width="976" height="1074" fetchpriority="high" decoding="async"></span>
+                <figcaption class="foto-pie" id="chat"><small>WhatsApp · Carol Jara</small><span class="escribiendo" aria-hidden="true"><i></i><i></i><i></i></span><p class="msg">Hola, cuéntame qué plan o sistema de salud tienes hoy y te respondo en unos momentos, con las mejores alternativas que tenemos para ti.</p></figcaption>
+            </figure>
+                <div class="chips-rol"><span class="rol"><i aria-hidden="true"></i>Asesora Comercial Banmédica</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cinta" aria-hidden="true"><div class="cinta-pista"><span>Clínica Dávila</span><span>Dávila Vespucio</span><span>RedSalud</span><span>Indisa</span><span>Santa María</span><span>MEDS</span><span>Hospital UC</span><span>Clínica UC</span><span>Las Condes</span><span>Los Andes</span><span>San Carlos de Apoquindo</span><span>Alemana</span><span>Hospital U. de Chile</span><span>Clínica Dávila</span><span>Dávila Vespucio</span><span>RedSalud</span><span>Indisa</span><span>Santa María</span><span>MEDS</span><span>Hospital UC</span><span>Clínica UC</span><span>Las Condes</span><span>Los Andes</span><span>San Carlos de Apoquindo</span><span>Alemana</span><span>Hospital U. de Chile</span></div></div>
+
+    <section class="sec arena" id="planes">
+        <div class="caja">
+            <h2 class="rv">Compara los planes y las clínicas que incluyen.</h2>
+            <p class="intro rv">Cada plan tiene su propia red de clínicas. Te calculo el valor exacto según tu edad, renta y cargas.</p>
+            <div class="guia rv" role="group" aria-labelledby="guia-tit">
+                <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
+                <p>Te marco qué planes incluyen las clínicas que prefieres. No necesitas dejar tus datos.</p>
+                <p class="invita"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V10m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v4.5a6 6 0 0 1-6 6h-1.2a5 5 0 0 1-3.9-1.9L4.6 15a1.6 1.6 0 0 1 2.4-2.1L9 15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Marca o selecciona las clínicas a las que te gustaría ir:</p>
+                <div class="gchips"><label class="gchip"><input type="checkbox" value="dav"><span>Clínica Dávila</span></label><label class="gchip"><input type="checkbox" value="ves"><span>Dávila Vespucio</span></label><label class="gchip"><input type="checkbox" value="rs"><span>RedSalud</span></label><label class="gchip"><input type="checkbox" value="ind"><span>Indisa</span></label><label class="gchip"><input type="checkbox" value="sm"><span>Santa María</span></label><label class="gchip"><input type="checkbox" value="meds"><span>MEDS</span></label><label class="gchip"><input type="checkbox" value="uch"><span>Hospital UC</span></label><label class="gchip"><input type="checkbox" value="ucc"><span>Clínica UC</span></label><label class="gchip"><input type="checkbox" value="lc"><span>Las Condes</span></label><label class="gchip"><input type="checkbox" value="la"><span>Los Andes</span></label><label class="gchip"><input type="checkbox" value="sc"><span>San Carlos de Apoquindo</span></label><label class="gchip"><input type="checkbox" value="ale"><span>Alemana</span></label><label class="gchip"><input type="checkbox" value="huch"><span>Hospital U. de Chile</span></label></div>
+                <p class="guia-estado" id="guia-estado" aria-live="polite">Elige una o más clínicas y te marco los planes que las incluyen. Si te parece, después hacemos una cotización real.</p>
+                <div class="guia-acciones">
+                    <a class="btn wsp" id="guia-wsp" href="#" hidden target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>Preguntarle a Carol si me sirve</a>
+                    <a class="btn claro" id="guia-cot" href="#cotizar" hidden>Prefiero que me coticen</a>
+                    <button type="button" class="limpiar" id="guia-limpiar" hidden>Quitar filtros</button>
+                </div>
+            </div>
+            <p class="regalo-frase">Por contratar el plan, vienen beneficios adicionales de regalo.</p>
+            <p class="comun"><strong>En la mayoría de los planes:</strong> Farmacia Ambulatoria Lite, OMT MEDY, Asistencia en viaje (solo titulares hombres) y Salud Extendida.</p>
+            <div class="vista-planes" id="vista-planes" data-v="ambas">
+            <p class="desliza">Desliza para ver los 6 planes →</p>
+            <div class="tarjetas" id="tarjetas"><article class="plan" data-p="0" data-clinicas="dav ves"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="1" data-clinicas="dav ves rs huch ind"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Hospital U. de Chile</li><li>Indisa</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="2" data-clinicas="dav ves rs ind sm meds uch"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="3" data-clinicas="dav ves rs ind sm meds uch lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li><li>OMT MEDY sin costo por 1 año</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="4" data-clinicas="dav ves rs ind sm meds uch ucc lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="5" data-clinicas="dav ves sm meds la sc ale"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos de Apoquindo</li><li>Alemana</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Cobertura de accidentes (Santa María)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article></div>
+            <details class="comparativa" id="comparativa"><summary>Ver comparativa: clínicas incluidas en cada plan</summary>
+            <div class="tabla-envoltura">
+                <table id="tabla-planes">
+                    <thead><tr><th scope="col">Clínicas y prestadores</th><th scope="col" class="pc" data-p="0"><span>Plan cerrado</span><b>Conecta</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="1"><span>Clásico</span><b>Clásico Silver</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="2"><span>Clásico y Superior</span><b>Gold One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="3"><span>Superior y Preferente</span><b>Platinum B</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="4"><span>Superior y Preferente</span><b>Platinum One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="5"><span>Preferente</span><b>Preferente Titanium</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th></tr></thead>
+                    <tbody><tr data-c="dav"><th scope="row">Clínica Dávila</th><td data-p="0"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="ves"><th scope="row">Dávila Vespucio</th><td data-p="0"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="rs"><th scope="row">RedSalud</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="ind"><th scope="row">Indisa</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="sm"><th scope="row">Santa María</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="meds"><th scope="row">MEDS</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="uch"><th scope="row">Hospital UC</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="ucc"><th scope="row">Clínica UC</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="lc"><th scope="row">Las Condes</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr data-c="la"><th scope="row">Los Andes</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="sc"><th scope="row">San Carlos de Apoquindo</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="4"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="ale"><th scope="row">Alemana</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><span class="no" aria-label="No incluye">·</span></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><span class="no" aria-label="No incluye">·</span></td><td data-p="5"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td></tr><tr data-c="huch"><th scope="row">Hospital U. de Chile</th><td data-p="0"><span class="no" aria-label="No incluye">·</span></td><td data-p="1"><svg viewBox="0 0 24 24" aria-label="Incluye"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></td><td data-p="2"><span class="no" aria-label="No incluye">·</span></td><td data-p="3"><span class="no" aria-label="No incluye">·</span></td><td data-p="4"><span class="no" aria-label="No incluye">·</span></td><td data-p="5"><span class="no" aria-label="No incluye">·</span></td></tr><tr class="regalo"><th scope="row">Beneficios de regalo</th><td data-p="0"><ul><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul></td><td data-p="1"><ul><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul></td><td data-p="2"><ul><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul></td><td data-p="3"><ul><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li><li>OMT MEDY sin costo por 1 año</li></ul></td><td data-p="4"><ul><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li></ul></td><td data-p="5"><ul><li>Cobertura de accidentes (Santa María)</li></ul></td></tr></tbody>
+                </table>
+            </div>
+            </details>
+            </div>
+
+            <div class="regional" id="regionales">
+                <h3 class="rv">Planes regionales: clínicas por zona.</h3>
+                <p class="intro">También hay planes regionales. Estas son las clínicas y centros médicos que aparecen en el tarifario de regiones de Banmédica (3 de noviembre).</p>
+                <article class="noticia">
+                    <h4>Noticia: Banmédica refuerza su presencia en regiones</h4>
+                    <p>En noviembre, la isapre difundió en medios de Antofagasta, Calama, La Serena-Coquimbo, Valparaíso, Rancagua, Concepción, Temuco, Valdivia y Puerto Montt su propuesta de <strong>planes regionales Flex</strong>: acceso a prestadores locales, cobertura nacional, beneficios digitales y una atención más cercana para las personas y sus familias.</p>
+                    <p>También recordó que sus planes incluyen sin costo la app <strong>Medy</strong> y el programa <strong>Salud Extendida</strong> de Red Dávila.</p>
+                    <p class="fuente">Fuente: comunicado Isapre Informa, 5 de noviembre de 2026.</p>
+                </article>
+                <div class="zonas">
+                    <div class="zona"><h4>Zona norte</h4><ul><li>Clínica San José / San José Interclínica</li><li>Clínica San José de Arica</li><li>Clínica Tarapacá</li><li>Clínica Portada ACHS Salud</li><li>RedSalud Iquique</li><li>Clínica Atacama ACHS Salud</li><li>RedSalud Elqui</li><li>Clínica Antofagasta</li></ul></div>
+                    <div class="zona"><h4>Quinta Región y zona centro</h4><ul><li>Clínica Los Carrera Interclínica</li><li>Clínica RedSalud Valparaíso</li><li>Clínica Ciudad del Mar</li><li>Hospital Clínico Viña del Mar</li><li>Hospital Clínico FUSAT</li><li>Clínica Isamédica</li><li>Clínica Bupa Reñaca</li></ul></div>
+                    <div class="zona"><h4>Octava Región y zona sur</h4><ul><li>Clínica Biobío</li><li>Andes Salud Concepción</li><li>Sanatorio Alemán</li><li>RedSalud Mayor Temuco</li><li>Clínica Alemana Temuco</li><li>Clínica Alemana Osorno</li><li>Clínica Puerto Montt ACHS Salud</li><li>Andes Salud Puerto Montt</li><li>Clínica Alemana Valdivia</li><li>RedSalud Magallanes</li><li>Clínica Puerto Varas</li><li>Clínica Magallanes</li></ul></div>
+                    <div class="zona"><h4>Santiago: prestadores preferentes</h4><ul><li>Clínica Dávila</li><li>Clínica Dávila Vespucio</li><li>RedSalud Santiago</li><li>RedSalud Providencia</li><li>Clínica Indisa</li><li>Clínica Santa María</li><li>Hospital Clínico UC</li><li>Clínica UC</li><li>Clínica Las Condes</li><li>Clínica San Carlos</li><li>Clínica Universidad de los Andes</li><li>Clínica MEDS</li><li>CSCA</li></ul></div>
+                </div>
+                <p class="nota">Clínicas y centros médicos del tarifario de regiones de Banmédica. Dime tu región y te muestro qué planes las incluyen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" id="beneficios">
+        <div class="caja">
+            <h2 class="rv">¿Tu plan sigue calzando contigo? Revisemos qué opciones tienes.</h2>
+            <p class="intro rv">Descúbrelo en una evaluación gratuita y personalizada.</p>
+            <div class="pilares">
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><h3>Más cobertura</h3><p>Para ti y tu familia.</p></div>
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-heart"/></svg><h3>Beneficios del plan</h3><p>Coberturas y regalos que vienen con cada plan.</p></div>
+                <div class="pilar rv"><svg class="ico" aria-hidden="true"><use href="#i-dollar"/></svg><h3>Opciones según tu presupuesto</h3><p>Compara las opciones según tu caso.</p></div>
+            </div>
+            <div class="banda rv"><div><h3>Cuéntame tu caso y lo revisamos con calma</h3><ul><li>Sin costo</li><li>Sin compromiso</li></ul></div><a class="btn" href="#cotizar">Completar el formulario</a></div>
+            <h2 class="rv" id="acompano" style="margin-top:clamp(64px,8vw,104px)">Cómo te acompaño.</h2>
+            <div class="pasos">
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-calc"/></svg><span class="n">1</span><h3>Alternativas según tu presupuesto</h3><p>Te ayudo a encontrar el plan que se adapta a tu bolsillo.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-clinic"/></svg><span class="n">2</span><h3>Revisión de redes y prestadores</h3><p>Reviso la cobertura y los prestadores de tu zona.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span class="n">3</span><h3>Orientación sobre coberturas</h3><p>Te explico las coberturas para que decidas con claridad.</p></div>
+                <div class="paso rv"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><span class="n">4</span><h3>Acompañamiento durante el proceso</h3><p>Te acompaño en cada paso del proceso.</p></div>
+            </div>
+            <div class="destacado rv"><p><strong>No todos necesitan el mismo plan de salud.</strong> Reviso tu edad, región, renta imponible, cargas y preferencias de atención.</p><a class="btn" href="#cotizar">Revisar mi caso</a></div>
+        </div>
+    </section>
+
+    <section class="sec arena" id="beneficios-plan">
+        <div class="caja">
+            <h2 class="rv">Más beneficios que vienen con tu plan.</h2>
+            <p class="intro rv">Coberturas adicionales de Banmédica, según el plan que elijas. Te muestro cuáles te corresponden.</p>
+            <div class="bento">
+                <article class="ben seguro rv">
+                    <div class="txt">
+                        <span class="chip">De regalo el primer año al contratar tu plan</span>
+                        <h3>Seguro de accidentes y escolar</h3>
+                        <div class="dos-cifras">
+                            <div><span class="cifra">800<small>UF</small></span><span>Clínica Dávila y Dávila Vespucio</span></div>
+                            <div><span class="cifra">870<small>UF</small></span><span>Clínica Santa María</span></div>
+                        </div>
+                        <p>Cubre el 100% de los copagos por accidentes tratados en la clínica de cada póliza. Tope por evento y beneficiario.</p>
+                        <p>Dura un año y se libera solo. Después puedes contratarlo si quieres.</p>
+                    </div>
+                    <img src="img/familia.jpg" width="560" height="480" loading="lazy" alt="Una familia sonriendo: papá, mamá e hija">
+                </article>
+                <article class="ben pet rv">
+                    <span class="chip gris">Beneficio adicional</span>
+                    <h3>Medy Pet</h3>
+                    <span class="cifra">0,04<small>UF al mes</small></span>
+                    <ul><li>Orientación veterinaria por teléfono</li><li>Chat de atención veterinaria</li><li>Carpeta de salud de tu mascota, en la app Medy</li></ul>
+                    <p>Todos los días, de 09:00 a 23:59. Hasta 3 mascotas por titular.</p>
+                    <img src="img/mascotas.jpg" width="391" height="356" loading="lazy" alt="Un perro y un gato juntos">
+                </article>
+                <article class="ben viaje rv">
+                    <svg class="ilu-viaje" viewBox="0 0 100 100" aria-hidden="true"><path d="M8 54 92 14 68 88 47 65z" fill="currentColor"/><path d="M47 65 92 14" stroke="#16181D" stroke-width="3" fill="none"/><path d="M6 92C26 100 48 96 62 90" stroke="#E4231B" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-dasharray="1 8"/></svg>
+                    <span class="chip">Fuera de Chile</span>
+                    <h3>Asistencia en viaje</h3>
+                    <span class="cifra">12<small>meses de vigencia</small></span>
+                    <p>Hasta 1.000 UF por viaje en asistencia médica, para ti y tus beneficiarios. Cada viaje, hasta 120 días.</p>
+                    <details><summary>Ver todas las coberturas</summary><ul><li>Odontología de urgencia: hasta 35 UF por viaje</li><li>Medicamentos de urgencia recetados: hasta 35 UF por viaje</li><li>Envío o localización de medicamentos: hasta 35 UF por viaje</li><li>Hospitalización de más de 5 días: hasta 4 UF diarias (máx. 48 UF)</li><li>Hotel por convalecencia: hasta 6 UF diarias (máx. 72 UF)</li><li>Demora de equipaje: hasta 5 UF</li><li>Asistencia legal por accidente de tránsito: hasta 50 UF</li><li>Préstamo de emergencia en el extranjero: hasta 100 UF</li></ul></details>
+                </article>
+                <article class="ben protesis rv">
+                    <svg class="ilu-prot" viewBox="0 0 100 100" aria-hidden="true"><rect x="38" y="4" width="24" height="42" rx="12" fill="#16181D"/><rect x="38" y="54" width="24" height="42" rx="12" fill="#16181D"/><circle cx="50" cy="50" r="15" fill="#E4231B"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>
+                    <span class="chip gris">Sin cobro adicional</span>
+                    <h3>Prótesis y órtesis</h3>
+                    <p>Para tu recuperación: implantes, dispositivos médicos, férulas e inmovilizadores. Cada plan tiene su propio tope de cobertura.</p>
+                </article>
+                <article class="ben ges rv">
+                    <span class="chip">Cobertura GES</span>
+                    <h3>Garantías Explícitas en Salud</h3>
+                    <span class="cifra">0,778<small>UF por beneficiario</small></span>
+                    <p>Acceso a exámenes, medicamentos, consultas y hospitalizaciones definidas por ley para cada enfermedad. Por ejemplo, con diabetes tipo 2 pagas solo el 20% del valor de la canasta.</p>
+                    <div class="ges-pasos"><div><b>20%</b>lo pagas tú (copago), hasta completar el deducible<i class="barra"><u style="--w:20%"></u></i></div><div><b>100%</b>de lo restante lo financia la isapre<i class="barra"><u style="--w:100%"></u></i></div></div>
+                    <a class="ver" href="ges/">Qué es el GES y cómo se activa</a>
+                </article>
+            </div>
+            <a class="btn wsp" style="margin-top:20px" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20los%20beneficios%20en%20tu%20p%C3%A1gina.%20%C2%BFMi%20plan%20los%20incluye%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>¿Te sirve alguno? Pregúntame</a>
+        </div>
+    </section>
+
+    <section class="sec" id="salud-extendida">
+        <div class="caja">
+            <h2 class="rv">Salud Extendida: más salud para quienes más quieres.</h2>
+            <p class="intro rv">Un programa de <strong>Red Dávila</strong> al que los afiliados de Isapre Banmédica pueden incorporar hasta <strong>dos personas con previsión Fonasa</strong>, con beneficios y descuentos exclusivos en prestaciones de la red.</p>
+            <div class="se-cifras">
+                <div class="se-c rv"><b>$0</b><small>copago</small><h3>Consulta médica a costo $0</h3><p>Una vez al año en medicina general o especialidad.</p></div>
+                <div class="se-c rv"><b>20%</b><small>laboratorio e imágenes</small><h3>Descuentos en laboratorio, imágenes y kinesiología</h3><p>20% en laboratorio e imágenes (viernes a domingo) y 10% en kinesiología.</p></div>
+                <div class="se-c rv"><b>$300K</b><small>descuento máximo</small><h3>Valores preferentes en cirugías</h3><p>Hasta $300.000 de descuento en copago de cirugías nominadas.</p></div>
+                <div class="se-c rv"><b>50%</b><small>de descuento</small><h3>Descuento en atención de urgencia</h3><p>50% de descuento en el copago de consulta de urgencia.</p></div>
+                <div class="se-c rv"><b>$0</b><small>copago</small><h3>Programas preventivos completos</h3><p>Consulta + exámenes + imágenes con copago $0.</p></div>
+            </div>
+            <p class="nota">Todos los beneficios y descuentos del programa Salud Extendida son otorgados por Red Dávila, quien es responsable de su administración y funcionamiento.</p>
+            <h3 class="sub-h">Programas y chequeos incluidos</h3>
+            <ul class="programas" id="programas"><li data-img="img/oftalmologia.jpg"><img src="img/oftalmologia.jpg" alt="" loading="lazy"><span>Oftalmológico</span></li><li data-img="img/otorrinolaringologia.jpg"><img src="img/otorrinolaringologia.jpg" alt="" loading="lazy"><span>Otorrinolaringológico</span></li><li data-img="img/gastroenterologia.jpg"><img src="img/gastroenterologia.jpg" alt="" loading="lazy"><span>Digestivo</span></li><li data-img="img/articular.jpg"><img src="img/articular.jpg" alt="" loading="lazy"><span>Articular</span></li><li data-img="img/estudio_mamario.jpg"><img src="img/estudio_mamario.jpg" alt="" loading="lazy"><span>Cáncer de mama</span></li><li data-img="img/urologia_prostatica.jpg"><img src="img/urologia_prostatica.jpg" alt="" loading="lazy"><span>Próstata</span></li><li data-img="img/cirugia_bariatrica.jpg"><img src="img/cirugia_bariatrica.jpg" alt="" loading="lazy"><span>Bariátrica</span></li></ul>
+            <div class="p-flota" id="p-flota" aria-hidden="true"><img alt="" src="img/oftalmologia.jpg"></div>
+            <p class="nota">Cada programa incluye evaluación médica y las prestaciones de su objetivo clínico.</p>
+            <div class="se-info">
+                <div class="rv"><h3>¿Qué significa este beneficio?</h3><p>La alianza entre Banmédica y Red Dávila permite que tus seres queridos con previsión Fonasa puedan acceder a atenciones de salud. Tus familiares, aunque pertenezcan a otro sistema, pueden cuidar su salud contigo.</p></div>
+                <div class="rv"><h3>¿Quiénes pueden ser beneficiarios?</h3><p>Personas desde los <strong>25 años</strong>, con previsión Fonasa en tramo:</p><div class="tramos"><span style="--i:0">B</span><span style="--i:1">C</span><span style="--i:2">D</span></div></div>
+            </div>
+            <a class="btn wsp" style="margin-top:28px" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20Salud%20Extendida%20en%20tu%20p%C3%A1gina.%20%C2%BFAplica%20a%20mi%20caso%3F" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>¿Aplica a tu caso? Pregúntame</a>
+        </div>
+    </section>
+
+    <section class="sec arena" id="preguntas">
+        <div class="caja">
+            <h2 class="rv">Preguntas frecuentes.</h2>
+            <div class="preguntas">
+                <details class="faq"><summary>¿Este sitio es oficial de Banmédica?</summary><p>No. Es mi sitio personal como asesora comercial de Banmédica. Las cotizaciones y contratos se rigen por las condiciones vigentes de Banmédica.</p></details>
+                <details class="faq"><summary>¿Qué hacen con mis datos?</summary><p>Tus datos llegan directo a mí, Carol Jara, y los uso solo para atender tu consulta. No te pedimos enfermedades ni declaraciones de salud. Puedes pedirme que los elimine cuando quieras.</p></details>
+                <details class="faq"><summary>¿Esta asesoría tiene algún costo para mí?</summary><p>No. La cotización y la asesoría son gratuitas. Te acompaño en el proceso de evaluar o afiliarte a un plan Banmédica; no cobro por eso.</p></details>
+                <details class="faq"><summary>Ya tengo una isapre. ¿Puedo cambiarme?</summary><p>Depende de cuánto tiempo llevas en tu isapre actual: la regla general pide 12 meses de permanencia, salvo que te haya llegado un aviso de alza de tu isapre, caso en que puedes cambiarte sin esperar el año y sin carencias nuevas. Te reviso tu caso puntual antes de recomendarte nada.</p></details>
+                <details class="faq"><summary>¿Hay carencia si me cambio a Banmédica?</summary><p>Si vienes desde Fonasa, algunas prestaciones electivas (como cirugías programadas) tienen carencia de 6 meses; las urgencias vitales se cubren desde el primer día. Si vienes desde otra isapre por aviso de alza, no aplican carencias nuevas. Te explico exactamente qué te toca a ti según tu situación.</p></details>
+                <details class="faq"><summary>Si cotizo, ¿quedo obligado a algo?</summary><p>No. Cotizar es solo eso: recibir información y alternativas de plan. Tú decides si sigues adelante, cuándo y con qué plan — o si simplemente no te conviene por ahora.</p></details>
+                <details class="faq"><summary>¿En cuánto tiempo me responden?</summary><p>Reviso los mensajes personalmente y respondo por WhatsApp en unos momentos, dentro del horario de atención (lunes a viernes, 9:00 a 18:00 hrs).</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" id="videos">
+        <div class="caja">
+            <h2 class="rv">Conoce Banmédica en video.</h2>
+            <p class="intro rv">Videos oficiales de Banmédica sobre su red, sus clínicas y cómo te acompaña en tu salud.</p>
+            <div class="videos">
+                <figure class="video rv"><video controls preload="none" playsinline poster="videos/banmedica-1.jpg?v=2" src="videos/banmedica-1.mp4"></video><figcaption>Diagnóstico y atención en la red</figcaption></figure>
+                <figure class="video rv"><video controls preload="none" playsinline poster="videos/banmedica-2.jpg?v=2" src="videos/banmedica-2.mp4"></video><figcaption>Cirugías y tecnología en sus clínicas</figcaption></figure>
+                <figure class="video rv"><video controls preload="none" playsinline poster="videos/banmedica-3.jpg?v=2" src="videos/banmedica-3.mp4"></video><figcaption>Mitos de invierno y la red de prestadores</figcaption></figure>
+            </div>
+            <p class="nota rv">Las coberturas de cada prestación están sujetas al plan de salud contratado por cada afiliado.</p>
+        </div>
+    </section>
+
+    <section class="sec cotizar" id="cotizar">
+        <div class="caja">
+            <div class="lado">
+                <h2 class="rv">Solicita tu cotización.</h2>
+                <p class="intro rv">Completa el formulario y te escribo por WhatsApp en unos momentos.</p>
+                <p class="horario">Horario: lunes a viernes, 9:00 a 18:00 hrs<br>Atención en todo Chile</p>
+                <a class="btn wsp" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wsp"/></svg>Prefiero preguntar por WhatsApp</a>
+            </div>
+            <form id="form-cotizacion" novalidate>
+                <input type="text" name="sitio-web" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
+                <label class="campo">Nombre completo *<input type="text" id="id-nombre" name="nombre-completo" required placeholder="Tu nombre completo"></label>
+                <label class="campo">Teléfono / WhatsApp *<input type="tel" id="id-telefono" name="telefono-whatsapp" required placeholder="+569 XXXXXXXX"></label>
+                <label class="campo ancho">Plan de interés *<select id="id-plan" name="plan-de-interes" required><option value="">Selecciona una opción</option><option value="Sin cargas familiares">Plan personal — Sin cargas familiares</option><option value="1 carga familiar">Plan con 1 carga familiar</option><option value="2 cargas familiares">Plan con 2 cargas familiares</option><option value="3 o más cargas">Plan familiar — 3 o más cargas</option><option value="Salud Extendida">Beneficio Salud Extendida</option><option value="Plan Conecta">Plan Conecta</option><option value="Plan Clásico Silver">Plan Clásico Silver</option><option value="Plan Clásico y Superior Gold One">Plan Clásico y Superior Gold One</option><option value="Plan Superior y Preferente Platinum B">Plan Superior y Preferente Platinum B</option><option value="Plan Superior y Preferente Platinum One">Plan Superior y Preferente Platinum One</option><option value="Salud Preferente Titanium">Salud Preferente Titanium</option><option value="Consulta personalizada">Deseo asesoría personalizada</option></select></label>
+                <label class="campo">Comuna donde vives<input type="text" id="id-comuna" name="comuna-residencia" placeholder="Ej: Santiago, Providencia"></label>
+                <label class="campo">Edad<input type="number" id="id-edad" name="edad-usuario" min="18" max="99" placeholder="Tu edad"></label>
+                <label class="campo">Previsión actual<select id="id-prevision" name="prevision-actual"><option value="">Selecciona una opción</option><option value="Fonasa">Fonasa</option><option value="Isapre">Isapre (ya tengo una)</option><option value="Ninguna">Ninguna</option><option value="No sé">No sé</option></select></label>
+                <label class="campo">¿Por qué buscas cotizar ahora?<select id="id-motivo" name="motivo-urgencia"><option value="">Selecciona una opción</option><option value="Quiero cambiarme">Quiero cambiarme de previsión</option><option value="Nuevo evento (trabajo, hijo, etc)">Nuevo evento (trabajo, hijo, etc.)</option><option value="Solo cotizando">Solo estoy cotizando</option></select></label>
+                <label class="campo ancho">Renta líquida mensual aproximada<select id="id-renta" name="renta-mensual"><option value="">Prefiero no decir</option><option value="Menos de 500.000">Menos de $500.000</option><option value="500.000 a 1.000.000">$500.000 a $1.000.000</option><option value="1.000.000 a 2.000.000">$1.000.000 a $2.000.000</option><option value="Más de 2.000.000">Más de $2.000.000</option></select></label>
+                <div class="consent"><input type="checkbox" id="id-consentimiento" name="consentimiento-datos" required><label for="id-consentimiento">He leído y acepto la <span class="enlace-politica" id="abrir-politica" role="button" tabindex="0">Política de Privacidad</span> y autorizo que la ejecutiva use mis datos, incluyendo mi previsión y mi renta, para contactarme y cotizar mi plan. Puedo revocarlo cuando quiera.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento-salud" name="consentimiento-datos-salud" required><label for="id-consentimiento-salud">Autorizo específicamente el tratamiento de mis datos de salud/previsión para recibir esta cotización y gestionar mi afiliación a Banmédica. Puedo revocar esta autorización en cualquier momento sin que eso afecte mis derechos.</label></div>
+                <div class="consent"><input type="checkbox" id="id-consentimiento-comercial" name="consentimiento-comercial"><label for="id-consentimiento-comercial"><strong>Opcional:</strong> autorizo a la ejecutiva a enviarme información de otros planes y servicios que puedan interesarme. Puedo darme de baja cuando quiera.</label></div>
+                <button type="submit" class="btn" id="boton-enviar" disabled>Quiero mi cotización</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<div class="overlay-popup" id="popup-politica">
+    <div class="popup" role="dialog" aria-modal="true" aria-labelledby="politica-tit">
+        <div class="popup-cabecera"><h3 id="politica-tit">Política de Privacidad y Protección de Datos</h3><button class="popup-cerrar" id="cerrar-politica" aria-label="Cerrar">&times;</button></div>
+        <div class="popup-contenido">
+            <h4>Quién es responsable de tus datos</h4>
+            <p><strong>Carol Jara</strong>, agente de ventas de Isapre Banmédica, a quien envías este formulario. Tus datos le llegan a su correo corporativo de Banmédica. Para ejercer tus derechos, escríbele a cjara@banmedica.cl.</p>
+            <h4>Para qué los usa</h4>
+            <p>Para contactarte por WhatsApp, llamada o correo con la cotización que pediste, y acompañarte en la afiliación si lo solicitas. Solo si marcas la casilla opcional, te enviará información de otros planes y servicios que puedan interesarte; puedes darte de baja cuando quieras.</p>
+            <h4>Base legal</h4>
+            <p>Tu consentimiento libre, expreso e informado, de acuerdo con la Ley N° 19.628 sobre Protección de la Vida Privada y la Ley N° 21.719 sobre protección de datos personales.</p>
+            <h4>Qué datos se recopilan</h4>
+            <p>Nombre, teléfono o WhatsApp, comuna, edad y plan de interés. Para cotizar en salud: tu previsión actual, el motivo de tu consulta, tu renta aproximada (en tramos) y tus cargas. Estos datos pueden ser sensibles, por eso se piden con una autorización específica. <strong>No te pedimos declaraciones de salud ni enfermedades.</strong> También se guardan datos técnicos (campaña de origen, navegador, idioma) y el registro de lo que aceptaste, con fecha, hora y versión.</p>
+            <h4>Quién recibe tus datos</h4>
+            <p>Carol Jara, en su correo corporativo de Banmédica. El Planeador, que mantiene esta página, guarda una copia de respaldo técnico solo para que tu consulta no se pierda si falla el envío: no la usa para nada más y la borra a los 30 días. No se comparten con nadie más, salvo obligación legal.</p>
+            <h4>Cuánto tiempo se conservan</h4>
+            <p>Mientras mantengamos contacto por tu consulta. Si me lo pides, los elimino. Si retiras una autorización, dejo de usar tus datos para esa finalidad.</p>
+            <h4>Tus derechos</h4>
+            <p>Puedes pedir acceso, rectificación, supresión, oposición y bloqueo de tus datos, sin costo, escribiendo a cjara@banmedica.cl.</p>
+        </div>
+        <div class="popup-pie">
+            <label class="popup-aceptar"><input type="checkbox" id="acepto-politica"> He leído y acepto la Política de Privacidad</label>
+            <button class="popup-boton aceptar" id="confirmar-politica">Aceptar y cerrar</button>
+            <button class="popup-boton cerrar" id="solo-cerrar">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="caja pie-grid">
+        <div>
+            <h4>Carol Jara — Asesora Comercial Banmédica</h4>
+            <p>Te ayudo a encontrar el plan de salud que mejor calce contigo y tu familia.</p>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <a href="#cotizar">Cotizar por el formulario</a>
+            <a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <p>Lunes a viernes, 9:00 a 18:00 hrs</p>
+        </div>
+        <div>
+            <h4>Enlaces de interés</h4>
+            <a href="#inicio">Inicio</a>
+            <a href="#planes">Planes</a>
+            <a href="#salud-extendida">Salud Extendida</a>
+            <a href="#cotizar">Cotizar plan</a>
+        </div>
+    </div>
+    <div class="caja pie-legal">
+        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica. Los valores y beneficios son los vigentes de Banmédica.<br>Página creada por El Planeador, compañía de marketing digital perteneciente a BTo Innova Soluciones.</p>
+    </div>
+</footer>
+
+<a class="wsp-fijo" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta%20sobre%20planes%20de%20salud." target="_blank" rel="noopener" aria-label="Preguntar por WhatsApp"><svg aria-hidden="true"><use href="#i-wsp"/></svg>WhatsApp</a>
+
+<script>
+(function () {
+    var popup = document.getElementById('popup-politica'), abrir = document.getElementById('abrir-politica');
+    var acepto = document.getElementById('acepto-politica'), c1 = document.getElementById('id-consentimiento'), boton = document.getElementById('boton-enviar'), c2 = document.getElementById('id-consentimiento-salud');
+    function estadoBoton() { boton.disabled = !(c1.checked && c2.checked); }
+    function abre(e) { e.preventDefault(); popup.classList.add('activo'); acepto.checked = c1.checked; }
+    function cierra() { popup.classList.remove('activo'); }
+    abrir.addEventListener('click', abre);
+    abrir.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') abre(e); });
+    document.getElementById('cerrar-politica').addEventListener('click', cierra);
+    document.getElementById('solo-cerrar').addEventListener('click', cierra);
+    document.getElementById('confirmar-politica').addEventListener('click', function () { c1.checked = acepto.checked; c1.dispatchEvent(new Event('change')); estadoBoton(); cierra(); });
+    c1.addEventListener('change', estadoBoton);
+    c2.addEventListener('change', estadoBoton);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cierra(); });
+
+    /* comparador: las clinicas elegidas marcan los planes que las incluyen */
+    var planes = [{n:"Plan Conecta",c:"dav ves"},{n:"Plan Clásico Silver",c:"dav ves rs huch ind"},{n:"Plan Gold One",c:"dav ves rs ind sm meds uch"},{n:"Plan Platinum B",c:"dav ves rs ind sm meds uch lc la sc"},{n:"Plan Platinum One",c:"dav ves rs ind sm meds uch ucc lc la sc"},{n:"Salud Preferente Titanium",c:"dav ves sm meds la sc ale"}];
+    var chips = document.querySelectorAll('.gchip input'), estado = document.getElementById('guia-estado');
+    var wsp = document.getElementById('guia-wsp'), cot = document.getElementById('guia-cot'), limpiar = document.getElementById('guia-limpiar');
+    var base = 'https://wa.me/56923971471';
+    function actualiza() {
+        var sel = [], nom = [];
+        chips.forEach(function (c) { if (c.checked) { sel.push(c.value); nom.push(c.nextElementSibling.textContent); } });
+        document.querySelectorAll('#tabla-planes tbody tr[data-c]').forEach(function (tr) { tr.classList.toggle('c-sel', sel.indexOf(tr.getAttribute('data-c')) !== -1); });
+        var ok = [];
+        planes.forEach(function (p, i) {
+            var tiene = p.c.split(' '), cumple = sel.every(function (s) { return tiene.indexOf(s) !== -1; });
+            if (sel.length && cumple) ok.push(p.n);
+            document.querySelectorAll('#tabla-planes [data-p="' + i + '"]').forEach(function (el) { el.classList.toggle('col-ok', sel.length > 0 && cumple); el.classList.toggle('col-fuera', sel.length > 0 && !cumple); });
+        });
+        limpiar.hidden = cot.hidden = sel.length === 0;
+        if (!sel.length) { estado.textContent = 'Elige una o más clínicas y te marco los planes que las incluyen. Si te parece, después hacemos una cotización real.'; wsp.hidden = true; return; }
+        if (!ok.length) {
+            estado.textContent = 'Ningún plan incluye todas esas clínicas a la vez. Prueba quitando una, o consúltame.';
+            wsp.href = base + '?text=' + encodeURIComponent('Hola Carol, estoy mirando tu página y busco planes con: ' + nom.join(', ') + '. ¿Qué opciones hay?'); wsp.hidden = false; return;
+        }
+        estado.textContent = (ok.length === 1 ? '1 plan incluye' : ok.length + ' planes incluyen') + ' lo que elegiste: ' + ok.join(', ') + '.';
+        wsp.href = base + '?text=' + encodeURIComponent('Hola Carol, todavía estoy mirando. En tu página encontré planes que incluyen lo que busco (' + nom.join(', ') + '): ' + ok.join(', ') + '. ¿Me confirmas si me sirven?'); wsp.hidden = false;
+    }
+    chips.forEach(function (c) { c.addEventListener('change', actualiza); });
+    limpiar.addEventListener('click', function () { chips.forEach(function (c) { c.checked = false; }); actualiza(); });
+
+    var quieto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* mensaje de Carol: primero escribe, luego aparece */
+    var chat = document.getElementById('chat');
+    if (chat) setTimeout(function () { chat.classList.add('escribio'); }, quieto ? 0 : 900);
+
+    /* cifras que cuentan hasta su valor (solo las numericas puras) */
+    function contar(el) {
+        var txt = el.getAttribute('data-v'), dec = (txt.split(',')[1] || '').length, fin = parseFloat(txt.replace(/\./g, '').replace(',', '.')), t0 = null;
+        function paso(t) { if (t0 === null) t0 = t; var p = Math.min(1, (t - t0) / 1200), e = 1 - Math.pow(1 - p, 3); el.firstChild.textContent = p >= 1 ? txt : (fin * e).toFixed(dec).replace('.', ','); if (p < 1) requestAnimationFrame(paso); }
+        requestAnimationFrame(paso);
+    }
+    var nums = [];
+    document.querySelectorAll('.cifra').forEach(function (el) {
+        var n = el.firstChild; if (!n || n.nodeType !== 3) return;
+        var raw = n.textContent.trim(); if (!/^[\d.,]+$/.test(raw)) return;
+        el.setAttribute('data-v', raw); nums.push(el);
+    });
+    if (!quieto && 'IntersectionObserver' in window) {
+        var ioN = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { contar(x.target); ioN.unobserve(x.target); } }); }, { threshold: .6 });
+        nums.forEach(function (el) { el.firstChild.textContent = '0'; ioN.observe(el); });
+    }
+    document.querySelectorAll('.programas .prog').forEach(function (p, k) { p.style.setProperty('--k', k); });
+    if ('IntersectionObserver' in window) {
+        var ioG = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('vista'); ioG.unobserve(x.target); } }); }, { threshold: .2 });
+        document.querySelectorAll('.programas').forEach(function (g) { ioG.observe(g); });
+    }
+
+    /* menu: subraya la seccion que estas viendo */
+    var enlaces = [].slice.call(document.querySelectorAll('.cab > .caja > nav a[href^="#"]:not(.btn)')), mapa = [];
+    enlaces.forEach(function (a) { var s = document.querySelector(a.getAttribute('href')); if (s) mapa.push([a, s]); });
+    if ('IntersectionObserver' in window) {
+        var ioS = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) mapa.forEach(function (m) { m[0].classList.toggle('activo', m[1] === x.target); }); }); }, { rootMargin: '-35% 0px -60% 0px' });
+        mapa.forEach(function (m) { ioS.observe(m[1]); });
+    }
+
+    /* tabla: la columna sigue al cursor; al tocar un plan se explica que incluye */
+    var tabla = document.getElementById('tabla-planes'), CL = {dav:"Clínica Dávila",ves:"Dávila Vespucio",rs:"RedSalud",ind:"Indisa",sm:"Santa María",meds:"MEDS",uch:"Hospital UC",ucc:"Clínica UC",lc:"Las Condes",la:"Los Andes",sc:"San Carlos de Apoquindo",ale:"Alemana",huch:"Hospital U. de Chile"};
+    var pista = document.createElement('p'); pista.className = 'tabla-pista'; pista.textContent = 'Toca el nombre de un plan para ver en detalle qué incluye.';
+    var detalle = document.createElement('div'); detalle.className = 'detalle-plan'; detalle.setAttribute('aria-live', 'polite');
+    var env = tabla.parentNode; env.parentNode.insertBefore(pista, env); env.insertAdjacentElement('afterend', detalle);
+    function col(i, cls, on) { tabla.querySelectorAll('[data-p="' + i + '"]').forEach(function (el) { el.classList.toggle(cls, on); }); }
+    tabla.addEventListener('mouseover', function (e) { var c = e.target.closest('[data-p]'); tabla.querySelectorAll('.hov').forEach(function (x) { x.classList.remove('hov'); }); if (c) col(c.getAttribute('data-p'), 'hov', true); });
+    tabla.addEventListener('mouseleave', function () { tabla.querySelectorAll('.hov').forEach(function (x) { x.classList.remove('hov'); }); });
+    var regalos = [];
+    tabla.querySelectorAll('tr.regalo td').forEach(function (td) { regalos.push([].map.call(td.querySelectorAll('li'), function (li) { return li.textContent; })); });
+    tabla.querySelectorAll('th.pc').forEach(function (th) {
+        th.tabIndex = 0; th.setAttribute('role', 'button');
+        function elige(e) {
+            if (e.target.tagName === 'A') return;
+            var i = +th.getAttribute('data-p'), ya = th.classList.contains('sel');
+            tabla.querySelectorAll('.pc.sel').forEach(function (x) { x.classList.remove('sel'); });
+            tabla.querySelectorAll('.col-sel').forEach(function (x) { x.classList.remove('col-sel'); });
+            if (ya) { detalle.classList.remove('on'); return; }
+            th.classList.add('sel'); col(i, 'col-sel', true);
+            var cls = planes[i].c.split(' ').map(function (c) { return CL[c]; });
+            detalle.innerHTML = '<b>' + planes[i].n + '</b><p><strong>Clínicas y prestadores:</strong> ' + cls.join(', ') + '.</p><p><strong>Beneficios de regalo:</strong> ' + regalos[i].join('; ') + '.</p>';
+            detalle.classList.add('on');
+        }
+        th.addEventListener('click', elige);
+        th.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); elige(e); } });
+    });
+
+
+    /* las clinicas se iluminan una tras otra al aparecer, para invitar a tocarlas */
+    var gch = document.querySelector('.gchips');
+    if (gch && 'IntersectionObserver' in window) {
+        gch.querySelectorAll('.gchip span').forEach(function (s, k) { s.style.setProperty('--k', k); });
+        var ioC = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { gch.classList.add('llama'); ioC.disconnect(); } }); }, { threshold: .6 });
+        ioC.observe(gch);
+    }
+    /* planes regionales en pestanas */
+    var zonas = document.querySelector('.zonas');
+    if (zonas) {
+        var zs = zonas.querySelectorAll('.zona'), tabs = document.createElement('div');
+        tabs.className = 'tabs-zona'; tabs.setAttribute('role', 'tablist');
+        zs.forEach(function (z, i) {
+            var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = z.querySelector('h4').textContent;
+            b.addEventListener('click', function () { zs.forEach(function (x, k) { x.classList.toggle('on', k === i); tabs.children[k].setAttribute('aria-selected', k === i ? 'true' : 'false'); }); });
+            tabs.appendChild(b);
+        });
+        zonas.parentNode.insertBefore(tabs, zonas); zonas.classList.add('con-tabs'); tabs.children[0].click();
+    }
+    /* noticia plegada */
+    var noti = document.querySelector('.noticia');
+    if (noti) {
+        var lb = document.createElement('button'); lb.type = 'button'; lb.className = 'leer'; lb.textContent = 'Leer la noticia'; lb.setAttribute('aria-expanded', 'false');
+        noti.classList.add('cerrada'); noti.querySelector('h4').insertAdjacentElement('afterend', lb);
+        lb.addEventListener('click', function () { var ab = noti.classList.toggle('cerrada') === false; lb.textContent = ab ? 'Ocultar la noticia' : 'Leer la noticia'; lb.setAttribute('aria-expanded', ab ? 'true' : 'false'); });
+    }
+    /* pasos que se encienden uno tras otro */
+    var pasosEl = document.querySelector('.pasos'), pasoTimer = null;
+    if (pasosEl && !quieto && 'IntersectionObserver' in window) {
+        var ps = pasosEl.querySelectorAll('.paso'), pi2 = -1;
+        function siguiente() { pi2 = (pi2 + 1) % ps.length; ps.forEach(function (x, k) { x.classList.toggle('activo', k === pi2); }); pasosEl.style.setProperty('--avance', ((pi2 + 1) / ps.length * 100) + '%'); }
+        new IntersectionObserver(function (es) { es.forEach(function (x) {
+            if (x.isIntersecting && !pasoTimer) { pasosEl.classList.add('vivo'); siguiente(); pasoTimer = setInterval(siguiente, 2400); }
+            else if (!x.isIntersecting && pasoTimer) { clearInterval(pasoTimer); pasoTimer = null; }
+        }); }, { threshold: .4 }).observe(pasosEl);
+        ps.forEach(function (x, k) { x.addEventListener('mouseenter', function () { clearInterval(pasoTimer); pasoTimer = 1; pi2 = k - 1; siguiente(); }); });
+    }
+    /* cifras de Salud Extendida que cuentan, con su prefijo y sufijo */
+    if (!quieto && 'IntersectionObserver' in window) {
+        var ioSe = new IntersectionObserver(function (es) { es.forEach(function (x) {
+            if (!x.isIntersecting) return; ioSe.unobserve(x.target);
+            var el = x.target, m = el.getAttribute('data-orig').match(/^(\D*)(\d+)(\D*)$/); if (!m) return;
+            var fin = +m[2], t0 = null;
+            function paso(t) { if (t0 === null) t0 = t; var q = Math.min(1, (t - t0) / 1100), e = 1 - Math.pow(1 - q, 3); el.textContent = m[1] + Math.round(fin * e) + m[3]; if (q < 1) requestAnimationFrame(paso); }
+            requestAnimationFrame(paso);
+        }); }, { threshold: .6 });
+        document.querySelectorAll('.se-c b').forEach(function (b) { b.setAttribute('data-orig', b.textContent.trim()); if (/\d/.test(b.textContent)) ioSe.observe(b); });
+    }
+
+    /* tarjetas / comparativo con fundido */
+    var vp = document.getElementById('vista-planes');
+    document.querySelectorAll('.vistas button').forEach(function (b) {
+        b.addEventListener('click', function () {
+            if (vp.getAttribute('data-v') === b.getAttribute('data-v')) return;
+            document.querySelectorAll('.vistas button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+            vp.classList.add('fundiendo');
+            setTimeout(function () { vp.setAttribute('data-v', b.getAttribute('data-v')); requestAnimationFrame(function () { vp.classList.remove('fundiendo'); }); }, quieto ? 0 : 260);
+        });
+    });
+    /* el filtro de clinicas marca tambien las tarjetas */
+    var tarjs = document.querySelectorAll('#tarjetas .plan');
+    function marcaTarjetas() {
+        var sel = []; document.querySelectorAll('.gchip input').forEach(function (c) { if (c.checked) sel.push(c.value); });
+        tarjs.forEach(function (tj) { var tiene = tj.getAttribute('data-clinicas').split(' '), ok = sel.every(function (s) { return tiene.indexOf(s) !== -1; }); tj.classList.toggle('dentro', sel.length > 0 && ok); tj.classList.toggle('fuera', sel.length > 0 && !ok); });
+    }
+    document.querySelectorAll('.gchip input').forEach(function (c) { c.addEventListener('change', marcaTarjetas); });
+    var lmp = document.getElementById('guia-limpiar'); if (lmp) lmp.addEventListener('click', function () { setTimeout(marcaTarjetas, 0); });
+
+    /* programas: foto que sigue al cursor */
+    var pf = document.getElementById('p-flota'), pfi = pf && pf.querySelector('img'), plist = document.getElementById('programas');
+    if (pf && plist && matchMedia('(hover: hover)').matches) {
+        var fx = 0, fy = 0, tx = 0, ty = 0, an = false;
+        var sigue = function () { fx += (tx - fx) * .2; fy += (ty - fy) * .2; pf.style.left = fx + 'px'; pf.style.top = fy + 'px'; if (Math.abs(tx - fx) > .5 || Math.abs(ty - fy) > .5) requestAnimationFrame(sigue); else an = false; };
+        plist.addEventListener('pointermove', function (e) { var lr = plist.getBoundingClientRect(); tx = Math.min(lr.right - 140, innerWidth - 150); ty = e.clientY; if (!an) { an = true; requestAnimationFrame(sigue); } });
+        plist.querySelectorAll('li').forEach(function (li) { li.addEventListener('pointerenter', function () { pfi.src = li.getAttribute('data-img'); pf.classList.add('on'); }); });
+        plist.addEventListener('pointerleave', function () { pf.classList.remove('on'); });
+        addEventListener('scroll', function () { pf.classList.remove('on'); }, { passive: true });
+    }
+
+    /* menu: lupa suave */
+    var navA = document.querySelectorAll('.cab > .caja > nav a:not(.btn)'), cabe = document.querySelector('.cab');
+    if (!quieto && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        cabe.addEventListener('pointermove', function (e) { navA.forEach(function (a) { var r = a.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2)); a.style.transform = 'scale(' + (1 + Math.max(0, 1 - d / 140) * .16).toFixed(3) + ')'; }); });
+        cabe.addEventListener('pointerleave', function () { navA.forEach(function (a) { a.style.transform = ''; }); });
+    }
+    /* menu: fundido y el titulo viaja a su lugar, sin scroll largo */
+    document.querySelectorAll('.cab > .caja > nav a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var sec = document.querySelector(a.getAttribute('href')); if (!sec) return;
+            e.preventDefault();
+            var h2 = sec.querySelector('h2') || sec;
+            function salta() { sec.querySelectorAll('.rv').forEach(function (x) { x.classList.add('vista'); }); scrollTo({ top: sec.getBoundingClientRect().top + scrollY - 72, behavior: 'instant' }); history.replaceState(null, '', a.getAttribute('href')); }
+            if (quieto) { salta(); return; }
+            var ra = a.getBoundingClientRect(), v = document.createElement('span'), cs = getComputedStyle(h2);
+            v.className = 'vuela'; v.textContent = h2.textContent;
+            v.style.font = cs.fontWeight + ' ' + cs.fontSize + '/' + cs.lineHeight + ' ' + cs.fontFamily; v.style.color = cs.color; v.style.width = h2.getBoundingClientRect().width + 'px';
+            document.body.appendChild(v);
+            var s0 = ra.height / (parseFloat(cs.lineHeight) || parseFloat(cs.fontSize));
+            v.style.left = '0px'; v.style.top = '0px'; v.style.transform = 'translate3d(' + ra.left + 'px,' + ra.top + 'px,0) scale(' + s0 + ')';
+            document.body.classList.add('cambia');
+            setTimeout(function () {
+                h2.classList.add('oculto'); salta();
+                var rh = h2.getBoundingClientRect();
+                requestAnimationFrame(function () { v.style.transform = 'translate3d(' + rh.left + 'px,' + rh.top + 'px,0) scale(1)'; document.body.classList.remove('cambia'); });
+                setTimeout(function () { h2.classList.remove('oculto'); v.remove(); }, 640);
+            }, 280);
+        });
+    });
+
+
+    /* menu del telefono */
+    var mbtn = document.getElementById('menu-btn'), mpanel = document.getElementById('menu-movil');
+    if (mbtn && mpanel) {
+        function abreMenu(si) {
+            mpanel.classList.toggle('abierto', si);
+            mbtn.setAttribute('aria-expanded', si ? 'true' : 'false');
+            mbtn.setAttribute('aria-label', si ? 'Cerrar el menú' : 'Abrir el menú');
+            document.body.classList.toggle('menu-abierto', si);
+        }
+        mbtn.addEventListener('click', function () { abreMenu(!mpanel.classList.contains('abierto')); });
+        mpanel.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { abreMenu(false); }); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') abreMenu(false); });
+        document.addEventListener('click', function (e) { if (mpanel.classList.contains('abierto') && !e.target.closest('.cab')) abreMenu(false); });
+        window.addEventListener('resize', function () { if (innerWidth > 900) abreMenu(false); });
+    }
+
+    var rv = document.querySelectorAll('.rv');
+    if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('vista'); io.unobserve(x.target); } }); }, { threshold: .12 });
+        rv.forEach(function (el) { io.observe(el); });
+    } else { rv.forEach(function (el) { el.classList.add('vista'); }); }
+})();
+</script>
+<script src="assets/captura-leads.js"></script>
+</body>
+</html>

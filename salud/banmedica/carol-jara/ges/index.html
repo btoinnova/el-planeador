@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GES y CAEC explicados · Carol Jara, Asesora Comercial Banmédica</title>
+<meta name="description" content="Qué es el GES y el CAEC de Banmédica, qué te garantizan y cómo se activan, explicado por Carol Jara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+    :root {
+        --fondo: #FAF8F6; --blanco: #FFFFFF; --tinta: #16181D; --suave: #555B66; --linea: #E6E1DC;
+        --rojo: #E4231B; --rojo-t: #C0170F; --rojo-suave: #FDECEB; --arena: #F3EFEA; --oscuro: #16181D;
+        --serif: "DM Serif Display", Georgia, serif; --sans: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+        --m: clamp(20px, 5vw, 72px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; background: var(--fondo); color: var(--tinta); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; text-wrap: balance; }
+    :focus-visible { outline: 2px solid var(--rojo); outline-offset: 3px; }
+    .caja { width: min(1100px, 100% - var(--m) * 2); margin-inline: auto; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 26px; border-radius: 999px; background: var(--rojo); color: #fff; font: 500 16px/1 var(--sans); text-decoration: none; }
+    .btn:hover { background: var(--rojo-t); }
+    .btn.wsp { background: #1F8F55; }
+    .btn.wsp:hover { background: #18774A; }
+    .btn.claro { background: transparent; color: var(--tinta); box-shadow: inset 0 0 0 1px var(--tinta); }
+
+    .cab { position: sticky; top: 0; z-index: 10; background: rgba(250, 248, 246, .97); border-bottom: 1px solid var(--linea); }
+    .cab .caja { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+    .marca { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .marca img { height: 30px; width: auto; }
+    .marca span { padding-left: 14px; border-left: 1px solid var(--linea); font-size: 14px; color: var(--suave); line-height: 1.2; }
+    .cab nav { display: flex; align-items: center; gap: 22px; font-size: 15px; font-weight: 500; }
+    .cab nav a:not(.btn) { text-decoration: none; }
+    .cab .btn { min-height: 44px; padding: 0 20px; font-size: 15px; }
+    @media (max-width: 760px) { .cab nav a:not(.btn) { display: none; } }
+    @media (max-width: 420px) { .marca span { display: none; } }
+
+    .portada { padding: clamp(40px, 6vw, 80px) 0 clamp(32px, 5vw, 56px); }
+    .volver { font-size: 15px; font-weight: 500; color: var(--rojo-t); text-decoration: none; }
+    .portada h1 { margin-top: 16px; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.05; max-width: 15em; }
+    .bajada { margin-top: 18px; font-size: 1.15rem; color: var(--suave); max-width: 38em; }
+    .indice { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .indice a { padding: 9px 16px; border-radius: 999px; background: var(--blanco); border: 1px solid var(--linea); font-size: 15px; font-weight: 500; text-decoration: none; }
+    .indice a:hover { border-color: var(--rojo); color: var(--rojo-t); }
+
+    .sec { padding: clamp(52px, 8vw, 96px) 0; }
+    .sec.arena { background: var(--arena); }
+    .sec h2 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); line-height: 1.08; }
+    .sec .intro { margin-top: 12px; color: var(--suave); max-width: 44em; font-size: 1.05rem; }
+    .sec h3 { font-size: 18px; }
+    .grilla { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .tarjeta { padding: 22px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 20px; }
+    .tarjeta p { margin-top: 6px; font-size: 15px; color: var(--suave); }
+    .tarjeta .n { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--rojo-suave); color: var(--rojo-t); font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 900px) { .grilla { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grilla { grid-template-columns: 1fr; } }
+    .ejemplo { margin-top: 26px; padding: 22px 24px; background: var(--blanco); border-left: 3px solid var(--rojo); border-radius: 4px 18px 18px 4px; max-width: 46em; }
+    .ejemplo p + p { margin-top: 8px; }
+    .pasos { margin-top: 28px; display: grid; gap: 14px; counter-reset: p; max-width: 52em; padding: 0; list-style: none; }
+    .pasos li { position: relative; padding: 18px 20px 18px 64px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 18px; }
+    .pasos li::before { counter-increment: p; content: counter(p); position: absolute; left: 18px; top: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--rojo); color: #fff; display: grid; place-items: center; font-weight: 700; }
+    .pasos li p { margin-top: 4px; font-size: 15px; color: var(--suave); }
+    .tabla { margin-top: 24px; width: 100%; max-width: 640px; border-collapse: collapse; background: var(--blanco); border-radius: 18px; overflow: hidden; font-size: 15.5px; }
+    .tabla th, .tabla td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--linea); }
+    .tabla thead th { background: var(--tinta); color: #fff; font-weight: 500; }
+    .enlaces { margin-top: 26px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .enlaces a { display: block; padding: 16px 18px; background: var(--blanco); border: 1px solid var(--linea); border-radius: 16px; text-decoration: none; font-weight: 500; }
+    .enlaces a small { display: block; font-weight: 400; color: var(--suave); font-size: 14px; margin-top: 2px; }
+    .enlaces a:hover { border-color: var(--rojo); }
+    .nota { margin-top: 18px; font-size: 13.5px; color: var(--suave); max-width: 60em; }
+    .cierre { background: var(--oscuro); color: #fff; }
+    .cierre .intro { color: #C9C3BC; }
+    .cierre .acciones { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .cierre .btn.claro { color: #fff; box-shadow: inset 0 0 0 1px #fff; }
+    footer { padding: 32px 0 48px; font-size: 14px; color: var(--suave); border-top: 1px solid var(--linea); }
+</style>
+</head>
+<body>
+
+<header class="cab">
+    <div class="caja">
+        <a class="marca" href="../" aria-label="Volver a la página de Carol Jara"><img src="../img/logo-banmedica.png" alt="Banmédica" width="118" height="38"><span>Carol Jara<br>Asesora Comercial</span></a>
+        <nav aria-label="Secciones">
+            <a href="#ges">GES</a>
+            <a href="#activar-ges">Activar GES</a>
+            <a href="#caec">CAEC</a>
+            <a class="btn" href="../#cotizar">Cotizar</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="portada">
+        <div class="caja">
+            <a class="volver" href="../#beneficios-plan">← Volver a los beneficios</a>
+            <h1>GES y CAEC: dos coberturas que ya vienen en tu plan.</h1>
+            <p class="bajada">Te explico en simple qué son, qué te garantizan y cómo se activan. Si te queda alguna duda, escríbeme y lo vemos juntos.</p>
+            <div class="indice">
+                <a href="#ges">Qué es el GES</a>
+                <a href="#activar-ges">Cómo se activa el GES</a>
+                <a href="#urgencia-ges">GES en una hospitalización inmediata</a>
+                <a href="#caec">Qué es el CAEC</a>
+                <a href="#activar-caec">Cómo se activa el CAEC</a>
+                <a href="#enlaces">Enlaces oficiales</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec arena" id="ges">
+        <div class="caja">
+            <h2>Qué es el GES (Garantías Explícitas en Salud).</h2>
+            <p class="intro">Es una cobertura definida por ley para una lista de problemas de salud (hoy son 90). Si te diagnostican uno de ellos, el GES te asegura cuatro cosas:</p>
+            <div class="grilla">
+                <div class="tarjeta"><h3>Acceso</h3><p>Recibes las atenciones que la ley define para tu diagnóstico.</p></div>
+                <div class="tarjeta"><h3>Oportunidad</h3><p>Hay un plazo máximo para que te atiendan.</p></div>
+                <div class="tarjeta"><h3>Protección financiera</h3><p>Pagas solo una parte del tratamiento.</p></div>
+                <div class="tarjeta"><h3>Calidad</h3><p>Te atiendes en prestadores acreditados de la Red GES.</p></div>
+            </div>
+            <div class="ejemplo">
+                <p><strong>Cómo se paga, con un ejemplo.</strong> Cada enfermedad tiene una "canasta" de exámenes, consultas, medicamentos y hospitalizaciones que define el Ministerio de Salud.</p>
+                <p>Si te diagnostican diabetes tipo 2, pagas el 20% del valor de esa canasta (el copago), mes a mes, hasta completar un deducible. Desde ahí, la isapre cubre el 100% de lo que sigue.</p>
+                <p>El copago se puede pagar en la Sucursal Virtual de Banmédica (menú GES-CAEC), en sucursales o en los Centros GES.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec" id="activar-ges">
+        <div class="caja">
+            <h2>Cómo se activa el GES, paso a paso.</h2>
+            <ol class="pasos">
+                <li><h3>Tu médico te notifica</h3><p>Si te diagnostica una enfermedad GES, en la misma consulta te entrega la Notificación GES (o un certificado médico si es una sospecha).</p></li>
+                <li><h3>Presentas ese documento a la isapre</h3><p>Por la Sucursal Virtual (menú GES-CAEC), en una sucursal, en un Centro GES o llamando al 600 600 3600.</p></li>
+                <li><h3>La isapre te asigna dónde atenderte</h3><p>Te indica el profesional y la clínica de la Red GES y el costo final del tratamiento. Si tu enfermedad lo requiere, te agenda la primera hora para confirmar el diagnóstico.</p></li>
+                <li><h3>Confirmas el diagnóstico en la Red GES</h3><p>En esa consulta, revisa que el médico complete el Formulario de Antecedentes Médicos y te entregue recetas u órdenes si corresponde.</p></li>
+                <li><h3>Entregas esos documentos y queda activo</h3><p>Al presentarlos en la isapre, tu GES queda activado en 48 horas.</p></li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="sec arena" id="urgencia-ges">
+        <div class="caja">
+            <h2>Si te hospitalizan de inmediato.</h2>
+            <p class="intro">El médico te entrega una notificación que confirma que tu diagnóstico es GES. Dentro de las primeras <strong>24 horas</strong>, tú o un representante activan el GES por la Sucursal Virtual o en la isapre; en ese caso la activación tiene prioridad.</p>
+            <p class="intro">Si estás en una clínica fuera de la Red GES, tu representante presenta un informe médico para el traslado a una clínica de la red. También puede ocurrir que la clínica avise directamente a la Superintendencia de Salud: entonces la isapre te contacta para indicarte el prestador asignado y la derivación se firma en una sucursal (puedes aceptarla o rechazarla).</p>
+        </div>
+    </section>
+
+    <section class="sec" id="caec">
+        <div class="caja">
+            <h2>Qué es el CAEC (Cobertura Adicional para Enfermedades Catastróficas).</h2>
+            <p class="intro">Viene incluido en el costo de tu plan y aumenta tu cobertura en atenciones hospitalarias de alto costo. No importa el diagnóstico: importa que el monto que te toca pagar sea alto. Cuando tus copagos superan el deducible, la isapre financia el 100% de los copagos siguientes de esa enfermedad, siempre que te atiendas en la Red CAEC.</p>
+            <h3 style="margin-top:28px">Cuánto es el deducible</h3>
+            <table class="tabla">
+                <thead><tr><th>Tu cotización mensual</th><th>Deducible</th></tr></thead>
+                <tbody>
+                    <tr><td>Menos de 2 UF</td><td>60 UF</td></tr>
+                    <tr><td>Entre 2 y 4,2 UF</td><td>30 veces tu cotización</td></tr>
+                    <tr><td>Más de 4,2 UF</td><td>126 UF</td></tr>
+                </tbody>
+            </table>
+            <p class="nota">Ejemplo: con una cotización de 3,2 UF al mes, el deducible es de 96 UF. Las atenciones de problemas de salud cubiertos por el GES se rigen por el GES, no por el CAEC.</p>
+        </div>
+    </section>
+
+    <section class="sec arena" id="activar-caec">
+        <div class="caja">
+            <h2>Cómo se activa el CAEC.</h2>
+            <p class="intro">Sirve tanto para una hospitalización programada como para una urgencia. Lo activas tú (titular) o un representante por la Sucursal Virtual (menú GES-CAEC), el 600 600 3600, un Centro GES-CAEC o cualquier sucursal.</p>
+            <ol class="pasos">
+                <li><h3>Firmas la solicitud</h3><p>Completas y firmas el Formulario N°1 de incorporación a la Red CAEC.</p></li>
+                <li><h3>La isapre te asigna un prestador</h3><p>En 2 o 3 días hábiles (según si estás hospitalizado o no) te designa un prestador de la Red CAEC.</p></li>
+                <li><h3>Aceptas la derivación</h3><p>Si aceptas, firmas el Formulario N°2 y desde ahí se empiezan a sumar tus copagos para el deducible.</p></li>
+            </ol>
+            <p class="nota">En una urgencia con riesgo vital o secuela grave, tú o un representante deben avisar a la isapre dentro de las 48 horas desde el ingreso a la clínica. Si estás hospitalizado, el traslado a la Red CAEC necesita la autorización de tu médico tratante.</p>
+        </div>
+    </section>
+
+    <section class="sec" id="enlaces">
+        <div class="caja">
+            <h2>Enlaces oficiales de Banmédica.</h2>
+            <p class="intro">Para trámites, listados completos y redes de atención, estos son los sitios oficiales:</p>
+            <div class="enlaces">
+                <a href="https://login.isaprebanmedica.cl/login?m=BGES" target="_blank" rel="noopener">Sucursal Virtual, menú GES-CAEC<small>Activar GES o CAEC y pagar copagos</small></a>
+                <a href="https://www.banmedica.cl/ges/" target="_blank" rel="noopener">Listado de problemas de salud GES<small>Las enfermedades cubiertas</small></a>
+                <a href="https://www.banmedica.cl/red-ges/" target="_blank" rel="noopener">Red GES<small>Dónde atenderte con GES</small></a>
+                <a href="https://www.banmedica.cl/red-caec/" target="_blank" rel="noopener">Red de Prestadores CAEC<small>Dónde atenderte con CAEC</small></a>
+                <a href="https://www.banmedica.cl/sucursales/" target="_blank" rel="noopener">Sucursales<small>Direcciones y horarios</small></a>
+                <a href="tel:6006003600">600 600 3600<small>Contact Center de Banmédica</small></a>
+            </div>
+            <p class="nota">Centros GES-CAEC: Av. Apoquindo 3600, Las Condes, y Agustinas 1022, Santiago Centro. Fuente: sitio de orientación de Banmédica (orientacion.banmedica.cl). Las condiciones exactas dependen de tu plan y del decreto GES vigente.</p>
+        </div>
+    </section>
+
+    <section class="sec cierre">
+        <div class="caja">
+            <h2>¿Quieres saber cómo te cubre tu plan?</h2>
+            <p class="intro">Cuéntame tu caso y te explico el GES, el CAEC y las coberturas de los planes Banmédica, sin costo y sin compromiso.</p>
+            <div class="acciones">
+                <a class="btn" href="../#cotizar">Completar el formulario</a>
+                <a class="btn wsp" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20le%C3%AD%20sobre%20el%20GES%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+                <a class="btn claro" href="../">Volver a la página</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="caja">
+        <p>© 2026 Carol Jara. Sitio personal de Carol Jara, asesora comercial de Banmédica. Los valores y beneficios son los vigentes de Banmédica.<br>Página creada por El Planeador, compañía de marketing digital perteneciente a BTo Innova Soluciones.</p>
+    </div>
+</footer>
+</body>
+</html>
