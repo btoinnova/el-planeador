@@ -7,5 +7,5 @@ Fuente: Pexels, licencia Pexels (https://www.pexels.com/es-es/license/): uso com
 | pareja-celular-sofa.jpg | https://www.pexels.com/photo/39219881/ | Vitaly Gariev | Portada |
 | pareja-embarazo-sofa.jpg | https://www.pexels.com/photo/7991781/ | Ivan S | ¿Por qué revisar? |
 | pareja-celular-cuadros.jpg | https://www.pexels.com/photo/36813080/ | Vitaly Gariev | Con quién vas a hablar |
-| mama-hijas-sofa.jpg | https://www.pexels.com/photo/7919637/ | Kampus Production | Así funciona, en tres pasos |
+| papa-hija-cocina.jpg | https://www.pexels.com/photo/4815345/ | Ketut Subiyanto | Así funciona, en tres pasos |
 | padre-hija-abrazo.jpg | https://www.pexels.com/photo/8188705/ | Kampus Production | Cierre |
