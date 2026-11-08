@@ -92,6 +92,18 @@
     .limpiar { background: none; border: 0; font: 500 14px/1 var(--sans); text-decoration: underline; cursor: pointer; color: var(--suave); }
     .regalo-frase { margin-top: 26px; font-weight: 700; }
     .comun { margin-top: 6px; font-size: 15px; color: var(--suave); }
+    .siete { margin-top: 26px; display: grid; gap: 16px; padding: 22px; border-radius: 22px; background: var(--blanco); border: 1px solid var(--linea); }
+    .siete h3 { font: 400 1.45rem/1.2 var(--serif); }
+    .siete-form { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 14px; }
+    @media (min-width: 760px) { .siete { grid-template-columns: 1.1fr 1fr; align-items: center; padding: 28px 32px; } .siete-form { grid-template-columns: 1fr 1fr; } }
+    .siete-res { display: grid; gap: 12px; }
+    .siete-res[hidden] { display: none; }
+    .siete-monto { display: block; font: 400 clamp(2rem, 8vw, 2.8rem)/1.1 var(--serif); color: var(--rojo-t); }
+    .siete-res small { display: block; font-size: 14px; color: var(--suave); }
+    .tabla-desliza { display: none; margin: 12px 0 0; font-size: 14px; font-weight: 500; color: var(--rojo-t); }
+    @media (max-width: 900px) { .tabla-desliza { display: block; } }
+    thead th:first-child { position: sticky; left: 0; z-index: 2; background: #FCFBFA; }
+    tbody th { box-shadow: 6px 0 8px -6px rgba(22, 24, 29, .18); }
     .tabla-envoltura { margin-top: 18px; overflow-x: auto; border: 1px solid var(--linea); border-radius: 22px; background: var(--blanco); }
     table { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 14.5px; }
     th, td { padding: 12px 14px; text-align: center; border-bottom: 1px solid var(--linea); vertical-align: middle; transition: background .25s, opacity .25s; }
@@ -595,6 +607,20 @@
         <div class="caja">
             <h2 class="rv">Compara los planes y las clínicas que incluyen.</h2>
             <p class="intro rv">Cada plan tiene su propia red de clínicas. Te calculo el valor exacto según tu edad, renta y cargas.</p>
+            <div class="siete rv" id="tu-7">
+                <div>
+                    <h3>¿Cuánto aportas hoy con tu 7%?</h3>
+                    <p class="comun">Escribe tu sueldo y lo ves en pesos al instante. El cálculo se hace en tu teléfono.</p>
+                    <form class="siete-form" id="siete-form" novalidate>
+                        <label class="campo">Tu sueldo mensual<input type="text" id="siete-sueldo" inputmode="numeric" autocomplete="off" placeholder="Ej: 1.500.000"></label>
+                        <label class="campo">Ese monto es<select id="siete-tipo"><option value="liquido">Líquido (lo que recibo)</option><option value="imponible">Imponible</option></select></label>
+                    </form>
+                </div>
+                <div class="siete-res" id="siete-res" hidden aria-live="polite">
+                    <div><small>Tu 7% de salud</small><span class="siete-monto" id="siete-monto">—</span><small id="siete-nota"></small></div>
+                    <a class="btn wsp" target="_blank" rel="noopener" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20calcul%C3%A9%20mi%207%25%20en%20tu%20p%C3%A1gina%20y%20quiero%20saber%20qu%C3%A9%20plan%20calza%20conmigo."><svg aria-hidden="true"><use href="#i-wsp"/></svg>Pregúntame qué plan calza con tu 7%</a>
+                </div>
+            </div>
             <div class="guia rv" role="group" aria-labelledby="guia-tit">
                 <h3 id="guia-tit">¿No sabes por dónde empezar?</h3>
                 <p>Te marco qué planes incluyen las clínicas que prefieres. No necesitas dejar tus datos.</p>
@@ -613,6 +639,7 @@
             <p class="desliza">Desliza para ver los 6 planes →</p>
             <div class="tarjetas" id="tarjetas"><article class="plan" data-p="0" data-clinicas="dav ves"><span class="plan-fam">Plan cerrado</span><h3>Plan Conecta</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Copago $0 en exámenes e imagenología (Dávila y Vespucio)</li><li>50% de descuento en exámenes por 3 meses</li><li>Cobertura ambulatoria Plus Vidaintegra</li><li>Telemedicina MEDY</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="1" data-clinicas="dav ves rs huch ind"><span class="plan-fam">Clásico</span><h3>Plan Clásico Silver</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Hospital U. de Chile</li><li>Indisa</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="2" data-clinicas="dav ves rs ind sm meds uch"><span class="plan-fam">Clásico y Superior</span><h3>Plan Gold One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Dávila y Vespucio)</li><li>Exámenes con copago cero</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="3" data-clinicas="dav ves rs ind sm meds uch lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum B</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li><li>OMT MEDY sin costo por 1 año</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="4" data-clinicas="dav ves rs ind sm meds uch ucc lc la sc"><span class="plan-fam">Superior y Preferente</span><h3>Plan Platinum One</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>RedSalud</li><li>Indisa</li><li>Santa María</li><li>MEDS</li><li>Hospital UC</li><li>Clínica UC</li><li>Las Condes</li><li>Los Andes</li><li>San Carlos de Apoquindo</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Seguro de accidentes (Santa María)</li><li>Copago cero en exámenes (Santa María y Clínica Meds)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article><article class="plan" data-p="5" data-clinicas="dav ves sm meds la sc ale"><span class="plan-fam">Preferente</span><h3>Salud Preferente Titanium</h3><p class="plan-sub">Clínicas y prestadores</p><ul class="plan-red"><li>Clínica Dávila</li><li>Dávila Vespucio</li><li>Santa María</li><li>MEDS</li><li>Los Andes</li><li>San Carlos de Apoquindo</li><li>Alemana</li></ul><p class="plan-sub">Beneficios de regalo</p><ul class="plan-regalo"><li>Cobertura de accidentes (Santa María)</li></ul><a class="ask" href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar por este plan</a></article></div>
             <details class="comparativa" id="comparativa"><summary>Ver comparativa: clínicas incluidas en cada plan</summary>
+            <p class="tabla-desliza">Desliza la tabla para ver los 6 planes →</p>
             <div class="tabla-envoltura">
                 <table id="tabla-planes">
                     <thead><tr><th scope="col">Clínicas y prestadores</th><th scope="col" class="pc" data-p="0"><span>Plan cerrado</span><b>Conecta</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Conecta%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="1"><span>Clásico</span><b>Clásico Silver</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Cl%C3%A1sico%20Silver%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="2"><span>Clásico y Superior</span><b>Gold One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Gold%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="3"><span>Superior y Preferente</span><b>Platinum B</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20B%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="4"><span>Superior y Preferente</span><b>Platinum One</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Plan%20Platinum%20One%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th><th scope="col" class="pc" data-p="5"><span>Preferente</span><b>Preferente Titanium</b><a href="https://wa.me/56923971471?text=Hola%20Carol%2C%20vi%20el%20Salud%20Preferente%20Titanium%20en%20tu%20p%C3%A1gina%20y%20tengo%20una%20pregunta." target="_blank" rel="noopener">Preguntar</a></th></tr></thead>
@@ -1086,6 +1113,26 @@
         var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('vista'); io.unobserve(x.target); } }); }, { threshold: .12 });
         rv.forEach(function (el) { io.observe(el); });
     } else { rv.forEach(function (el) { el.classList.add('vista'); }); }
+})();
+</script>
+<script src="../../assets/calculadora.js"></script>
+<script>
+(function () {
+    var C = window.Calculadora; if (!C) return;
+    if (C.actualizarUF) { try { C.actualizarUF(); } catch (e) {} }
+    var campo = document.getElementById('siete-sueldo'), tipo = document.getElementById('siete-tipo');
+    var caja = document.getElementById('siete-res'), monto = document.getElementById('siete-monto'), nota = document.getElementById('siete-nota');
+    function calcular() {
+        var n = parseInt(String(campo.value).replace(/\D/g, ''), 10);
+        campo.value = n ? n.toLocaleString('es-CL') : '';
+        if (!n || n < 100000) { caja.hidden = true; return; }
+        var r = C.calcular(n, 0, tipo.value);
+        monto.textContent = C.formatearPesos(r.cotizacionPesos) + ' al mes';
+        nota.textContent = r.superaTope ? 'Tu sueldo supera el tope imponible, así que el 7% se calcula sobre el tope.' : (r.eraLiquido ? 'Estimado a partir de tu sueldo líquido.' : '');
+        caja.hidden = false;
+    }
+    campo.addEventListener('input', calcular); tipo.addEventListener('change', calcular);
+    document.getElementById('siete-form').addEventListener('submit', function (e) { e.preventDefault(); calcular(); });
 })();
 </script>
 <script src="assets/captura-leads.js"></script>
