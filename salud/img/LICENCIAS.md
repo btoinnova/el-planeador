@@ -5,7 +5,7 @@ Fuente: Pexels, licencia Pexels (https://www.pexels.com/es-es/license/): uso com
 | Archivo | Foto | Autor | Uso |
 |---|---|---|---|
 | pareja-celular-sofa.jpg | https://www.pexels.com/photo/39219881/ | Vitaly Gariev | Portada |
-| familia-abuela-sofa.jpg | https://www.pexels.com/photo/7919617/ | Kampus Production | ¿Por qué revisar? |
+| pareja-embarazo-sofa.jpg | https://www.pexels.com/photo/7991781/ | Ivan S | ¿Por qué revisar? |
 | pareja-celular-cuadros.jpg | https://www.pexels.com/photo/36813080/ | Vitaly Gariev | Con quién vas a hablar |
 | padre-hijos-computador.jpg | https://www.pexels.com/photo/8188698/ | Kampus Production | Empieza por tu número |
 | padre-hija-abrazo.jpg | https://www.pexels.com/photo/8188705/ | Kampus Production | Cierre |
