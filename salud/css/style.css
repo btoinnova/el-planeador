@@ -5,14 +5,14 @@
    ========================================================================= */
 
 :root {
-    --tinta: #13202A;
-    --tinta-suave: #556A78;
-    --papel: #F4F7F8;
+    --tinta: #0F1B3D;
+    --tinta-suave: #55607A;
+    --papel: #FFF7F0;
     --superficie: #FFFFFF;
-    --linea: #DCE5E9;
-    --acento: #0F766E;
-    --acento-vivo: #0D9488;
-    --acento-claro: #E6F3F1;
+    --linea: #EADFD6;
+    --acento: #C8401F;
+    --acento-vivo: #E4572E;
+    --acento-claro: #FFEDE4;
     --verde-wsp: #25D366;
     --alerta: #A8560B;
     --alerta-fondo: #FBF0E2;
@@ -115,7 +115,7 @@ input:focus, select:focus {
     color: #fff;
     transition: background .15s ease;
 }
-.boton:hover:not(:disabled) { background: #0B5F58; }
+.boton:hover:not(:disabled) { background: #B83A1F; }
 .boton:disabled { opacity: .45; cursor: not-allowed; }
 .boton:focus-visible { outline: 3px solid var(--acento-vivo); outline-offset: 2px; }
 
@@ -187,8 +187,8 @@ input:focus, select:focus {
     line-height: 1.5;
     margin-bottom: 18px;
 }
-.veredicto.holgado { background: var(--acento-claro); color: #0B5750; }
-.veredicto.justo   { background: var(--acento-claro); color: #0B5750; }
+.veredicto.holgado { background: var(--acento-claro); color: #0F1B3D; }
+.veredicto.justo   { background: var(--acento-claro); color: #0F1B3D; }
 .veredicto.corto   { background: var(--alerta-fondo); color: var(--alerta); }
 .veredicto strong { display: block; margin-bottom: 3px; }
 
@@ -282,7 +282,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--acento-vivo); o
 .desglose li[hidden] { display: none; }
 .micro-copia { font-size: 14px; color: var(--tinta-suave); text-align: center; margin: 12px 0 0; }
 .aviso-casillas { font-size: 14px; color: var(--tinta-suave); margin: 0 0 10px; }
-.aviso-datos { font-size: 14px; background: var(--acento-claro); color: #0B5750; border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; }
+.aviso-datos { font-size: 14px; background: var(--acento-claro); color: #0F1B3D; border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; }
 .boton-enlace { display: block; text-align: center; text-decoration: none; margin-top: 16px; }
 input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #B42318; background: #FEF3F2; }
 .error { color: #B42318; font-size: 14px; margin: 4px 0 0; }
