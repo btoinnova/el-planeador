@@ -136,7 +136,8 @@
     .relato h2 { font-size: clamp(1.45rem, 5.4vw, 1.9rem); line-height: 1.12; letter-spacing: -.025em; margin: 0 0 10px; }
     .relato > p { margin: 0 0 14px; }
     .relato .confianza > div:first-child { border-top: 0; padding-top: 4px; }
-    .relato .cifra { font: 800 clamp(1.6rem, 7.4vw, 2.2rem)/1 var(--display); overflow-wrap: break-word; letter-spacing: -.03em; color: var(--acento); display: block; margin-bottom: 4px; }
+    #mercado .tarjetas > div { container-type: inline-size; }
+    .relato .cifra { font: 800 min(6.2vw, 2.2rem)/1 var(--display); font-size: min(11cqi, 2.2rem); overflow-wrap: normal; hyphens: none; letter-spacing: -.03em; color: var(--acento); display: block; margin-bottom: 4px; }
 
     .camino { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 8px; }
     .camino::before { content: ""; position: absolute; left: 0; right: calc(33% - 18px); top: 7px; height: 1px; background: var(--linea); }
@@ -239,7 +240,7 @@
         <h2>Lo que hay hoy en Chile</h2>
         <div class="tarjetas">
             <div><span class="cifra">Fonasa</span>El sistema público: aportas tu 7%, sin importar tu edad ni tu salud, y tus cargas quedan cubiertas.</div>
-            <div><span class="cifra">7 isapres</span>Muchos planes distintos, cada uno con su precio, su red de clínicas y sus topes.</div>
+            <div><span class="cifra">7 isapres</span>El sistema privado: hay 7 isapres abiertas a todo público y cada una ofrece muchos planes, con distinto precio, clínicas y topes de cobertura.</div>
             <div><span class="cifra">Seguros complementarios</span>Se suman a Fonasa o a tu isapre para cubrir parte de lo que tu plan no cubre.</div>
         </div>
         <p class="desliza">Desliza para ver más</p>
